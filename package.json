@@ -8,6 +8,7 @@
     "st": "watchman watch-del-all && yarn start -- --reset-cache",
     "web": "NODE_ENV=development webpack-dev-server --mode development",
     "ios": "react-native run-ios",
+    "build": "webpack",
     "android": "react-native run-android"
   },
   "dependencies": {
