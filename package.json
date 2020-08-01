@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
     "lint": "eslint . && stylelint '**/*.@(css|scss)'",
     "st": "watchman watch-del-all && yarn start -- --reset-cache",
     "web": "NODE_ENV=development webpack-dev-server --mode development",
