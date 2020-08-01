@@ -1,0 +1,30 @@
+validator
+gestion erreur
+test Unitaire 
+test end to end
+cicleci (CI)
+heroku (CI /CD)
+diagramme de class
+Eslint
+
+
+Api Users
+- api/users/login {
+    201: {
+        data: { error }
+    },
+    200: {
+        data: {token}
+    }
+}
+
+{
+  "email": "resdyyy3@body.email",
+  "password": "req1dd12.body.password"
+}
+
+dev.fullstack.js0311@gmail.com
+ra.pierrodev@gmail.com
+azerty0311
+
+source /Users/lahnjara/.bashrc

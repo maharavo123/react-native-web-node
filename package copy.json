@@ -1,6 +1,6 @@
 {
-  "name": "TestMediaQueries",
-  "version": "0.0.1",
+  "name": "myApp",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "px": "cd ios && pod install && cd ..",
@@ -8,15 +8,18 @@
     "server": "nodemon src/server/index.js --exec babel-node",
     "st": "watchman watch-del-all && yarn start -- --reset-cache",
     "lint": "eslint --quiet --ext .jsx --ext .js ./src/ --fix",
+    "web": "node scripts/start.js",
     "test:web": "node scripts/test.js",
+    "build": "node scripts/build.js",
+    "start": "react-native start",
     "start-clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm start -- --reset-cache",
     "test": "npm run test:web && npm run test:native",
-    "test:native": "node_modules/.bin/jest -c ./config/jest/jest.config.native.js",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "web": "NODE_ENV=development webpack-dev-server --mode development",
+    "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "build": "webpack",
-    "android": "react-native run-android"
+    "test:native": "node_modules/.bin/jest -c ./config/jest/jest.config.native.js"
+  },
+  "engines": {
+    "node": "12.18.0"
   },
   "dependencies": {
     "@babel/core": "7.8.4",
@@ -97,17 +100,26 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "prettier": "1.19.1",
+    "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
+    "react-art": "^16.13.1",
     "react-dev-utils": "^10.2.0",
+    "react-dom": "^16.13.0",
+    "react-native": "0.62.2",
     "react-native-calendars": "^1.300.0",
     "react-native-css-transformer": "^1.2.4",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
+    "react-native-orientation-change-provider": "^0.11.4",
     "react-native-reanimated": "^1.10.1",
     "react-native-safe-area-context": "^3.1.1",
     "react-native-screens": "^2.9.0",
+    "react-native-vector-icons": "^7.0.0",
+    "react-native-web": "^0.12.2",
     "react-native-web-responsive": "^1.0.5",
     "react-navigation": "^4.4.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "resolve": "1.15.0",
@@ -127,17 +139,8 @@
     "webpack-dev-server": "3.10.2",
     "webpack-manifest-plugin": "2.2.0",
     "winston": "^3.3.3",
-    "workbox-webpack-plugin": "4.3.1",
-    "es6-shim": "^0.35.4",
-    "react": "16.13.1",
-    "react-art": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-native": "0.63.2",
-    "react-native-orientation-change-provider": "^0.11.4",
-    "react-native-vector-icons": "^4.6.0",
-    "react-native-web": "^0.10.0",
-    "react-redux": "^6.0.0",
-    "redux": "^4.0.1"
+    "workbox-webpack-plugin": "4.3.1"
+    
   },
   "devDependencies": {
     "@babel/node": "^7.10.5",
@@ -150,72 +153,72 @@
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "metro-react-native-babel-preset": "^0.58.0",
     "nodemon": "^2.0.4",
-    "react-test-renderer": "16.9.0",
-    "@babel/core": "^7.3.3",
-    "@babel/helper-validator-identifier": "^7.10.4",
-    "@babel/preset-env": "^7.3.1",
-    "babel-core": "^6.26.3",
-    "babel-jest": "24.1.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "babel-preset-react": "^7.0.0-beta.3",
-    "css-loader": "^2.1.0",
-    "eslint": "^5.14.0",
-    "eslint-plugin-css-modules": "^2.11.0",
-    "file-loader": "^3.0.1",
-    "jest": "24.1.0",
-    "lodash": "^4.17.11",
-    "postcss-loader": "^3.0.0",
-    "react-hot-loader": "3.1.3",
-    "react-native-css-transformer": "^1.2.3",
-    "style-loader": "^0.23.1",
-    "stylelint": "^9.10.1",
-    "stylelint-config-react-native-css-modules": "^2.1.0",
-    "stylelint-react-native": "^2.0.1",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.29.4",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
+    "react-test-renderer": "16.9.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "IE 11",
-    "Android >= 4.4",
-    "iOS >= 8"
-  ],
-  "jest": {
-    "preset": "react-native"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2017,
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "plugins": [
-      "css-modules"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "extends": [
-      "plugin:css-modules/recommended"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
-  "stylelint": {
-    "extends": "stylelint-config-react-native-css-modules",
-    "rules": {
-      "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
-      "declaration-block-no-duplicate-properties": true,
-      "no-duplicate-selectors": true,
-      "no-extra-semicolons": true,
-      "no-eol-whitespace": true,
-      "no-missing-end-of-source-newline": true
-    }
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "jest": {
+    "preset": "react-native-web",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   }
 }
