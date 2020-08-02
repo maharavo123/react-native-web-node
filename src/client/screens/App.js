@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import {
-  Image,
   Linking,
   SafeAreaView,
   ScrollView,
@@ -12,33 +11,8 @@ import { Content, HeaderNavIcons, Tabs } from '../ressources/content';
 import { Icon } from '../ressources/Icon';
 import styles from '../ressources/css/styles.css';
 
-const renderNavIcon = (icon, index) => (
-  <TouchableHighlight
-    className={styles.headerNavItem}
-    onPress={() => {}}
-    underlayColor="rgba(71,163,218,0.5)"
-    key={index}
-  >
-    <Icon name={icon} size={16} className={styles.headerNavIcon} />
-  </TouchableHighlight>
-);
-
-const renderContent = (content, index) => (
-  <View className={styles.mediabox} key={index}>
-    <View className={styles.imgWrapper}>
-      <Image
-        source={content.image}
-        className={styles.img}
-        width="100%"
-        height="auto"
-      />
-    </View>
-    <View className={styles.textWrapper}>
-      <Text className={styles.h3}>{content.title}</Text>
-      <Text className={styles.p}>{content.body}</Text>
-    </View>
-  </View>
-);
+import renderNavIcon from '../components/common/renderNavIcon';
+import renderContent from '../components/common/renderContent';
 
 export class App extends PureComponent {
   constructor(props) {
