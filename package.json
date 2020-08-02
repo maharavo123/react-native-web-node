@@ -148,6 +148,7 @@
     "@babel/node": "^7.10.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@babel/plugin-transform-arrow-functions": "^7.10.4",
     "@babel/preset-env": "^7.3.1",
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",

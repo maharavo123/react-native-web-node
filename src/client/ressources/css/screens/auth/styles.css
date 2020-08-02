@@ -2,7 +2,6 @@
 .containt {
   justify-content: space-between;
   flex-direction: column;
-  background-color: darkolivegreen;
   height: 100vh;
 }
 
@@ -15,39 +14,132 @@
 
 .header {
   height: 20vh;
-  background-color: blue;
+  justify-content: center;
+  align-self: center;
 }
 
 .body {
-  border-radius: 15px;
   opacity: 0.5;
   height: 60vh;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+.viewContainerTextInput {
+  border-radius: 2rem;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.viewLabel {
 }
 
 .viewTextInput {
-  border-radius: 2rem;
+  /* padding: 0.875rem 1.875rem 0.875rem 1.875rem; */
+}
+
+.viewLabel {
+  /* padding: 0.875rem 1.875rem 0.875rem 1.875rem; */
+}
+
+.textLabel {
+  color: rgba(110, 123, 197, 0.993);
+  font-family: Lato;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: left;
 }
 
 .textInput {
   background-color: #FFFFFF;
   border: 1px solid #8492A6;
   border-radius: 15px;
-  width: 334px;
   height: 58px;
+  padding-left: 15;
+}
+
+.viewBtnSend {
+  /* width: 335px; */
+  text-align: center;
+  background-color: #47525E;
+  margin: 12px;
+  border-radius: 15px;
+}
+
+.txtConnexion {
+  color: #FFFFFF;
+  font-family: Lato;
+  font-size: 18px;
+  line-height: 62px;
+  text-align: center;
+}
+
+.btnSend {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .footer {
   height: 20vh;
-  background-color: cyan;
 }
 
-@media screen and (max-width: 55rem) {
-
+.mdpOublie {
+  margin-top: 20px;
+  text-align: center;
+  color: #3F00FF;
 }
 
-@media screen and (max-width: 52.375rem) {
-
+@media screen and (min-width: 67rem) {
+  .viewNone {
+    height: 15px;
+  }
+  .viewBtnSend {
+    /* width: 400px; */
+    text-align: center;
+    background-color: #47525E;
+  }
+  .body {
+    opacity: 0.5;
+    height: 60vh;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    margin: 0 16rem 0 16rem;
+    border-radius: 15px;
+  }
+  .textInput {
+    background-color: #FFFFFF;
+    border: 1px solid #8492A6;
+    border-radius: 15px;
+    height: 58px;
+    padding-left: 15;
+    width: 400px;
+  }
+  .viewContainerTextInput {
+    border-radius: 2rem;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 10;
+  }
 }
 
-@media screen and (max-width: 32rem) {
+@media screen and (max-width: 67.375rem) {
+  .viewContainerTextInput {
+    border-radius: 2rem;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .viewTextInput {
+    padding: 0.875rem 1.875rem 0.875rem 1.875rem;
+  }
+  .viewLabel {
+    padding: 0.875rem 1.875rem 0.875rem 1.875rem;
+  }
+  .textInput {
+    background-color: #FFFFFF;
+    border: 1px solid #8492A6;
+    border-radius: 15px;
+    height: 58px;
+  }
 }

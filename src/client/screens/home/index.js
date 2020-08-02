@@ -7,6 +7,10 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import { connect } from 'react-redux';
+
+import mapStateToProps from 'mapStateToProps';
+import mapDispatchToProps from 'mapDispatchToProps';
 
 import styles from 'css/styles.css';
 
@@ -15,7 +19,7 @@ import renderContent from 'components/common/renderContent';
 import { Content, HeaderNavIcons, Tabs } from '../../ressources/content';
 import { Icon } from '../../ressources/Icon';
 
-export default class App extends PureComponent {
+class HomeScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +35,9 @@ export default class App extends PureComponent {
         <TouchableHighlight
           className={isSelected ? styles.liCurrent : styles.li}
           onPress={() => {
+            if(index === 3) {
+              this.props.logout();
+            }
             if (isSelected) {
               return;
             }
@@ -96,3 +103,8 @@ export default class App extends PureComponent {
     );
   }
 }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomeScreen);

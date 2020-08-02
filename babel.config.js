@@ -24,7 +24,7 @@ module.exports = {
           containers: './src/client/containers',
           components: './src/client/components',
           controller: './src/controller',
-          images: './src/presentation/ressources/assets/imageAll',
+          images: './src/client/ressources/image',
           styles: './src/presentation/ressources/styles',
           config: './src/data/config',
           services: './src/client/services',

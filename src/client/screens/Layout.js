@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 
 import styles from 'css/screens/layout.css';
+
+import images from 'images';
 
 export default class AuthComponent extends PureComponent {
   constructor(props) {
@@ -12,12 +14,16 @@ export default class AuthComponent extends PureComponent {
   }
 
   render() {
-    console.log({ props: this.props });
 
     return (
       <SafeAreaView className={styles.wrapper}>
         <ScrollView>
-          {this.props.children}
+          <ImageBackground
+            source={images.layout}
+            style={{ width: '100%', height: '100%' }}
+          >
+            {this.props.children}
+          </ImageBackground>
         </ScrollView>
       </SafeAreaView>
     );

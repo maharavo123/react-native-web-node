@@ -73,7 +73,8 @@ module.exports = {
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.
   ],
   module: {
     rules: [
@@ -91,13 +92,15 @@ module.exports = {
           presets: [
             "@babel/env",
             "react",
-            "module:metro-react-native-babel-preset"
+            "module:metro-react-native-babel-preset",
           ],
-          plugins: ["react-hot-loader/babel"]
+          plugins: [
+            "react-hot-loader/babel",
+          ]
         }
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|jpeg|png|svg)$/,
         use: {
           loader: "file-loader",
           options: {
@@ -131,6 +134,7 @@ module.exports = {
   resolve: {
     alias: {
       "react-native": "react-native-web",
+      images: path.resolve('./src/client/ressources/image'),
       css: path.resolve('./src/client/ressources/css/'),
       components: path.resolve('./src/client/components/'),
       screens: path.resolve('./src/client/screens/'),
