@@ -8,9 +8,9 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import { Content, HeaderNavIcons, Tabs } from './content';
-import { Icon } from './Icon';
-import styles from './ressources/css/styles.css';
+import { Content, HeaderNavIcons, Tabs } from '../ressources/content';
+import { Icon } from '../ressources/Icon';
+import styles from '../ressources/css/styles.css';
 
 const renderNavIcon = (icon, index) => (
   <TouchableHighlight

@@ -1,5 +1,5 @@
 import { AppRegistry } from "react-native";
-import "./src/client/icomoon.js";
+import "./src/client/ressources/icomoon.js";
 import App from "./src/client/index";
 
 AppRegistry.registerComponent("TestMediaQueries", () => App);
