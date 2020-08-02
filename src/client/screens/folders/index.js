@@ -37,9 +37,10 @@ class FoldersScreen extends Component {
             <TextInput
               className={styles.textInput}
               placeholder='Recherche'
-              placeholderTextColor='#8190A5'
+              placeholderTextColor='#47525E'
               value={search}
               onChangeText={(text) => this.setState({ search: text })}
+              underlineColorAndroid="transparent"
             />
           </View>
         </View>
