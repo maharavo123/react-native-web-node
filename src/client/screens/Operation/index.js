@@ -56,22 +56,22 @@ export default class Operation extends React.Component {
         </View>
         { rib.oneRibOperation && rib.oneRibOperation.length !== 0
           ? <>
-              <FlatList
-                scrollEnabled
-                data={rib.oneRibOperation}
-                keyExtractor={(_, index) => index.toString()}
-                renderItem={({ item }) => (
-                  <RibList {...item} />
-                )}
-              />
-              <View style={styles.sectionStyle}>
-                <View style={styles.showTotal} />
-                <Text style={styles.titleText}>{`${operation_trad.sold} ${totalSold}`}</Text>
-              </View>
-            </>
+            <FlatList
+              scrollEnabled
+              data={rib.oneRibOperation}
+              keyExtractor={(_, index) => index.toString()}
+              renderItem={({ item }) => (
+                <RibList {...item} />
+              )}
+            />
+            <View style={styles.sectionStyle}>
+              <View style={styles.showTotal} />
+              <Text style={styles.titleText}>{`${operation_trad.sold} ${totalSold}`}</Text>
+            </View>
+          </>
           : <View style={styles.empty_operation}>
-              <Text style={styles.empty_text}>{operation_trad.no_op_saved}</Text>
-            </View>}
+            <Text style={styles.empty_text}>{operation_trad.no_op_saved}</Text>
+          </View>}
         <View>
           <Button
             title={operation_trad.cancel}

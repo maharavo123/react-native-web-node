@@ -29,11 +29,11 @@ export default class SelectItem extends React.Component {
     return (
       <View>
         <View style={{ backgroundColor: `${setSelectedColor}`, padding: 5 }}>
-        {/* <View style={{ backgroundColor: selectedRIB === RIB ? 'beige' : 'white', padding: 5 }}> */}
+          {/* <View style={{ backgroundColor: selectedRIB === RIB ? 'beige' : 'white', padding: 5 }}> */}
           <TouchableOpacity
             onPress={ () => this.onHandleRIB(RIB) }
             hitSlop={{
-                top: 20, bottom: 20, left: 50, right: 20,
+              top: 20, bottom: 20, left: 50, right: 20,
             }}
           >
             <Text>{RIB}</Text>

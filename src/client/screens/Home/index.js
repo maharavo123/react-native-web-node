@@ -144,41 +144,41 @@ class Home extends React.Component {
         <Layout {...this.props} title={home_title} logout={logout}>
           {!showResult
             ? (
-            <View style={styles.formContainer}>
-              <View style={styles.datesContainer}>
-                <View style={styles.titleLabel}>
-                  <Text style={styles.textLabel}>{select_period}</Text>
-                </View>
-                <Text style={styles.periodLabel}>{from}</Text>
-                <PikerDate
-                  minDate={minDate}
-                  maxDate={maxDate}
-                  onDatePicked={this.onDatePicked}
-                />
-                <Text style={styles.periodLabel}>{to}</Text>
-                <PikerDate
-                  minDate={minDate2}
-                  maxDate={maxDate}
-                  onDatePicked={this.onDatePickedMax}
-                />
-              </View>
-              <View style={{ flex: 0.3 }}>
-                <RibList
-                  strictRIBList={ribToshow}
-                  setRIBId={this.setRIBId}
-                  selectedItem={selectedItem}
-                  selectedRIB={selectedRIB}
-                />
-              </View>
-              <View style={{ flex: 0.3 }}>
-                { !loding
-                ? <Button
-                    title={find}
-                    onPress={this.showRIBInfos}
+              <View style={styles.formContainer}>
+                <View style={styles.datesContainer}>
+                  <View style={styles.titleLabel}>
+                    <Text style={styles.textLabel}>{select_period}</Text>
+                  </View>
+                  <Text style={styles.periodLabel}>{from}</Text>
+                  <PikerDate
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    onDatePicked={this.onDatePicked}
                   />
-                : <ActivityIndicator size={'large'} />}
+                  <Text style={styles.periodLabel}>{to}</Text>
+                  <PikerDate
+                    minDate={minDate2}
+                    maxDate={maxDate}
+                    onDatePicked={this.onDatePickedMax}
+                  />
+                </View>
+                <View style={{ flex: 0.3 }}>
+                  <RibList
+                    strictRIBList={ribToshow}
+                    setRIBId={this.setRIBId}
+                    selectedItem={selectedItem}
+                    selectedRIB={selectedRIB}
+                  />
+                </View>
+                <View style={{ flex: 0.3 }}>
+                  { !loding
+                    ? <Button
+                      title={find}
+                      onPress={this.showRIBInfos}
+                    />
+                    : <ActivityIndicator size={'large'} />}
+                </View>
               </View>
-            </View>
             )
             : (
               <Operations { ...this.props } hideRIBInfos={this.hideRIBInfos} ribId={selectedRIB} />

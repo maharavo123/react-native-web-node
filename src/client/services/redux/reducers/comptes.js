@@ -7,14 +7,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case constants.getComptes:
-      return {
-        ...state,
-        list: action.payload,
-      };
-    case users.logout:
-      return initialState;
-    default:
-      return state;
+  case constants.getComptes:
+    return {
+      ...state,
+      list: action.payload,
+    };
+  case users.logout:
+    return initialState;
+  default:
+    return state;
   }
 };

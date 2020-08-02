@@ -33,9 +33,9 @@ const Validators = {
     };
   },
   isArray: (data) => ({
-      msg: `${data} is not Array`,
-      check: !Array.isArray(data),
-    }),
+    msg: `${data} is not Array`,
+    check: !Array.isArray(data),
+  }),
   isNumeric: (str) => {
     const pattern = /^\d+$/;
     return {
@@ -75,24 +75,24 @@ const validatorType = ({ type, validator = {}, value }) => {
   const keys = Object.keys(validator)[0];
   const values = Object.values(validator)[0];
   switch (keys) {
-    case isArrayValid.key:
-      return isArrayData(value) ? isArrayValid : false;
-    case min.key:
-      if (type === 'array') {
-        const isTabs = isArrayValidator(value);
-        if (!isTabs) {
-          const tab = value.some(elem => elem.length < 20);
-          return tab ? isArrayValid : false;
-        }
-        return isArrayValid;
+  case isArrayValid.key:
+    return isArrayData(value) ? isArrayValid : false;
+  case min.key:
+    if (type === 'array') {
+      const isTabs = isArrayValidator(value);
+      if (!isTabs) {
+        const tab = value.some(elem => elem.length < 20);
+        return tab ? isArrayValid : false;
       }
-      return isMin(value, values) ? min : false;
-    case required.key:
-      return isRequired(value) ? required : false;
-    case enumData.key:
-      return isEnum(value, values) ? enumData : false;
-    default:
-      return true;
+      return isArrayValid;
+    }
+    return isMin(value, values) ? min : false;
+  case required.key:
+    return isRequired(value) ? required : false;
+  case enumData.key:
+    return isEnum(value, values) ? enumData : false;
+  default:
+    return true;
   }
 };
 

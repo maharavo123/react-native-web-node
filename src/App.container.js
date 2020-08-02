@@ -1,24 +1,20 @@
-import { connect } from "react-redux";
-import { App } from "./App";
+import { connect } from 'react-redux';
+import { App } from './App';
 
-const mapStateToProps = state => {
-  return {
-    initialSelected: state.tabs.initialSelected
-  };
-};
+const mapStateToProps = state => ({
+  initialSelected: state.tabs.initialSelected,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTabSelect: index => {
-      dispatch({
-        type: "SET_TAB",
-        index
-      });
-    }
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  onTabSelect: (index) => {
+    dispatch({
+      type: 'SET_TAB',
+      index,
+    });
+  },
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);

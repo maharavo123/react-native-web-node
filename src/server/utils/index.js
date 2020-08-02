@@ -8,11 +8,11 @@ const dateTransformation = (d) => {
 };
 
 const mapToList = (lists) => lists.map(list => {
-    const montant = list.Montant.replace(',', '.');
-    const recipe = Number(montant) >= 0 ? Number(montant) : 0;
-    const spent = Number(montant) >= 0 ? 0 : Math.abs(Number(montant));
-    return { ...list, recipe, spent };
-  });
+  const montant = list.Montant.replace(',', '.');
+  const recipe = Number(montant) >= 0 ? Number(montant) : 0;
+  const spent = Number(montant) >= 0 ? 0 : Math.abs(Number(montant));
+  return { ...list, recipe, spent };
+});
 
 const orderList = (list) => {
   const orderdedList = list.sort((a, b) => dateTransformation(a.Date) - dateTransformation(b.Date));

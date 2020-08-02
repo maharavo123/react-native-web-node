@@ -26,7 +26,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, '../../public'))).set('static', path.join(__dirname, 'static'));
+app.use(express.static(path.join(__dirname, '../../build'))).set('static', path.join(__dirname, 'static'));
 app.get('/', (_, res) => {
   res.json({ message: 'It works!' });
 });

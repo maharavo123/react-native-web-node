@@ -35,9 +35,9 @@ const Validators = {
     };
   },
   isArray: (data) => ({
-      msg: `${data} is not Array`,
-      check: !Array.isArray(data),
-    }),
+    msg: `${data} is not Array`,
+    check: !Array.isArray(data),
+  }),
   isNumeric: (str) => {
     const pattern = /^\d+$/;
     return {

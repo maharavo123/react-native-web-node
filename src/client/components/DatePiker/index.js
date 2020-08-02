@@ -114,34 +114,34 @@ class SimplerDatePicker extends React.Component {
   };
 
   static isWithinBounds = (minDate, maxDate, moment) => moment.isBetween(
-      minDate,
-      maxDate,
-      // min,
-      // max,
-      null,
-      '[]',
-    );
+    minDate,
+    maxDate,
+    // min,
+    // max,
+    null,
+    '[]',
+  );
 
   static getPickerItems = (prompt = 'Select Item', items = [], shouldHide = (() => false), pickerProps = {}) => [
-      <Picker.Item
-        key={'Picker.Item'}
-        {...pickerProps}
-        value={null}
-        label={prompt}
-      />,
-      items
-        .map(
-          (e, i) => (!shouldHide(e, i)) && (
-            <Picker.Item
-              {...pickerProps}
-              key={e}
-              label={`${e}`}
-              value={i}
-            />
-          ),
+    <Picker.Item
+      key={'Picker.Item'}
+      {...pickerProps}
+      value={null}
+      label={prompt}
+    />,
+    items
+      .map(
+        (e, i) => (!shouldHide(e, i)) && (
+          <Picker.Item
+            {...pickerProps}
+            key={e}
+            label={`${e}`}
+            value={i}
+          />
         ),
-    ]
-      .filter(e => !!e);
+      ),
+  ]
+    .filter(e => !!e);
 
   static extractStateFromMoment(moment, minDate, maxDate) {
     if (!moment) {

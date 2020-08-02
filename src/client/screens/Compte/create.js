@@ -181,18 +181,18 @@ const SignInScreen = (props) => {
         </View>
       </ScrollView>
       <Modal
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-        >
-          {!roleModal
-            ? <View style={styles.container}>
-                <RibList
-                  strictRIBList={strictRIBList}
-                  setRIBId={setRIBId}
-                />
-              </View>
-            : <ModalRole setRole={setRole} role={role} />}
-        </Modal>
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+      >
+        {!roleModal
+          ? <View style={styles.container}>
+            <RibList
+              strictRIBList={strictRIBList}
+              setRIBId={setRIBId}
+            />
+          </View>
+          : <ModalRole setRole={setRole} role={role} />}
+      </Modal>
     </View>
   );
 };

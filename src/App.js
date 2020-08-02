@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   Image,
   Linking,
@@ -6,49 +6,45 @@ import {
   ScrollView,
   Text,
   TouchableHighlight,
-  View
-} from "react-native";
-import { Content, HeaderNavIcons, Tabs } from "./content";
-import { Icon } from "./Icon";
-import styles from "./styles.css";
+  View,
+} from 'react-native';
+import { Content, HeaderNavIcons, Tabs } from './content';
+import { Icon } from './Icon';
+import styles from './styles.css';
 
-const renderNavIcon = (icon, index) => {
-  return (
-    <TouchableHighlight
-      className={styles.headerNavItem}
-      onPress={() => {}}
-      underlayColor="rgba(71,163,218,0.5)"
-      key={index}
-    >
-      <Icon name={icon} size={16} className={styles.headerNavIcon} />
-    </TouchableHighlight>
-  );
-};
+const renderNavIcon = (icon, index) => (
+  <TouchableHighlight
+    className={styles.headerNavItem}
+    onPress={() => {}}
+    underlayColor="rgba(71,163,218,0.5)"
+    key={index}
+  >
+    <Icon name={icon} size={16} className={styles.headerNavIcon} />
+  </TouchableHighlight>
+);
 
-const renderContent = (content, index) => {
-  return (
-    <View className={styles.mediabox} key={index}>
-      <View className={styles.imgWrapper}>
-        <Image
-          source={content.image}
-          className={styles.img}
-          width="100%"
-          height="auto"
-        />
-      </View>
-      <View className={styles.textWrapper}>
-        <Text className={styles.h3}>{content.title}</Text>
-        <Text className={styles.p}>{content.body}</Text>
-      </View>
+const renderContent = (content, index) => (
+  <View className={styles.mediabox} key={index}>
+    <View className={styles.imgWrapper}>
+      <Image
+        source={content.image}
+        className={styles.img}
+        width="100%"
+        height="auto"
+      />
     </View>
-  );
-};
+    <View className={styles.textWrapper}>
+      <Text className={styles.h3}>{content.title}</Text>
+      <Text className={styles.p}>{content.body}</Text>
+    </View>
+  </View>
+);
 
 export class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selected: props.initialSelected
+      selected: props.initialSelected,
     };
   }
 
@@ -108,11 +104,10 @@ export class App extends PureComponent {
             </View>
             <View className={styles.info}>
               <Text className={styles.infoText}>
-                Food Shapes/Icons by{" "}
+                Food Shapes/Icons by{' '}
                 <Text
                   className={styles.infoLink}
-                  onPress={() =>
-                    Linking.openURL("http://psdblast.com/50-food-icon-set-psd")
+                  onPress={() => Linking.openURL('http://psdblast.com/50-food-icon-set-psd')
                   }
                 >
                   PsdBlast

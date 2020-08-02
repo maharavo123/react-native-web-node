@@ -81,104 +81,104 @@ const SignInScreen = (props) => {
   const isInvalidate = !(isNotEmpty(password) || isNotEmpty(email));
 
   return (
-      <View style={{ flex: 1 }}>
-        <ScrollView
-          style={{}}
-          contentContainerStyle={styles.contentContainerStyle}
-        >
-          <View style={styles.body}>
-            <View style={styles.titleContainer}>
-              <Text style={styles.textPage}>{sign}</Text>
-            </View>
-            <View style={{}}>
-              {sign === auth.signUp && <View style={styles.inputVew}>
-                <Text style={styles.labelInput}>{auth.username}</Text>
-                <TextInput
-                  placeholder={auth.username}
-                  value={username}
-                  onChangeText={(value => setUsername(() => {
-                    setMessage('');
-                    setErrors({ ...errors, username: usernameValidator(value, 3) || [] });
-                    return value;
-                  }))}
-                  style={styles.TextInput}
-                />
-              </View>}
-              <DisplyErrorComponet
-                errors={errors.username}
-                name={auth.username}
-              />
-              {sign === auth.signUp && <View style={styles.inputVew}>
-                <Text style={styles.labelInput}>{operation_trad.rib}</Text>
-                <TextInput
-                  placeholder={operation_trad.rib}
-                  value={rib}
-                  onChangeText={(value => setRib(() => {
-                    setMessage('');
-                    setErrors({ ...errors, rib: ribValidator(value, 20) || [] });
-                    return value;
-                  }))}
-                  style={styles.TextInput}
-                  keyboardType='numeric'
-                />
-              </View>}
-              <DisplyErrorComponet
-                errors={errors.rib}
-                name={operation_trad.rib}
-              />
-              <View style={styles.inputVew}>
-                <Text style={styles.labelInput}>{auth.email}</Text>
-                <TextInput
-                  placeholder={auth.email}
-                  value={email}
-                  onChangeText={(value => setEmail(() => {
-                    setMessage('');
-                    setErrors({ ...errors, email: emailValidator(value) || [] });
-                    return value;
-                  }))}
-                  style={styles.TextInput}
-                  autoCompleteType='email'
-                  keyboardType='email-address'
-                />
-              </View>
-              <DisplyErrorComponet
-                errors={errors.email}
-                name={auth.email}
-              />
-              <View style={styles.inputVew}>
-                <Text style={styles.labelInput}>{auth.password}</Text>
-                <TextInput
-                  placeholder={auth.password}
-                  value={password}
-                  onChangeText={(value => setPassword(() => {
-                    setMessage('');
-                    setErrors({ ...errors, password: passwordValidator(value) || [] });
-                    return value;
-                  }))}
-                  secureTextEntry
-                  style={styles.TextInput}
-                  autoCompleteType={auth.password}
-                />
-              </View>
-              <DisplyErrorComponet
-                errors={errors.password}
-                name={auth.password}
-              />
-              <Text style={styles.messageShow}>{message}</Text>
-            </View>
-            <View>
-              {!loading ? <Button
-                disabled={isInvalidate}
-                onPress={async () => await toSignIn()}
-                title={signTitle}
-                color={isInvalidate ? '#808080' : 'blue'}
-                style={styles.btn}
-              /> :
-                <ActivityIndicator size={'large'} />}
-            </View>
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        style={{}}
+        contentContainerStyle={styles.contentContainerStyle}
+      >
+        <View style={styles.body}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.textPage}>{sign}</Text>
           </View>
-        </ScrollView>
-      </View>
+          <View style={{}}>
+            {sign === auth.signUp && <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.username}</Text>
+              <TextInput
+                placeholder={auth.username}
+                value={username}
+                onChangeText={(value => setUsername(() => {
+                  setMessage('');
+                  setErrors({ ...errors, username: usernameValidator(value, 3) || [] });
+                  return value;
+                }))}
+                style={styles.TextInput}
+              />
+            </View>}
+            <DisplyErrorComponet
+              errors={errors.username}
+              name={auth.username}
+            />
+            {sign === auth.signUp && <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{operation_trad.rib}</Text>
+              <TextInput
+                placeholder={operation_trad.rib}
+                value={rib}
+                onChangeText={(value => setRib(() => {
+                  setMessage('');
+                  setErrors({ ...errors, rib: ribValidator(value, 20) || [] });
+                  return value;
+                }))}
+                style={styles.TextInput}
+                keyboardType='numeric'
+              />
+            </View>}
+            <DisplyErrorComponet
+              errors={errors.rib}
+              name={operation_trad.rib}
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.email}</Text>
+              <TextInput
+                placeholder={auth.email}
+                value={email}
+                onChangeText={(value => setEmail(() => {
+                  setMessage('');
+                  setErrors({ ...errors, email: emailValidator(value) || [] });
+                  return value;
+                }))}
+                style={styles.TextInput}
+                autoCompleteType='email'
+                keyboardType='email-address'
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.email}
+              name={auth.email}
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.password}</Text>
+              <TextInput
+                placeholder={auth.password}
+                value={password}
+                onChangeText={(value => setPassword(() => {
+                  setMessage('');
+                  setErrors({ ...errors, password: passwordValidator(value) || [] });
+                  return value;
+                }))}
+                secureTextEntry
+                style={styles.TextInput}
+                autoCompleteType={auth.password}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.password}
+              name={auth.password}
+            />
+            <Text style={styles.messageShow}>{message}</Text>
+          </View>
+          <View>
+            {!loading ? <Button
+              disabled={isInvalidate}
+              onPress={async () => await toSignIn()}
+              title={signTitle}
+              color={isInvalidate ? '#808080' : 'blue'}
+              style={styles.btn}
+            /> :
+              <ActivityIndicator size={'large'} />}
+          </View>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

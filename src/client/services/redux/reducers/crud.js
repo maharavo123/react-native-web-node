@@ -7,13 +7,13 @@ const initialState = {
 
 const crud = (state = initialState, action) => {
   switch (action.type) {
-    case constants.getAll:
-      return {
-        ...state,
-        cruds: action.payload,
-      };
-    default:
-      return state;
+  case constants.getAll:
+    return {
+      ...state,
+      cruds: action.payload,
+    };
+  default:
+    return state;
   }
 };
 

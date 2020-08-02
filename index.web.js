@@ -4,7 +4,7 @@ import App from "./src/index";
 
 AppRegistry.registerComponent("TestMediaQueries", () => App);
 AppRegistry.runApplication("TestMediaQueries", {
-  rootTag: document.getElementById("react-app")
+  rootTag: document.getElementById("root")
 });
 
 if (module.hot) {

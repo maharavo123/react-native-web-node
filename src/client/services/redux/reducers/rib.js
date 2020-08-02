@@ -8,20 +8,20 @@ const initialState = {
 
 const rib = (state = initialState, action) => {
   switch (action.type) {
-    case constants.operations:
-      return {
-        ...state,
-        operations: action.payload,
-      };
-    case constants.oneRibOperation:
-      return {
-        ...state,
-        oneRibOperation: action.payload,
-      };
-    case users.logout:
-      return initialState;
-    default:
-      return state;
+  case constants.operations:
+    return {
+      ...state,
+      operations: action.payload,
+    };
+  case constants.oneRibOperation:
+    return {
+      ...state,
+      oneRibOperation: action.payload,
+    };
+  case users.logout:
+    return initialState;
+  default:
+    return state;
   }
 };
 
