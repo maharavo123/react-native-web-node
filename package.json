@@ -15,7 +15,6 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "web": "NODE_ENV=development webpack-dev-server --mode development",
     "ios": "react-native run-ios",
-    "build1": "webpack",
     "build": "node scripts/build.js",
     "android": "react-native run-android"
   },
