@@ -7,12 +7,13 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
+import styles from 'css/styles.css';
+
+import renderNavIcon from 'components/common/renderNavIcon';
+import renderContent from 'components/common/renderContent';
 import { Content, HeaderNavIcons, Tabs } from '../ressources/content';
 import { Icon } from '../ressources/Icon';
-import styles from '../ressources/css/styles.css';
-
-import renderNavIcon from '../components/common/renderNavIcon';
-import renderContent from '../components/common/renderContent';
 
 export class App extends PureComponent {
   constructor(props) {
@@ -23,6 +24,7 @@ export class App extends PureComponent {
   }
 
   render() {
+    console.log({ props: this.props });
     const renderTab = (tab, index) => {
       const isSelected = index === this.state.selected;
       return (

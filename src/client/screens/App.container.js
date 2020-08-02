@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { App } from './App';
 
-import mapStateToProps from '../services/redux/mapStateToProps';
-import mapDispatchToProps from '../services/redux/mapDispatchToProps';
+import mapStateToProps from 'mapStateToProps';
+import mapDispatchToProps from 'mapDispatchToProps';
+import { App } from './App';
 
 export default connect(
   mapStateToProps,

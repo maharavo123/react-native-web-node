@@ -130,17 +130,14 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "react-native": "react-native-web"
+      "react-native": "react-native-web",
+      css: path.resolve('./src/client/ressources/css/'),
+      components: path.resolve('./src/client/components/'),
+      screens: path.resolve('./src/client/screens/'),
+      mapDispatchToProps: path.resolve('./src/client/services/redux/mapDispatchToProps'),
+      mapStateToProps: path.resolve('./src/client/services/redux/mapStateToProps'),
     },
     extensions: [".web.js", ".js", ".web.jsx", ".jsx"],
     mainFields: ["browser", "main"]
   }
 };
-
-function copyPublicFolder() {
-  fs.copySync(p.appPublic, p.appBuild, {
-    dereference: true,
-    filter: file => file !== 'p.appHtml',
-  });
-}
-
