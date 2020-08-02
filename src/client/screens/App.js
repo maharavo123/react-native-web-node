@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AuthStack from './auth';
-import AppNavigation from './home';
+import AppNavigation from './Main';
 
 export class App extends React.Component {
   constructor(props) {

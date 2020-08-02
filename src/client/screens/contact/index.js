@@ -7,7 +7,7 @@ import mapDispatchToProps from 'mapDispatchToProps';
 
 import styles from 'css/screens/home/styles.css';
 
-class HomeScreen extends PureComponent {
+class ContactScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +16,10 @@ class HomeScreen extends PureComponent {
   }
 
   render() {
-    console.log('Body', this.props);
+    console.log('ContactScreen');
     return (
       <View className={styles.containt}>
-        <Text className={styles.textFull}>Body</Text>
+        <Text className={styles.textFull}>Contact</Text>
       </View>
     );
   }
@@ -28,4 +28,4 @@ class HomeScreen extends PureComponent {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomeScreen);
+)(ContactScreen);

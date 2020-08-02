@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import crud from './crud';
 import users from './users';
-import rib from './rib';
+import folders from './folders';
 import comptes from './comptes';
 import tabs from './tabs';
 
@@ -14,7 +14,7 @@ const reducers = combineReducers({
   },
   crud,
   users,
-  rib,
+  folders,
   comptes,
   tabs,
 });

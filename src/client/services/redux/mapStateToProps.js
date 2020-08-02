@@ -1,7 +1,7 @@
 const mapStateToProps = (state) => ({
   crud: state.crud,
   users: state.users,
-  rib: state.rib,
+  folders: state.folders,
   comptes: state.comptes,
   initialSelected: state.tabs.initialSelected,
 });

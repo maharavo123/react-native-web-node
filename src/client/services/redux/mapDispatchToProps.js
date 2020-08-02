@@ -1,6 +1,6 @@
 import crud from './actions/crud';
 import users from './actions/users';
-import rib from './actions/rib';
+import folders from './actions/folders';
 import comptes from './actions/comptes';
 
 const mapDispatchToProps = (dispatch) => ({
@@ -11,9 +11,9 @@ const mapDispatchToProps = (dispatch) => ({
   signup: (payload, cb) => dispatch(users.signup(payload, cb)),
   logout: () => dispatch(users.logout()),
 
-  // Rib
-  oneRibOperation: (payload, cb) => dispatch(rib.oneRibOperation(payload, cb)),
-  operations: (payload, cb) => dispatch(rib.operations(payload, cb)),
+  // Folders
+  // oneRibOperation: (payload, cb) => dispatch(folders.oneRibOperation(payload, cb)),
+  getAllfolders: (payload, cb) => dispatch(folders.getAllfolders(payload, cb)),
 
   // Comptes
   getComptes: (payload, cb) => dispatch(comptes.getComptes(payload, cb)),

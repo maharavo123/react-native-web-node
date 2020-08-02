@@ -28,7 +28,10 @@ class AuthComponent extends PureComponent {
     if (status === 201) {
       this.setState({ loading: false, message: 'Le mot de passe ou identifiant est incorrect.' });
     }
-    console.log({ res });
+    if (status === 200) {
+      console.log('getAllfolders');
+      this.props.getAllfolders();
+    }
   }
 
   /**
@@ -46,7 +49,6 @@ class AuthComponent extends PureComponent {
   render() {
     const { email, password, loading, message } = this.state;
 
-    console.log({ props: this.props });
     return (
       <Layout>
         <View className={styles.containt}>
@@ -89,7 +91,7 @@ class AuthComponent extends PureComponent {
             <View className={styles.viewBtnSend}>
               <TouchableOpacity className={styles.btnSend} onPress={this.signIn}>
                 {loading ? <ActivityIndicator size='large' color={'red'} style={{ paddingTop: 5, paddingBottom: 5 }} />
-                : <Text className={styles.txtConnexion}>Connexion</Text>}
+                  : <Text className={styles.txtConnexion}>Connexion</Text>}
               </TouchableOpacity>
             </View>
           </View>
