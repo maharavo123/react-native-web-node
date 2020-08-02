@@ -74,5 +74,5 @@ src/App.test.js
 src/serviceWorker.js
 src/index.js
 
-src/content.js
-src/icomoon.js
+src/client/content.js
+src/client/icomoon.js
