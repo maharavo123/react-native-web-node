@@ -1,33 +1,54 @@
 .containt {
 }
 
-.searchContainers {
-  justify-content: space-between;
-  flex-direction: row;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .searchInput {
   background-color: #FFFFFF;
   padding: 10px;
-}
-
-.listContainers {
-  background-color: #FFFFFF;
-  border: 1px solid #C0CCDA;
-  opacity: 0.7;
-  margin: 10px;
-  height: 70vh;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 15px;
 }
 
 .textInput {
-
+  width: 200;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  height: 48px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 67.375rem) {
-
+  .searchContainers {
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .listContainers {
+    background-color: #FFFFFF;
+    border: 1px solid #C0CCDA;
+    opacity: 0.7;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 10;
+    margin-top: 15;
+    height: 70vh;
+    border-radius: 20px;
+  }
 }
 
 @media screen and (max-width: 67.374rem) {
+  .searchContainers {
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .listContainers {
+    background-color: #FFFFFF;
+    border: 1px solid #C0CCDA;
+    opacity: 0.7;
+    margin: 10px;
+    height: 70vh;
+  }
 }
