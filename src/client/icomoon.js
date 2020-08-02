@@ -1,4 +1,4 @@
-import iconFont from './data/assets/fonts/icomoon.ttf';
+import iconFont from './ressources/assets/fonts/icomoon.ttf';
 
 const iconFontStyles = `@font-face {
   src: url(${iconFont});
