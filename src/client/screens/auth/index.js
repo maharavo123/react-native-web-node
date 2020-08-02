@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 
 import styles from 'css/screens/auth/styles.css';
 
@@ -18,13 +18,22 @@ export default class AuthComponent extends PureComponent {
 
     return (
       <Layout>
-        <View className={{}}>
-          <View className={{}}>
+        <View className={styles.containt}>
+          <View className={styles.header}>
             <Text className={styles.tille}>Authentification</Text>
           </View>
+          <View className={styles.body}>
+            <View className={styles.viewTextInput}>
+              <Text>Email</Text>
+              <TextInput
+                className={styles.textInput}
+              />
+            </View>
+          </View>
+          <View className={styles.footer}>
+            <Text className={styles.tille}>Footer</Text>
+          </View>
         </View>
-          {/* <View className={styles.tabsWrapper}>
-          </View> */}
       </Layout>
     );
   }

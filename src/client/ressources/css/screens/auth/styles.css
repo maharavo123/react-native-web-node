@@ -1,15 +1,44 @@
-.wrapper {
-  flex: 1;
-  background-color: #fff;
+
+.containt {
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: darkolivegreen;
+  height: 100vh;
 }
 
 .tille {
   color: #FFFFFF;
   font-family: Lato;
   font-size: 40px;
-  line-height: 52px;
-  width: 317px;
-  text-align: left;
+  text-align: center;
+}
+
+.header {
+  height: 20vh;
+  background-color: blue;
+}
+
+.body {
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 60vh;
+}
+
+.viewTextInput {
+  border-radius: 2rem;
+}
+
+.textInput {
+  background-color: #FFFFFF;
+  border: 1px solid #8492A6;
+  border-radius: 15px;
+  width: 334px;
+  height: 58px;
+}
+
+.footer {
+  height: 20vh;
+  background-color: cyan;
 }
 
 @media screen and (max-width: 55rem) {
