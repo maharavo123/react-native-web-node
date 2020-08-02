@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
@@ -12,11 +12,11 @@ class FoldersScreen extends Component {
     super(props);
     this.state = {
       message: '',
+      search: ''
     };
   }
 
   componentDidMount() {
-    console.log('this.props.getAllfolders ========>');
     this.props.getAllfolders(this.cb);
   }
 
@@ -26,10 +26,26 @@ class FoldersScreen extends Component {
 
   render() {
     const { folders } = this.props.folders;
+    const { search } = this.state;
+
     console.log({ folders });
     return (
       <View className={styles.containt}>
-        <Text className={styles.textFull}>Folder</Text>
+        <View className={styles.searchContainers}>
+          <View />
+          <View className={styles.searchInput}>
+            <TextInput
+              className={styles.textInput}
+              placeholder='Recherche'
+              placeholderTextColor='#8190A5'
+              value={search}
+              onChangeText={(text) => this.setState({ search: text })}
+            />
+          </View>
+        </View>
+        <View  className={styles.listContainers}>
+
+        </View>
       </View>
     );
   }
