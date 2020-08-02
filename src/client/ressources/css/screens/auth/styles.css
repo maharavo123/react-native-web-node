@@ -1,0 +1,24 @@
+.wrapper {
+  flex: 1;
+  background-color: #fff;
+}
+
+.tille {
+  color: #FFFFFF;
+  font-family: Lato;
+  font-size: 40px;
+  line-height: 52px;
+  width: 317px;
+  text-align: left;
+}
+
+@media screen and (max-width: 55rem) {
+
+}
+
+@media screen and (max-width: 52.375rem) {
+
+}
+
+@media screen and (max-width: 32rem) {
+}
