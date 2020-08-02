@@ -17,7 +17,6 @@
 
 // export default Wrapper;
 
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import { OrientationChangeProvider } from 'react-native-orientation-change-provider';
@@ -29,11 +28,11 @@ import Main from './screens/App.container';
 
 const Wrapper = () => (
   <Provider store={store}>
-     <OrientationChangeProvider>
+    <OrientationChangeProvider>
       <PersistGate loading={null} persistor={persistor}>
         <Main />
       </PersistGate>
-     </OrientationChangeProvider>
+    </OrientationChangeProvider>
   </Provider>
 );
 
