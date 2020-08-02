@@ -95,7 +95,7 @@ module.exports = {
             "module:metro-react-native-babel-preset",
           ],
           plugins: [
-            "react-hot-loader/babel",
+            // "react-hot-loader/babel",
           ]
         }
       },

@@ -90,6 +90,11 @@
   color: #3F00FF;
 }
 
+.message {
+  color: red;
+  text-align: center;
+}
+
 @media screen and (min-width: 67rem) {
   .viewNone {
     height: 15px;
