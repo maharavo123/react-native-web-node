@@ -31,15 +31,17 @@ class LayoutApp extends Component {
     this.setState({ tilte, selected });
     switch (selected) {
     case 0:
-      return this.setState({ body: <Home {...this.props}/> });
+      return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
     case 1:
-      return this.setState({ body: <Dossiers {...this.props}/> });
+      return this.setState({ body: <Dossiers {...this.props} navigation={this.navigation} /> });
     case 2:
-      return this.setState({ body: <Comptes {...this.props}/> });
+      return this.setState({ body: <Comptes {...this.props} navigation={this.navigation} /> });
     case 3:
-      return this.setState({ body: <Contact {...this.props}/> });
+      return this.setState({ body: <Contact {...this.props} navigation={this.navigation} /> });
+    case 4:
+      return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
     default:
-      return this.setState({ body: <Home {...this.props}/> });
+      return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
     }
   }
 

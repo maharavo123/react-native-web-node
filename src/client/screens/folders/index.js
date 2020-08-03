@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, ScrollView } from 'react-native';
+import { Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
@@ -31,7 +31,11 @@ class FoldersScreen extends Component {
     return (
       <View className={styles.containt}>
         <View className={styles.searchContainers}>
-          <View />
+          <View className={styles.btnAdd}>
+            <TouchableOpacity onPress={() => this.props.navigation(4)}>
+              <Text className={styles.btnAddText}>Ajouter</Text>
+            </TouchableOpacity>
+          </View>
           <View className={styles.searchInput}>
             <TextInput
               className={styles.textInput}

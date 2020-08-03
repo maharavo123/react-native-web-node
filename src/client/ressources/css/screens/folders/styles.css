@@ -1,6 +1,19 @@
 .containt {
 }
 
+.btnAdd {
+  padding: 10px;
+  background-color: #3F00FF;
+  border-radius: 15px;
+}
+
+.btnAddText {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #47a3da;
+  font-family: Arial;
+}
+
 .searchInput {
   background-color: #FFFFFF;
   padding: 10px;
