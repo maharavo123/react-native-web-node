@@ -499,6 +499,11 @@ module.exports = {
         tags: [
           'Folders',
         ],
+        security: [
+          {
+            JWT: [],
+          },
+        ],
         parameters: [
           {
             name: 'Folders',
