@@ -84,3 +84,5 @@ buck-out/
 
 yarn.lock
 package-lock.json
+
+\release/
