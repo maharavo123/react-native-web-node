@@ -13,6 +13,7 @@ import Home from './home';
 import Contact from './contact';
 import Dossiers from './folders';
 import Comptes from './comptes';
+import FolderScreen from './folders';
 
 const pages = ['Accueil', 'Dossiers', 'Compte', 'Contact'];
 
@@ -39,7 +40,7 @@ class LayoutApp extends Component {
     case 3:
       return this.setState({ body: <Contact {...this.props} navigation={this.navigation} /> });
     case 4:
-      return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
+      return this.setState({ body: <FolderScreen {...this.props} navigation={this.navigation} /> });
     default:
       return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
     }

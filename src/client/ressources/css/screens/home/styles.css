@@ -1,7 +1,12 @@
 .textFull {
-  text-align: center;
-  font-size: 70;
-  color: blue;
+  /* text-align: center; */
+  font-size: 20px;
+  color: white;
+  /* padding: 20px; */
+}
+
+.containt {
+  padding: 20px;
 }
 
 /* 
