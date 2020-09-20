@@ -7,6 +7,9 @@
   .containt {
     margin: 1rem 2rem 2rem 2rem;
   }
+  .corps {
+
+  }
 }
 
 @media screen and (max-width: 67.1rem) {
@@ -17,6 +20,9 @@
     width: 100vw;
     height: 100vh;
   }
+  .corps {
+
+  }
 }
 
 @media screen and (max-width: 25.1rem) {
@@ -26,5 +32,8 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+  }
+  .corps {
+    display: none;
   }
 }

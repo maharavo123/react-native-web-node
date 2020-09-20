@@ -1,0 +1,44 @@
+.containt {
+  margin-top: 5px;
+  width: 15vw;
+}
+
+.body {
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-left: 2vw;
+}
+
+.itemText {
+  color: #2C7AC3;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+}
+
+.itemView {
+  width: 12.5vw;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  border-bottom-color: #D3DCE6;
+  border-bottom-width: 2px;
+  border-right-color: #D3DCE6;
+  border-right-width: 2px;
+}
+
+.home {
+  width: 12.5vw;
+  height: 12.5vw;
+}
+
+@media screen and (min-width: 67rem) {
+  
+}
+
+@media screen and (max-width: 67.1rem) {
+
+}
+
+@media screen and (max-width: 25.1rem) {
+ 
+}
+

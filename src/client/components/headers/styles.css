@@ -27,7 +27,21 @@
   }
   .containt {
     height: 11vh;
-    background-color: rebeccapurple;
+  }
+  .buttom {
+    justify-content: flex-end;
+    flex-direction: row;
+    border-bottom-color: #97CC53;
+    border-bottom-width: 2px;
+  }
+  .itemNavigation {
+    height: 5vh;
+    justify-content: center;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  .textItem {
+    
   }
 }
 
@@ -40,6 +54,12 @@
   .containt {
     height: 5vh;
   }
+  .itemNavigation {
+    
+  }
+  .textItem {
+
+  }
 }
 
 @media screen and (max-width: 25.1rem) {
@@ -50,6 +70,12 @@
   }
   .containt {
     height: 6vh;
+  }
+  .itemNavigation {
+    
+  }
+  .textItem {
+    
   }
 }
 

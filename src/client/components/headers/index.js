@@ -2,7 +2,9 @@ import React from 'react';
 import {
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  Text,
+  Platform,
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -31,6 +33,20 @@ const Headers = (props) => (
           </TouchableOpacity>
         </View>
       </View>
+      {Platform.OS === 'web' && <View className={styles.buttom}>
+        <View className={styles.itemNavigation} style={{ backgroundColor: '#2C7AC3' }}>
+          <Text className={styles.textItem}>Accueil</Text>
+        </View>
+        <View className={styles.itemNavigation} style={{ backgroundColor: 'white' }}>
+          <Text className={styles.textItem}>Audit</Text>
+        </View>
+        <View className={styles.itemNavigation} style={{ backgroundColor: 'white' }}>
+          <Text className={styles.textItem}>Dossier</Text>
+        </View>
+        <View className={styles.itemNavigation} style={{ backgroundColor: 'white' }}>
+          <Text className={styles.textItem}>Mon compte</Text>
+        </View>
+      </View>}
     </View>
   </View>
 );

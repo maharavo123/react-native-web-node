@@ -6,10 +6,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../screens/home';
-import Contact from '../screens/contact';
+import Audit from '../screens/contact';
 import Dossiers from '../screens/folders';
 import Comptes from '../screens/comptes';
 import Headers from '../components/headers';
+
+import images from 'images';
+import { Image } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,23 +49,29 @@ const App = () => (
         }}
       />
       <Tab.Screen
-        name="Dossiers"
-        component={Dossiers}
+        name="Audit"
+        component={Audit}
         options={{
-          tabBarLabel: 'Dossiers',
+          tabBarLabel: 'Audit',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <Image
+              source={images.audit}
+              style={{ width: size, height: size }}
+            />
           ),
           tabBarBadge: 3,
         }}
       />
       <Tab.Screen
-        name="Contact"
-        component={Contact}
+        name="Dossiers"
+        component={Dossiers}
         options={{
-          tabBarLabel: 'Contact',
+          tabBarLabel: 'Dossiers',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <Image
+              source={images.files}
+              style={{ width: size, height: size }}
+            />
           ),
           tabBarBadge: 3,
         }}
@@ -75,7 +84,6 @@ const App = () => (
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
-          tabBarBadge: 3,
         }}
       />
     </Tab.Navigator>

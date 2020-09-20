@@ -8,6 +8,7 @@ import mapDispatchToProps from 'mapDispatchToProps';
 import styles from './styles.css';
 
 import Headers from '../components/headers';
+import NavBar from '../components/navBar';
 import Routes from './routes.web';
 
 class LayoutApp extends Component {
@@ -24,7 +25,8 @@ class LayoutApp extends Component {
         <View className={styles.containt}>
           <View className={styles.body}>
             <Headers {...this.props}/>
-            <View>
+            <View className={styles.corps}>
+              <NavBar />
               <Routes {...this.props} />
             </View>
           </View>
