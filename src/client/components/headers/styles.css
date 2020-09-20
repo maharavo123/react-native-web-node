@@ -1,0 +1,55 @@
+.body {
+
+}
+
+.top {
+  background-color: #97CC53;
+  height: 6vh;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.topLeft {
+  /* height: 5vh; */
+}
+
+.logout_png {
+  width: 3vh;
+  height: 3vh;
+  margin: 1.5vh 3vh 1.5vh 0;
+}
+
+@media screen and (min-width: 67rem) {
+  .thremi_png {
+    width: 25vh;
+    height: 6vh;
+    margin: 0 0 0 5vh;
+  }
+  .containt {
+    height: 11vh;
+    background-color: rebeccapurple;
+  }
+}
+
+@media screen and (max-width: 67.1rem) {
+  .thremi_png {
+    width: 25vh;
+    height: 6vh;
+    margin: 0 0 0 0;
+  }
+  .containt {
+    height: 5vh;
+  }
+}
+
+@media screen and (max-width: 25.1rem) {
+  .thremi_png {
+    width: 25vh;
+    height: 6vh;
+    margin: 0 0 0 0;
+  }
+  .containt {
+    height: 6vh;
+  }
+}
+

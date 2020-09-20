@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import store, { persistor } from './services/redux/store';
 
-import Main from './screens/App.container';
+import Main from './App.container';
 
 const Wrapper = () => (
   <Provider store={store}>

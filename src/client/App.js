@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AuthStack from './auth';
+import AuthStack from './screens/auth';
 import AppNavigation from './navigation';
 
 export class App extends React.Component {

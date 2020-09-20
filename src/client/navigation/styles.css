@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: 67rem) {
+  .containt {
+    margin: 1rem 2rem 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 67.1rem) {
+  .containt {
+    /* margin: 0 0 0 0; */
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 25.1rem) {
+  .containt {
+    /* margin: 0 1rem 0 1rem; */
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+}

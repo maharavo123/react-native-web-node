@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { SafeAreaView, ScrollView, ImageBackground, View } from 'react-native';
 
-import styles from 'css/screens/layout.css';
+import styles from './styles.css';
 
 import images from 'images';
 
-export default class AuthComponent extends PureComponent {
+export default class LayoutComponent extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ export default class AuthComponent extends PureComponent {
           >
             {this.props.children}
           </ImageBackground> */}
-          <View style={{ width: '100%', height: '100%' }}>
+          <View>
             {this.props.children}
           </View>
         </ScrollView>
