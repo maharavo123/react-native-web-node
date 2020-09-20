@@ -13,9 +13,10 @@ import Home from './home';
 import Contact from './contact';
 import Dossiers from './folders';
 import Comptes from './comptes';
-import FolderScreen from './folders';
+import FolderScreen from './addFolder';
+import TextEditor from './editText';
 
-const pages = ['Accueil', 'Dossiers', 'Compte', 'Contact'];
+const pages = ['Accueil', 'Dossiers', 'Compte', 'Contact', 'FolderScreen', 'TextEditor'];
 
 class LayoutApp extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class LayoutApp extends Component {
 
   navigation = (selected) => {
     const tilte = pages[selected];
+    console.log({ tilte, selected });
     this.setState({ tilte, selected });
     switch (selected) {
     case 0:
@@ -41,6 +43,8 @@ class LayoutApp extends Component {
       return this.setState({ body: <Contact {...this.props} navigation={this.navigation} /> });
     case 4:
       return this.setState({ body: <FolderScreen {...this.props} navigation={this.navigation} /> });
+    case 5:
+      return this.setState({ body: <TextEditor {...this.props} navigation={this.navigation} /> });
     default:
       return this.setState({ body: <Home {...this.props} navigation={this.navigation} /> });
     }
@@ -52,10 +56,11 @@ class LayoutApp extends Component {
 
     return (
       <SafeAreaView className={styles.wrapper}>
-        <ImageBackground
+        {/* <ImageBackground
           source={images.layout}
           style={{ width: '100%', height: '100%' }}
-        >
+        > */}
+        <View style={{ width: '100%', height: '100%', backgroundColor: '#bbc5cc' }}>
           <View className={styles.contaniers}>
             <View className={styles.nav}>
               <View className={styles.logo}>
@@ -78,7 +83,7 @@ class LayoutApp extends Component {
               </View>
             </View>
             <View className={styles.body}>
-              <View className={styles.header}>
+              {selected !== 4 && <View className={styles.header}>
                 <View />
                 <View>
                   <Text className={styles.title}>{tilte}</Text>
@@ -92,7 +97,7 @@ class LayoutApp extends Component {
                     />
                   </TouchableOpacity>
                 </View>
-              </View>
+              </View>}
               <View className={styles.corps}>
                 {body}
               </View>
@@ -134,9 +139,18 @@ class LayoutApp extends Component {
                   />
                 </TouchableOpacity>
               </View>
+              <View className={styles.iconView}>
+                <TouchableOpacity onPress={() => this.navigation(5)}>
+                  <Icon
+                    name={'drop'}
+                    size={40}
+                    className={selected === 5 ? styles.currentIcon : styles.icon}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </ImageBackground>
+        </View>
       </SafeAreaView>
     );
   }

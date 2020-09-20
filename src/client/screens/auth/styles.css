@@ -1,0 +1,138 @@
+
+.containt {
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.containtLogo {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.textInput {
+  background-color: #FFFFFF;
+  border: 1px solid #8492A6;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  font-size: 16px;
+}
+
+.containtForm {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.containtFormItem {
+  margin: 8px 0 8px 0;
+}
+
+.textLogin {
+  color: #47525E;
+  font-size: 12px;
+  /* line-height: 4px; */
+  text-align: left;
+}
+
+.txtConnexion {
+  color: #47525E;
+  font-size: 16px;
+  /* line-height: 4px; */
+  text-align: left;
+}
+
+.textMDO {
+  color: #434343;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.containtBtnConnex {
+  justify-content: center;
+  align-items: center;
+}
+
+.btnConnex {
+  background-color: #2C7AC3;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 40px;
+}
+
+.containtMdp {
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 67rem) {
+  .viewForm {
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 10rem 0 10rem;
+  }
+
+  .body {
+    opacity: 0.5;
+    height: 70vh;
+    background-color: #97CC53;
+    margin: 0 16rem 0 16rem;
+    border-radius: 15px;
+  }
+
+  .viewLogo {
+    width: 454px;
+    height: 111px;
+    margin: -80px 0 0 0;
+    border-radius: 5px;
+  }
+
+  .logo {
+
+  }
+}
+
+@media screen and (max-width: 67.1rem) {
+  .viewForm {
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 2rem 0 2rem;
+  }
+
+  .body {
+    opacity: 0.5;
+    height: 60vh;
+    background-color: #97CC53;
+    margin: 0 1rem 0 1rem;
+    border-radius: 15px;
+  }
+
+  .viewLogo {
+    width: 302px;
+    height: 74px;
+    margin: -50px 0 0 0;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 25.1rem) {
+  .body {
+    opacity: 0.5;
+    height: 80vh;
+    background-color: #97CC53;
+    margin: 0 1rem 0 1rem;
+    border-radius: 15px;
+  }
+
+  .viewLogo {
+    width: 227px;
+    height: 56px;
+    margin: -40px 0 0 0;
+    border-radius: 5px;
+  }
+}
+

@@ -1,0 +1,8 @@
+export default {
+  id: {
+    name: '',
+    value: (res, data, getState) => {
+      console.log(res, data, getState);
+    },
+  },
+};

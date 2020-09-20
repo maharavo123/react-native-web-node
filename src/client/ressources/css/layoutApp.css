@@ -52,6 +52,7 @@
 
 .itemNavText {
   color: #2B00FF;
+  /* color: #8ab926; */
   font-family: Lato;
   font-size: 18px;
   line-height: 23px;
@@ -63,7 +64,8 @@
     flex-direction: row;
   }
   .nav {
-    background-color: #969FAA;
+    /* background-color: #969FAA; */
+    background-color: #598bbe;
     opacity: 0.5;
     width: 20vw;
     height: 100vh;

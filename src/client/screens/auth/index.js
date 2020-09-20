@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
 import mapDispatchToProps from 'mapDispatchToProps';
 
-import styles from 'css/screens/auth/styles.css';
-
+import images from 'images';
 import Layout from '../Layout';
+import styles from './styles.css';
 
 class AuthComponent extends PureComponent {
   constructor(props) {
@@ -52,52 +52,60 @@ class AuthComponent extends PureComponent {
     return (
       <Layout>
         <View className={styles.containt}>
-          <View className={styles.header}>
-            <Text className={styles.tille}>Authentification</Text>
-          </View>
           <View className={styles.body}>
-            <View className={styles.viewNone} />
-            <View className={styles.viewContainerTextInput}>
-              <View className={styles.viewLabel}>
-                <Text className={styles.textLabel}>Email</Text>
-              </View>
-              <View className={styles.viewTextInput}>
-                <TextInput
-                  className={styles.textInput}
-                  placeholder='Email'
-                  placeholderTextColor='#8190A5'
-                  value={email}
-                  onChangeText={(text) => this.setState({ email: text })}
+            <View className={styles.containtLogo}>
+              <View />
+              <View className={styles.viewLogo}>
+                <Image
+                  source={images.logo}
+                  style={{ width: '100%', height: '100%' }}
                 />
               </View>
+              <View />
             </View>
-            <View className={styles.viewContainerTextInput}>
-              <View className={styles.viewLabel}>
-                <Text className={styles.textLabel}>Password</Text>
+            <View className={styles.containtForm}>
+              <View />
+              <View className={styles.viewForm}>
+                <View className={styles.containtFormItem}>
+                  <Text className={styles.textLogin}>Login*</Text>
+                </View>
+                <View className={styles.containtFormItem}>
+                  <TextInput
+                    className={styles.textInput}
+                    placeholder='Email'
+                    placeholderTextColor='#8190A5'
+                    value={email}
+                    onChangeText={(text) => this.setState({ email: text })}
+                  />
+                </View>
+                <View className={styles.containtFormItem}>
+                  <Text className={styles.textLogin}>Mot de passe*</Text>
+                </View>
+                <View className={styles.containtFormItem}>
+                  <TextInput
+                    className={styles.textInput}
+                    placeholder='Password'
+                    placeholderTextColor='#8190A5'
+                    value={password}
+                    onChangeText={(text) => this.setState({ password: text })}
+                  />
+                </View>
+                <View className={styles.containtBtnConnex}>
+                  <TouchableOpacity
+                    className={styles.btnConnex}
+                    onPress={this.signIn}
+                  >
+                    {loading ? <ActivityIndicator size='large' color={'red'} style={{ paddingTop: 5, paddingBottom: 5 }} />
+                      : <Text className={styles.txtConnexion}>Connexion</Text>}
+                  </TouchableOpacity>
+                </View>
+                <View className={styles.containtMdp}>
+                  <TouchableOpacity>
+                    <Text className={styles.textMDO}>Mot de passe oublié ?</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View className={styles.viewTextInput}>
-                <TextInput
-                  className={styles.textInput}
-                  placeholder='Password'
-                  placeholderTextColor='#8190A5'
-                  value={password}
-                  onChangeText={(text) => this.setState({ password: text })}
-                />
-              </View>
-            </View>
-            <View>
-              <Text className={styles.message}>{message}</Text>
-            </View>
-            <View className={styles.viewBtnSend}>
-              <TouchableOpacity className={styles.btnSend} onPress={this.signIn}>
-                {loading ? <ActivityIndicator size='large' color={'red'} style={{ paddingTop: 5, paddingBottom: 5 }} />
-                  : <Text className={styles.txtConnexion}>Connexion</Text>}
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View className={styles.footer}>
-            <View>
-              <Text className={styles.mdpOublie}>Mot de passe oublié ?</Text>
+              <View />
             </View>
           </View>
         </View>
