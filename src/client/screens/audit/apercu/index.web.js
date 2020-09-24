@@ -86,7 +86,7 @@ class HomeScreen extends PureComponent {
           file={{ url }}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
-          <Page pageNumber={2} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
+          <Page pageNumber={1} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
         </Document>
       </div>
     );
