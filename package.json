@@ -61,6 +61,7 @@
     "dotenv-expand": "5.1.0",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
+    "ejs": "^3.1.5",
     "es6-shim": "^0.35.4",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -83,6 +84,7 @@
     "fs-extra": "^9.0.1",
     "helmet": "^3.23.3",
     "history": "^5.0.0",
+    "html-pdf": "^2.2.0",
     "html-to-draftjs": "^1.5.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "i": "^0.3.6",
@@ -113,6 +115,7 @@
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.6.3",
     "react-draft-wysiwyg": "^1.14.5",
+    "react-dropzone": "^11.2.0",
     "react-native": "0.63.2",
     "react-native-calendars": "^1.300.0",
     "react-native-ckeditor": "^1.0.2",
@@ -138,6 +141,7 @@
     "react-native-webview": "^10.9.0",
     "react-native-webview-quill": "^1.0.3",
     "react-navigation": "^4.4.0",
+    "react-pdf": "^5.0.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.1",
@@ -160,7 +164,8 @@
     "webpack-dev-server": "3.10.2",
     "webpack-manifest-plugin": "2.2.0",
     "winston": "^3.3.3",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
