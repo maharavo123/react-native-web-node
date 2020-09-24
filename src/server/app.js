@@ -72,8 +72,9 @@ const optionsFDF = {
       // 2: 'Second page', // Any page number is working. 1-based index
       // default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
       // last: 'Last Page' // width: 30px;
-      // last: '<div style="color: red; height: 35px;"></div>',
-      default: '<div style="color: red; height: 25px; width: 30px;"><span>{{pages}}</span></div>'
+      // last: '<div style="color: red; height: 35px;"></div>', // <img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 14.5px;">
+      first: '<div style="height: 14.5px;"> ccc</div>',
+      default: '<div style="height: 14.5px;"> ccc</div>'
     }
   },
  

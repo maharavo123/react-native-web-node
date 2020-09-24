@@ -38,6 +38,7 @@ class HomeScreen extends PureComponent {
       csv: null,
       liciel: null,
       kizeo: null,
+      pageNumber: 1,
     };
   }
 
@@ -51,42 +52,77 @@ class HomeScreen extends PureComponent {
 
   onGenerate = () => {
     const data = {
-      clientName: "Anissa Haingotiana",
+      clientName: "client Name",
       csv: null,
-      documentName: "Anissa Haingotiana",
+      documentName: "document Name",
       kizeo: null,
       liciel: null,
-      lieuName: "Haingotiana",
+      lieuName: "lieuName",
       mail: "dhvsjddq@qsqsd.sss",
-      name: "Anissa",
-      phoneFix: "0680522972",
-      phonePortable: "0680522972",
+      name: "name name",
+      phoneFix: "777779999",
+      phonePortable: "00588888972",
+    };
+    const { clientName } = this.props.audit.form;
+    this.props.getPfd(clientName && clientName.length > 0 ? this.props.audit.form : data);
+  }
+
+  next = () => {
+    const { pageNumber } = this.state;
+    if (pageNumber < 3) {
+      this.setState({ pageNumber: pageNumber + 1 });
     }
-    this.props.getPfd(data);
+    
+  }
+
+  prev = () => {
+    const { pageNumber } = this.state;
+    if (pageNumber > 1) {
+      this.setState({ pageNumber: pageNumber - 1 });
+    }
+    
   }
 
   render() {
     const url = `${baseURL}pdfs/report.pdf`;
-    console.log(this.props, url);
     return (
       // <div dangerouslySetInnerHTML={{ __html: html }}>
       // </div>
       <div style={{marginTop: 5, flex: 1}}>
+        <div style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
         <div
           onClick={this.onGenerate}
             style={{
-              top: 20,
-              right: 10,
               zIndex: 2,
               backgroundColor: 'red',
               padding: 5,
+              width: 100
             }}
-        >onGenerate</div>
+        >Generate FDF</div>
+        <div
+          onClick={this.prev}
+            style={{
+              zIndex: 2,
+              backgroundColor: '#97CC53',
+              padding: 5,
+              width: 100
+            }}
+        >prev</div>
+        <div
+          onClick={this.next}
+            style={{
+              zIndex: 2,
+              backgroundColor: 'orange',
+              padding: 5,
+              width: 100
+            }}
+        >next</div>
+        </div>
         <Document
           file={{ url }}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
-          <Page pageNumber={1} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
+          <Page pageNumber={this.state.pageNumber} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
         </Document>
       </div>
     );
