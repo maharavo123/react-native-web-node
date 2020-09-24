@@ -1,0 +1,85 @@
+/* 2480x3508 */
+@media print {
+  #Contexte {
+    width: 100px;
+  }
+
+  .r1-title {
+    background-color: #2C7AC3;
+    color: white;
+    font-size: 14;
+    padding: 5px;
+    border-radius: 3px;
+  }
+
+  .r1-li {
+    color:  #2C7AC3;
+  }
+
+  .r1-p-2 {
+    margin-top: -5;
+  }
+
+  .r1-p {
+    color: black;
+  }
+
+  #Objectifs-Logiciel {
+    display: block;
+  }
+
+  #Objectifs-Logiciel:after, #Logiciel:after, #Objectifs:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  #Objectifs {
+    float: left;
+    width: 280px;
+  }
+
+  #Objectifs .r1-title {
+    width: 100px;
+  }
+
+  #Logiciel {
+    float: right;
+    width: 280px;
+    display: block;
+  }
+
+  #Logiciel .r1-title {
+    width: 160px;
+  }
+ 
+  .r1-footer {
+    background-color: #e9f2d3;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .r1-footer:after, .Bonsavoir:after, .r1-p-footer:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  .Bonsavoir {
+    float: left;
+    width: 52px;
+    margin-top: 10px;
+  }
+
+  .Bonsavoir img {
+    width: 45px;
+    margin-left: 10px;
+  }
+
+  .r1-p-footer {
+    float: right;
+    display: block;
+    width: 500px;
+    font-size: 14px;
+  }
+}

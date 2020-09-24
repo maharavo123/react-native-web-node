@@ -35,7 +35,95 @@ app.use(express.static(path.join(__dirname, '../../storage'))).set('static', pat
 // app.use(express.static(path.join(__dirname, '../../public'))).set('static', path.join(__dirname, 'static'));
 // app.use(express.static(path.join(__dirname, './public'))).set('static', path.join(__dirname, 'static'));
 // app.use('/static', express.static(__dirname + '/public'));
-  
+
+const optionsFDF = {
+  // Export options
+  "directory": "/tmp",       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
+ 
+  // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
+  // "height": "10.5in",        // allowed units: mm, cm, in, px
+  // "width": "8in",            // allowed units: mm, cm, in, px
+  // - or -
+  "format": "A4",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
+  "orientation": "portrait", // portrait or landscape
+ 
+  // Page options
+  // "border": "0",             // default is 0, units: mm, cm, in, px
+  // - or -
+  "border": {
+    "top": "0",            // default is 0, units: mm, cm, in, px
+    "right": "5px",
+    "bottom": "0",
+    "left": "5px"
+  },
+ 
+  paginationOffset: 2,       // Override the initial pagination number
+  "header": {
+    "height": "10px",
+    // "contents": '<div style="text-align: center;">Author: Marc Bachmann</div>'
+    // "contents": '<div style="color: red; height: 21px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 20px; width: 575px;"></div>',
+  },
+  "footer": {
+    "height": "40px",
+    "contents": {
+      // first: 'Cover page',
+      // bandeausitepieddepag_0
+      // default: '<div style="color: red; height: 35px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 30px; width: 580px;"></div>',
+      // 2: 'Second page', // Any page number is working. 1-based index
+      default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
+      // last: 'Last Page' // width: 30px;
+      last: '<div style="color: red; height: 35px;"></div>',
+    }
+  },
+ 
+ 
+  // Rendering options
+  // "base": "file:///home/www/your-asset-path", // Base path that's used to load files (images, css, js) when they aren't referenced using a host
+ 
+  // Zooming option, can be used to scale images if `options.type` is not pdf
+  "zoomFactor": "1", // default is 1
+ 
+  // File options
+  "type": "pdf",             // allowed file types: png, jpeg, pdf
+  "quality": "75",           // only used for types png & jpeg
+ 
+  // Script options
+  // "phantomPath": "./node_modules/phantomjs/bin/phantomjs", // PhantomJS binary which should get downloaded automatically
+  // "phantomArgs": [], // array of strings used as phantomjs args e.g. ["--ignore-ssl-errors=yes"]
+  // "script": '/url',           // Absolute path to a custom phantomjs script, use the file in lib/scripts as example
+  "timeout": 30000,           // Timeout that will cancel phantomjs, in milliseconds
+ 
+  // Time we should wait after window load
+  // accepted values are 'manual', some delay in milliseconds or undefined to wait for a render event
+  "renderDelay": 1000,
+ 
+  // HTTP Headers that are used for requests
+  // "httpHeaders": {
+  //   // e.g.
+  //   "Authorization": "Bearer ACEFAD8C-4B4D-4042-AB30-6C735F5BAC8B"
+  // },
+ 
+  // To run Node application as Windows service
+  "childProcessOptions": {
+    "detached": true
+  }
+ 
+  // HTTP Cookies that are used for requests
+  // "httpCookies": [
+  //   // e.g.
+  //   {
+  //     "name": "Valid-Cookie-Name", // required
+  //     "value": "Valid-Cookie-Value", // required
+  //     "domain": "localhost",
+  //     "path": "/foo", // required
+  //     "httponly": true,
+  //     "secure": false,
+  //     "expires": (new Date()).getTime() + (1000 * 60 * 60) // e.g. expires in 1 hour
+  //   }
+  // ]
+ 
+}
+
 app.get("/generateReport", (req, res) => {
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
@@ -43,20 +131,7 @@ app.get("/generateReport", (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            let options = {
-                // "height": "11.25in",
-                // "width": "8.5in",
-                "height": "11.25in",
-                "width": "8.5in",
-                "header": {
-                    "height": "2mm",
-                },
-                "footer": {
-                    "height": "2mm",
-                },
-
-            };
-            pdf.create(data, options).toFile("./storage/pdfs/report.pdf", function (err, data) {
+            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
                 if (err) {
                   console.log({ err });
                     res.send(err);
@@ -78,20 +153,8 @@ app.post("/api/generateReport", (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            let options = {
-                // "height": "11.25in",
-                // "width": "8.5in",
-                "height": "11.25in",
-                "width": "8.5in",
-                "header": {
-                    "height": "2mm",
-                },
-                "footer": {
-                    "height": "2mm",
-                },
-
-            };
-            pdf.create(data, options).toFile("./storage/pdfs/report.pdf", function (err, data) {
+            
+            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
                 if (err) {
                   console.log({ err });
                     res.send(err);

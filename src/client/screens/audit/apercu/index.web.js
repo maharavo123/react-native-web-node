@@ -11,6 +11,8 @@ import mapDispatchToProps from 'mapDispatchToProps';
 
 import { baseURL } from '../../../../config';
 
+import './styles.css';
+
 const DEFAULT_PROPS = {
   htmlStyles: CUSTOM_STYLES,
   renderers: CUSTOM_RENDERERS,
@@ -47,6 +49,22 @@ class HomeScreen extends PureComponent {
     // setNumPages(numPages);
   }
 
+  onGenerate = () => {
+    const data = {
+      clientName: "Anissa Haingotiana",
+      csv: null,
+      documentName: "Anissa Haingotiana",
+      kizeo: null,
+      liciel: null,
+      lieuName: "Haingotiana",
+      mail: "dhvsjddq@qsqsd.sss",
+      name: "Anissa",
+      phoneFix: "0680522972",
+      phonePortable: "0680522972",
+    }
+    this.props.getPfd(data);
+  }
+
   render() {
     const url = `${baseURL}pdfs/report.pdf`;
     console.log(this.props, url);
@@ -54,13 +72,21 @@ class HomeScreen extends PureComponent {
       // <div dangerouslySetInnerHTML={{ __html: html }}>
       // </div>
       <div style={{marginTop: 5, flex: 1}}>
+        <div
+          onClick={this.onGenerate}
+            style={{
+              top: 20,
+              right: 10,
+              zIndex: 2,
+              backgroundColor: 'red',
+              padding: 5,
+            }}
+        >onGenerate</div>
         <Document
-          // file={url}
-          // url={url}
           file={{ url }}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
-          <Page pageNumber={1} />
+          <Page pageNumber={2} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
         </Document>
       </div>
     );

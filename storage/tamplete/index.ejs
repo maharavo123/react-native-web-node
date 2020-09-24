@@ -5,81 +5,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>PDF</title>
-  <!-- <link href="./styles.css" rel="stylesheet" type="text/css"> -->
-  <link href="<%= baseURL %>tamplete/css/page-couverture/styles.css" rel="stylesheet" type="text/css">
-  <style>
-    
-  </style>
+  <link href="<%= baseURL %>tamplete/css/couverture/styles.css" rel="stylesheet" type="text/css">
+  <link href="<%= baseURL %>tamplete/css/rubrique1/styles.css" rel="stylesheet" type="text/css">
 </head>
-
-<!-- documentName: 'Anissa Haingotiana',
-  clientName: 'Anissa Haingotiana',
-  lieuName: 'Haingotiana',
-  name: 'Anissa',
-  phoneFix: '0680522972',
-  phonePortable: '0680522972',
-  csv: null,
-  liciel: null,
-  kizeo: null,
-  mail: 'sdcdscscdsc' -->
 
 <body>
   <div id="background">
-    <div class="headerC">
-      <div class="Logo">
-        <img src="<%= baseURL %>tamplete/img/logoTC.png">
-      </div>
-      <div class="containtItem">
-        <div class="itemR">
-          <div class="itemRChild1">
-            <img src="<%= baseURL %>tamplete/img/page-couverture/building.png" class="imageItem">
-            <h6 class="spanItem">CONSTRUCTION</h6>
-          </div>
-        </div>
-        <div class="itemR">
-          <div class="itemRChild1">
-            <img src="<%= baseURL %>tamplete/img/page-couverture/wall.png" class="imageItem">
-            <h6 class="spanItem">RÉNOVATION</h6>
-          </div>
-        </div>
-        <div class="itemR">
-          <div class="itemRChild1">
-            <img src="<%= baseURL %>tamplete/img/page-couverture/countryhouse.png" class="imageItem">
-            <h6 class="spanItem">MAINSON INDUVIDUELLE</h6>
-          </div>
-        </div>
-        <div class="itemR">
-          <div class="itemRChild1">
-            <img src="<%= baseURL %>tamplete/img/page-couverture/modernhouse.png" class="imageItem">
-            <h6 class="spanItem">COLECTIF</h6>
-          </div>
-        </div>
-        <div class="itemR">
-          <div class="itemRChild1">
-            <img src="<%= baseURL %>tamplete/img/page-couverture/aparment.png" class="imageItem">
-            <h6 class="spanItem">TERTIAIRE</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h3><%= documentName %></h3>
-      <h3><%= clientName %></h3>
-      <h3><%= lieuName %></h3>
-    </div>
-    <div class="photobtiment">
-      <img src="<%= baseURL %>tamplete/img/page-couverture/photobtiment.png">
-    </div>
-    <div class="footer">
-      <img src="<%= baseURL %>tamplete/img/page-couverture/logoOPQIBI.png">
-      <div class="interlocuteur">
-        <h3 class="f_h">VOTRE INTERLOCUTEUR</h3>
-        <h6 class="f_h"><%= name %></h3>
-        <h6 class="f_h">Tél. fix <%= phoneFix %></h3>
-        <h6 class="f_h">Tél. mobile <%= phonePortable %></h3>
-        <h6 class="f_h">E-mail <%= mail %></h3>
-      </div>
-    </div>
+    <%- include('./page/couverture/index.ejs') %>
+    <%- include('./page/rubrique1/index.ejs') %>
   </div>
 </body>
 

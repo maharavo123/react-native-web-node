@@ -1,4 +1,4 @@
-import constants from '../constants/crud';
+import constants from '../constants/audit';
 
 const initialState = {
   cruds: [],

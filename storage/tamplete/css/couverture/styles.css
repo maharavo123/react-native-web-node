@@ -60,17 +60,19 @@
   }
 
   .photobtiment img {
-    width: 595px
+    width: 570px
   }
 
-  .footer {
+  .c-footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
+    background-color: #e9f2d3;
+    padding: 13px 5px 13px 5px;
   }
 
-  .footer img {
+  .c-footer img {
     width: 200px;
   }
 
