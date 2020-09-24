@@ -9,8 +9,9 @@
 /coverage
 
 # production
-/build
+/kbuild
 
+android/app/build/
 # misc
 .DS_Store
 .env.local
@@ -28,7 +29,7 @@ yarn-error.log*
 
 # Xcode
 #
-build/
+kbuild/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
