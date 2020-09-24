@@ -1,0 +1,12 @@
+.containt {
+  height: 11vh;
+}
+
+@media screen and (min-width: 67rem) {
+}
+
+@media screen and (max-width: 67.1rem) {
+}
+
+@media screen and (max-width: 25.1rem) {
+}  

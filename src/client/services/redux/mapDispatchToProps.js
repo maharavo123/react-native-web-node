@@ -1,4 +1,5 @@
 import crud from './actions/crud';
+import { setFormAudit } from './actions/audit';
 import users from './actions/users';
 import folders from './actions/folders';
 import comptes from './actions/comptes';
@@ -14,6 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   // Folders
   // oneRibOperation: (payload, cb) => dispatch(folders.oneRibOperation(payload, cb)),
   getAllfolders: (payload, cb) => dispatch(folders.getAllfolders(payload, cb)),
+  getPfd: (payload, cb) => dispatch(folders.getPfd(payload, cb)),
 
   // Comptes
   getComptes: (payload, cb) => dispatch(comptes.getComptes(payload, cb)),
@@ -25,6 +27,8 @@ const mapDispatchToProps = (dispatch) => ({
       index,
     });
   },
+
+  setFormAudit: (payload, cb) => dispatch(setFormAudit(payload, cb)),
 });
 
 export default mapDispatchToProps;

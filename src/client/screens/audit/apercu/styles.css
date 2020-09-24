@@ -1,0 +1,45 @@
+.containt {
+  /* width: 95vw; */
+  /* height: 85vh; */
+  /* background-color: #97CC53; */
+}
+
+.body {
+  padding: 1vh 0 2vh 0;
+  justify-content: center;
+}
+
+.corps {
+  justify-content: center;
+  /* width: 95vw; */
+  align-items: center;
+}
+
+.importFileView {
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.right_arrow {
+  width: 25px;
+  height: 25px;
+}
+
+.selector {
+  justify-content: center;
+  align-items: center;
+  background-color: #5A6978;
+  border-radius: 5px;
+  opacity: 0.5;
+  width: 125px;
+  height: 59px;
+}
+
+@media screen and (min-width: 67rem) {
+}
+
+@media screen and (max-width: 67.1rem) {
+}
+
+@media screen and (max-width: 25.1rem) {
+}

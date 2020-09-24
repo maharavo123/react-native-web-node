@@ -1,6 +1,6 @@
-import { get } from '../technique/api';
+import { get, post } from '../technique/api';
 
 export default {
   getAllfolders: async (url) => await get(url),
-  // oneRibOperation: async (url) => await get(url),
+  getPfd: async (url, data) => await post(url, data),
 };

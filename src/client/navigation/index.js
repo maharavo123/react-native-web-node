@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../screens/home';
-import Audit from '../screens/contact';
+import Audit from '../screens/audit';
 import Dossiers from '../screens/folders';
 import Comptes from '../screens/comptes';
 import Headers from '../components/headers';
@@ -16,17 +16,29 @@ import { Image } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-const HomeStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator
+    <Stack.Navigator
       screenOptions={{
         header: props => <Headers {...props} />
       }}
     >
-      <HomeStack.Screen name="Home" component={Home} />
-    </HomeStack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+    </Stack.Navigator>
+  );
+}
+
+function AuditStackScreen() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        header: props => <Headers {...props} />
+      }}
+    >
+      <Stack.Screen name="Audit" component={Audit} />
+    </Stack.Navigator>
   );
 }
 
@@ -50,7 +62,7 @@ const App = () => (
       />
       <Tab.Screen
         name="Audit"
-        component={Audit}
+        component={AuditStackScreen}
         options={{
           tabBarLabel: 'Audit',
           tabBarIcon: ({ color, size }) => (

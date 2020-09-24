@@ -1,0 +1,57 @@
+.containt {
+  height: 80vh;
+}
+
+.body {
+  height: 80vh;
+  width: 96vw;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.icon {
+  width: 80px;
+  height: 70px;
+}
+
+.itemView {
+  opacity: 0.22;
+  background-color: #13CE66;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 15px;
+  width: 35vw;
+  height: 35vw;
+}
+
+.name {
+  color: #373B3D;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 67rem) {
+  .itemView {
+    opacity: 0.22;
+    background-color: #13CE66;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 15vw;
+    height: 15vw;
+  }
+}
+
+@media screen and (max-width: 67.1rem) {
+}
+
+@media screen and (max-width: 25.1rem) {
+}
+

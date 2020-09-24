@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+import {
+  Image,
+  View,
+  TouchableOpacity,
+  Text,
+  Platform,
+} from 'react-native';
+import { connect } from 'react-redux';
+
+import {
+  HashRouter as Router,
+  Link,
+} from 'react-router-dom';
+
+import mapStateToProps from 'mapStateToProps';
+import mapDispatchToProps from 'mapDispatchToProps';
+
+import Navigate from '../navigate';
+
+import images from 'images';
+import styles from './styles.css';
+
+const colors = {
+  activated: '#2C7AC3',
+  noActive: 'white'
+}
+
+const Headers = (props) => {
+  const [index, setIndex] = useState(0);
+  const redirect = (arg, cb, i) => {
+    setIndex(i);
+    console.log({ arg, cb });
+    cb && typeof cb === 'function' && cb();
+  }
+
+  const background = i => i === index
+    ? { backgroundColor: colors.activated }
+    : { backgroundColor: colors.noActive };
+
+  return (
+    <View className={styles.containt}>
+      <View className={styles.body}>
+        <View className={styles.top}>
+          <View className={styles.topLeft}>
+            <Image
+              source={images.logo}
+              className={styles.thremi_png}
+            />
+          </View>
+          <View>
+            <TouchableOpacity onPress={() => props.logout()}>
+              <Image
+                source={images.logout}
+                className={styles.logout_png}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        {Platform.OS === 'web' &&
+          <Router>
+            <View className={styles.buttom}>
+              <Navigate
+                className={styles.itemNavigation}
+                style={background(0)}
+                to={'/'}
+                onPress={(arg, cb) => redirect(arg, cb, 0)}
+              >
+                <Text className={styles.textItem}>Accueil</Text>
+              </Navigate>
+              <Navigate
+                className={styles.itemNavigation}
+                style={background(1)}
+                to={'audit'}
+                onPress={(arg, cb) => redirect(arg, cb, 1)}
+              >
+                <Text className={styles.textItem}>Audit</Text>
+              </Navigate>
+              <Navigate
+                className={styles.itemNavigation}
+                style={background(2)}
+                to={'dossiers'}
+                onPress={(arg, cb) => redirect(arg, cb, 2)}
+              >
+                <Text className={styles.textItem}>Dossiers</Text>
+              </Navigate>
+              <Navigate
+                className={styles.itemNavigation}
+                style={background(3)}
+                to={'comptes'}
+                onPress={(arg, cb) => redirect(arg, cb, 3)}
+              >
+                <Text className={styles.textItem}>Mon compte</Text>
+              </Navigate>
+            </View>
+          </Router>}
+      </View>
+    </View>
+  )
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Headers);

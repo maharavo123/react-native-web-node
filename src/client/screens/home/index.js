@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
 import mapDispatchToProps from 'mapDispatchToProps';
 
-import styles from 'css/screens/home/styles.css';
+import images from 'images';
 
-import Layout from '../Layout/containt';
+import styles from './styles.css';
 
-class HomeScreen extends PureComponent {
+class AuditScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,13 +18,25 @@ class HomeScreen extends PureComponent {
   }
 
   render() {
-    console.log('Body', this.props);
     return (
-      <Layout>
-        <View className={styles.containt}>
-        
+      <View className={styles.containt}>
+        <View className={styles.body}>
+          <View className={styles.itemView}>
+            <Image
+              source={images.audit}
+              className={styles.icon}
+            />
+            <Text className={styles.name}>Nouvelle audits</Text>
+          </View>
+          <View className={styles.itemView}>
+            <Image
+              source={images.files}
+              className={styles.icon}
+            />
+            <Text className={styles.name}>Consulter un dossier</Text>
+          </View>
         </View>
-      </Layout>
+      </View>
     );
   }
 }
@@ -32,4 +44,4 @@ class HomeScreen extends PureComponent {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomeScreen);
+)(AuditScreen);
