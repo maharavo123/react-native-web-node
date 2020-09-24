@@ -8,6 +8,8 @@ const pdf = require("html-pdf");
 const morgan = require('morgan');
 const helmet = require('helmet');
 
+// var html_to_pdf = require('html-pdf-node');
+
 const { swaggerDocument, options } = require('./swagger');
 
 const { baseURL } = require('../config/index');
@@ -36,6 +38,10 @@ app.use(express.static(path.join(__dirname, '../../storage'))).set('static', pat
 // app.use(express.static(path.join(__dirname, './public'))).set('static', path.join(__dirname, 'static'));
 // app.use('/static', express.static(__dirname + '/public'));
 
+const src = 'file://' + path.resolve('./tamplete/img') + '/bandeausitepieddepag_0.png';
+const ulr = 'https://www.google.com/images/srpr/logo11w.png';
+const footer = `<div>fffffff</di>`;
+console.log({ src });
 const optionsFDF = {
   // Export options
   "directory": "/tmp",       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
@@ -57,14 +63,15 @@ const optionsFDF = {
     "left": "5px"
   },
  
-  paginationOffset: 2,       // Override the initial pagination number
+  paginationOffset: 1,       // Override the initial pagination number
   "header": {
     "height": "10px",
+    // "contents": "<img src='" + ulr + "' style='height: 21px; width: 500px' />",
     // "contents": '<div style="text-align: center;">Author: Marc Bachmann</div>'
     // "contents": '<div style="color: red; height: 21px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 20px; width: 575px;"></div>',
   },
   "footer": {
-    "height": "40px",
+    "height": "10px",
     "contents": {
       // first: 'Cover page',
       // bandeausitepieddepag_0
@@ -73,8 +80,8 @@ const optionsFDF = {
       // default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
       // last: 'Last Page' // width: 30px;
       // last: '<div style="color: red; height: 35px;"></div>', // <img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 14.5px;">
-      first: '<div style="height: 14.5px;"> ccc</div>',
-      default: '<div style="height: 14.5px;"> ccc</div>'
+      // first: footer,
+      // default: footer,
     }
   },
  
@@ -127,9 +134,18 @@ const optionsFDF = {
 }
 
 app.get("/generateReport", (req, res) => {
+  
+ 
+
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
     }, (err, data) => {
+      // let optionsR = { format: 'A4' };
+      // let file1 = { content: data };
+      // // or //
+      // html_to_pdf.generatePdf(file1, optionsR).then(pdfBuffer => {
+      //   console.log("PDF Buffer:-", pdfBuffer);
+      // });
         if (err) {
             res.send(err);
         } else {
