@@ -14,7 +14,7 @@
 
 let csvToJson = require('convert-csv-to-json');
  
-const jsons = csvToJson.getJsonFromCsv("./test.csv");
+const jsons = csvToJson.getJsonFromCsv("./test1.csv");
 
 console.log(jsons);
 // var convert = require('xml-js');

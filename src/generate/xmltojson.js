@@ -5,7 +5,7 @@
 // console.log(result);
 
 var convert = require('xml-js');
-var xml = require('fs').readFileSync('./test.xml', 'utf8');
+var xml = require('fs').readFileSync('./test1.xml', 'utf8');
 
 var result = convert.xml2json(xml, {compact: true, spaces: 4});
 console.log(result);
