@@ -41,10 +41,7 @@ app.use(express.static(path.join(__dirname, '../../storage'))).set('static', pat
 // app.use(express.static(path.join(__dirname, './public'))).set('static', path.join(__dirname, 'static'));
 // app.use('/static', express.static(__dirname + '/public'));
 
-const src = 'file://' + path.resolve('./tamplete/img') + '/bandeausitepieddepag_0.png';
-const ulr = 'https://www.google.com/images/srpr/logo11w.png';
-const footer = `<div>fffffff</di>`;
-console.log({ src });
+
 const optionsFDF = {
   // Export options
   "directory": "/tmp",       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
@@ -157,11 +154,6 @@ const optionsFDF = {
 // })
 
 app.post("/api/generateReport", (req, res) => {
-  // console.log(req.body);
-  // let renderingOptions = {
-  //   client: true,
-  //   rmWhitespace: true
-  // };
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
         ...req.body,
@@ -169,22 +161,13 @@ app.post("/api/generateReport", (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            
-            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data1) {
+            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
                 if (err) {
                   console.log({ err });
                     res.send(err);
                 } else {
                   console.log("File created successfully");
-                  res.send({ data });
-      //             let optionsR = { format: 'A4' };
-      // let file1 = { content: data };
-      // // or //
-      // html_to_pdf.generatePdf(file1, optionsR).then(pdfBuffer => {
-      //   console.log("PDF Buffer:-", pdfBuffer);
-      //   res.send({ data, pdfBuffer });
-      // });
-                  
+                  res.send({ data });   
                 }
             });
         }
