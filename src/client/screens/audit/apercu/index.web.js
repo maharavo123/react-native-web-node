@@ -13,17 +13,15 @@ import { baseURL } from '../../../../config';
 
 import './styles.css';
 
-const DEFAULT_PROPS = {
-  htmlStyles: CUSTOM_STYLES,
-  renderers: CUSTOM_RENDERERS,
-  imagesMaxWidth: IMAGES_MAX_WIDTH,
-  onLinkPress: (evt, href) => { Linking.openURL(href); },
-  debug: true
-};
+const url = `${baseURL}pdfs/report.pdf`;
 
-const IMAGES_MAX_WIDTH = (1 - 1 / 3) * Dimensions.get('window').width;
-const CUSTOM_STYLES = {};
-const CUSTOM_RENDERERS = {};
+function onStartedDownload(id) {
+  console.log(`Started downloading: ${id}`);
+}
+
+function onFailed(error) {
+  console.log(`Download failed: ${error}`);
+}
 
 const DisplayPDF = ({ file }) => {
   const [numPages, setNumPages] = useState(null);
@@ -82,33 +80,60 @@ class HomeScreen extends PureComponent {
     this.props.getPfd(clientName && clientName.length > 0 ? this.props.audit.form : data);
   }
 
+  onDownload = () => {
+    console.log('onDownload');
+    window.open(url);
+  }
+
   render() {
-    const url = `${baseURL}pdfs/report.pdf`;
     return (
-      // <div dangerouslySetInnerHTML={{ __html: html }}>
-      // </div>
-      <div style={{ marginTop: 5, flex: 1 }}>
-        <div style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <div
-            onClick={this.onGenerate}
+      <View style={{ paddingTop: 5 }}>
+        <TouchableOpacity onPress={this.onDownload}>
+          <View
             style={{
-              zIndex: 2,
-              backgroundColor: '#97CC53',
-              padding: 5,
-              width: 100
-            }}
-          >Generate FDF</div>
-        </div>
-        <DisplayPDF
-          file={{ url }}
-        />
-        {/* <Document
-          file={{ url }}
-          onLoadSuccess={this.onDocumentLoadSuccess}
-        >
-          <Page pageNumber={this.state.pageNumber} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
-        </Document> */}
-      </div>
+              borderRadius: 50,
+              backgroundColor: '#2C7AC3',
+              position: 'absolute',
+              bottom: -10,
+              right: 0,
+              borderRadius: 100,
+              width: 50,
+              height: 50,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text>PDF</Text>
+          </View>
+        </TouchableOpacity>
+        <DisplayPDF file={{ url }} />
+      </View>
+      // <div style={{ marginTop: 5, flex: 1 }}>
+      //   <div style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+      //     <div
+      //       onClick={this.onGenerate}
+      //       style={{
+      //         backgroundColor: '#97CC53',
+      //         padding: 5,
+      //         width: 100,
+      //         float: 'left',
+      //       }}
+      //     >Generate FDF</div>
+      //     <div
+      //       onClick={this.onDownload}
+      //       style={{
+      //         backgroundColor: '#97CC53',
+      //         padding: 5,
+      //         width: 100,
+      //         float: 'right',
+      //         // marginLeft: 300
+      //       }}
+      //     >Download FDF</div>
+      //   </div>
+      //   <DisplayPDF
+      //     file={{ url }}
+      //   />
+      // </div>
     );
   }
 }
