@@ -5,11 +5,17 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>PDF</title>
+  <link href="<%= baseURL %>tamplete/css/couverture/styles.css" rel="stylesheet" type="text/css">
+  <link href="<%= baseURL %>tamplete/css/rubrique1/styles.css" rel="stylesheet" type="text/css">
+  <link href="<%= baseURL %>tamplete/css/rubrique2/styles.css" rel="stylesheet" type="text/css">
   <link href="<%= baseURL %>tamplete/css/rubrique4/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <div id="background">
+    <%- include('./page/couverture/index.ejs') %>
+    <%- include('./page/rubrique1/index.ejs') %>
+    <%- include('./page/rubrique2/index.ejs') %>
     <%- include('./page/rubrique4/index.ejs') %>
   </div>
   <!-- <div id="pageFooter">

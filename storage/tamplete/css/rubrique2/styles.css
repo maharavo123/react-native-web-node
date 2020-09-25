@@ -29,10 +29,13 @@
     width: 280px;
   }
 
+  #r2-footer {
+    background-color: #e9f2d3;
+  }
+
   #r2-footer-l {
     float: left;
     width: 120px;
-    background-color: tomato;
   }
 
   #r2-footer-l2 {
@@ -51,6 +54,11 @@
 
   #site img {
     height: 200px;
+  }
+
+  #place-footer{
+    height: 200px;
+    height: 120px;
   }
 
 }

@@ -39,6 +39,7 @@ class HomeScreen extends PureComponent {
       liciel: null,
       kizeo: null,
       pageNumber: 1,
+      numbrePages: 4,
     };
   }
 
@@ -68,8 +69,8 @@ class HomeScreen extends PureComponent {
   }
 
   next = () => {
-    const { pageNumber } = this.state;
-    if (pageNumber < 3) {
+    const { pageNumber, numbrePages } = this.state;
+    if (pageNumber < numbrePages) {
       this.setState({ pageNumber: pageNumber + 1 });
     }
     
