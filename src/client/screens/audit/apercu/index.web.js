@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useState } from 'react';
 import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 
 import { Document, Page, pdfjs } from "react-pdf";
@@ -21,9 +21,23 @@ const DEFAULT_PROPS = {
   debug: true
 };
 
-const IMAGES_MAX_WIDTH = (1 - 1/3) * Dimensions.get('window').width;
+const IMAGES_MAX_WIDTH = (1 - 1 / 3) * Dimensions.get('window').width;
 const CUSTOM_STYLES = {};
 const CUSTOM_RENDERERS = {};
+
+const DisplayPDF = ({ file }) => {
+  const [numPages, setNumPages] = useState(null);
+  return (
+    <Document
+      file={file}
+      onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+    >
+      {Array.apply(null, Array(numPages))
+        .map((x, i) => i + 1)
+        .map(page => <Page pageNumber={page} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />)}
+    </Document>
+  )
+}
 
 class HomeScreen extends PureComponent {
   constructor(props) {
@@ -73,7 +87,7 @@ class HomeScreen extends PureComponent {
     if (pageNumber < numbrePages) {
       this.setState({ pageNumber: pageNumber + 1 });
     }
-    
+
   }
 
   prev = () => {
@@ -81,7 +95,7 @@ class HomeScreen extends PureComponent {
     if (pageNumber > 1) {
       this.setState({ pageNumber: pageNumber - 1 });
     }
-    
+
   }
 
   render() {
@@ -89,42 +103,27 @@ class HomeScreen extends PureComponent {
     return (
       // <div dangerouslySetInnerHTML={{ __html: html }}>
       // </div>
-      <div style={{marginTop: 5, flex: 1}}>
+      <div style={{ marginTop: 5, flex: 1 }}>
         <div style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-        <div
-          onClick={this.onGenerate}
-            style={{
-              zIndex: 2,
-              backgroundColor: 'red',
-              padding: 5,
-              width: 100
-            }}
-        >Generate FDF</div>
-        <div
-          onClick={this.prev}
+          <div
+            onClick={this.onGenerate}
             style={{
               zIndex: 2,
               backgroundColor: '#97CC53',
               padding: 5,
               width: 100
             }}
-        >prev</div>
-        <div
-          onClick={this.next}
-            style={{
-              zIndex: 2,
-              backgroundColor: 'orange',
-              padding: 5,
-              width: 100
-            }}
-        >next</div>
+          >Generate FDF</div>
         </div>
-        <Document
+        <DisplayPDF
+          file={{ url }}
+        />
+        {/* <Document
           file={{ url }}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           <Page pageNumber={this.state.pageNumber} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />
-        </Document>
+        </Document> */}
       </div>
     );
   }
