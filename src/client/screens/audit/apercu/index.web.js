@@ -1,5 +1,5 @@
 import React, { PureComponent, useState } from 'react';
-import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 
 import { Document, Page, pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -14,14 +14,6 @@ import { baseURL } from '../../../../config';
 import './styles.css';
 
 const url = `${baseURL}pdfs/report.pdf`;
-
-function onStartedDownload(id) {
-  console.log(`Started downloading: ${id}`);
-}
-
-function onFailed(error) {
-  console.log(`Download failed: ${error}`);
-}
 
 const DisplayPDF = ({ file }) => {
   const [numPages, setNumPages] = useState(null);
@@ -81,21 +73,25 @@ class HomeScreen extends PureComponent {
   }
 
   onDownload = () => {
-    console.log('onDownload');
+    // console.log('onDownload');
+    // this.onGenerate();
     window.open(url);
   }
 
   render() {
     return (
-      <View style={{ paddingTop: 5 }}>
+      <View style={{ paddingTop: 5, flex: 1 }}>
+        <ScrollView style={{ height: (1 - 1 / 6) * Dimensions.get('window').height }}>
+          <DisplayPDF file={{ url }} />
+        </ScrollView>
         <TouchableOpacity onPress={this.onDownload}>
           <View
             style={{
               borderRadius: 50,
               backgroundColor: '#2C7AC3',
               position: 'absolute',
-              bottom: -10,
-              right: 0,
+              top: -70,
+              right: 20,
               borderRadius: 100,
               width: 50,
               height: 50,
@@ -106,34 +102,7 @@ class HomeScreen extends PureComponent {
             <Text>PDF</Text>
           </View>
         </TouchableOpacity>
-        <DisplayPDF file={{ url }} />
       </View>
-      // <div style={{ marginTop: 5, flex: 1 }}>
-      //   <div style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-      //     <div
-      //       onClick={this.onGenerate}
-      //       style={{
-      //         backgroundColor: '#97CC53',
-      //         padding: 5,
-      //         width: 100,
-      //         float: 'left',
-      //       }}
-      //     >Generate FDF</div>
-      //     <div
-      //       onClick={this.onDownload}
-      //       style={{
-      //         backgroundColor: '#97CC53',
-      //         padding: 5,
-      //         width: 100,
-      //         float: 'right',
-      //         // marginLeft: 300
-      //       }}
-      //     >Download FDF</div>
-      //   </div>
-      //   <DisplayPDF
-      //     file={{ url }}
-      //   />
-      // </div>
     );
   }
 }
