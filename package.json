@@ -85,7 +85,6 @@
     "helmet": "^3.23.3",
     "history": "^5.0.0",
     "html-pdf": "^2.2.0",
-    "html-pdf-node": "^1.0.5",
     "html-to-draftjs": "^1.5.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "i": "^0.3.6",

@@ -8,8 +8,6 @@ const pdf = require("html-pdf");
 const morgan = require('morgan');
 const helmet = require('helmet');
 
-var html_to_pdf = require('html-pdf-node');
-
 const { swaggerDocument, options } = require('./swagger');
 
 const { baseURL } = require('../config/index');
