@@ -13,6 +13,8 @@ import { baseURL } from '../../../../config';
 
 import './styles.css';
 
+import images from 'images';
+
 const url = `${baseURL}pdfs/report.pdf`;
 
 const DisplayPDF = ({ file }) => {
@@ -93,13 +95,16 @@ class HomeScreen extends PureComponent {
               top: -70,
               right: 20,
               borderRadius: 100,
-              width: 50,
-              height: 50,
+              width: 85,
+              height: 85,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Text>PDF</Text>
+            <Image
+              source={images.pdf3}
+              style={{ width: 85, height: 85, backgroundColor: 'transparent' }}
+            />
           </View>
         </TouchableOpacity>
       </View>

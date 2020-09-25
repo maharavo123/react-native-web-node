@@ -11,4 +11,5 @@ export default {
   calendar: require('./images/calendar.png'),
   right_arrow: require('./images/right-arrow.png'),
   time: require('./images/time.png'),
+  pdf3: require('./images/pdf3.png'),
 };
