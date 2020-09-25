@@ -34,7 +34,7 @@ const DisplayPDF = ({ file }) => {
     >
       {Array.apply(null, Array(numPages))
         .map((x, i) => i + 1)
-        .map(page => <Page pageNumber={page} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />)}
+        .map((page, key) => <Page key={`page-${key}`} pageNumber={page} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />)}
     </Document>
   )
 }
@@ -80,22 +80,6 @@ class HomeScreen extends PureComponent {
     };
     const { clientName } = this.props.audit.form;
     this.props.getPfd(clientName && clientName.length > 0 ? this.props.audit.form : data);
-  }
-
-  next = () => {
-    const { pageNumber, numbrePages } = this.state;
-    if (pageNumber < numbrePages) {
-      this.setState({ pageNumber: pageNumber + 1 });
-    }
-
-  }
-
-  prev = () => {
-    const { pageNumber } = this.state;
-    if (pageNumber > 1) {
-      this.setState({ pageNumber: pageNumber - 1 });
-    }
-
   }
 
   render() {

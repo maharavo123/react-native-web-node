@@ -131,38 +131,19 @@ const optionsFDF = {
  
 }
 
-// app.get("/generateReport", (req, res) => {
-// 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
-//         baseURL,
-//     }, (err, data) => {
-//         if (err) {
-//             res.send(err);
-//         } else {
-//             pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
-//                 if (err) {
-//                   console.log({ err });
-//                     res.send(err);
-//                 } else {
-//                   console.log("File created successfully");
-//                   res.send("File created successfully");
-//                 }
-//             });
-//         }
-//     });
-// })
-
 app.post("/api/generateReport", (req, res) => {
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
         ...req.body,
     }, (err, data) => {
         if (err) {
-            res.send(err);
+          console.log("err =====> File created Field", err);
+          res.send({ err });
         } else {
             pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
                 if (err) {
-                  console.log({ err });
-                    res.send(err);
+                  console.log("File created Field");
+                  res.send(err);
                 } else {
                   console.log("File created successfully");
                   res.send({ data });   
