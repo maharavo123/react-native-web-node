@@ -8,7 +8,7 @@ const pdf = require("html-pdf");
 const morgan = require('morgan');
 const helmet = require('helmet');
 
-// var html_to_pdf = require('html-pdf-node');
+var html_to_pdf = require('html-pdf-node');
 
 const { swaggerDocument, options } = require('./swagger');
 
@@ -29,8 +29,11 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(morgan('tiny'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 app.use(express.static(path.join(__dirname, '../../build'))).set('static', path.join(__dirname, 'static'));
 app.use(express.static(path.join(__dirname, '../../storage'))).set('static', path.join(__dirname, 'static'));
@@ -71,18 +74,18 @@ const optionsFDF = {
     // "contents": '<div style="color: red; height: 21px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 20px; width: 575px;"></div>',
   },
   "footer": {
-    "height": "10px",
-    "contents": {
-      // first: 'Cover page',
-      // bandeausitepieddepag_0
-      // default: '<div style="color: red; height: 35px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 30px; width: 580px;"></div>',
-      // 2: 'Second page', // Any page number is working. 1-based index
-      // default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
-      // last: 'Last Page' // width: 30px;
-      // last: '<div style="color: red; height: 35px;"></div>', // <img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 14.5px;">
-      // first: footer,
-      // default: footer,
-    }
+    "height": "25px",
+    // "contents": {
+    //   // first: 'Cover page',
+    //   // bandeausitepieddepag_0
+    //   // default: '<div style="color: red; height: 35px;"><img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 30px; width: 580px;"></div>',
+    //   // 2: 'Second page', // Any page number is working. 1-based index
+    //   // default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
+    //   // last: 'Last Page' // width: 30px;
+    //   // last: '<div style="color: red; height: 35px;"></div>', // <img src="http://localhost:5000/tamplete/img/bandeausitepieddepag_0.png" style="height: 14.5px;">
+    //   // first: footer,
+    //   // default: footer,
+    // }
   },
  
  
@@ -133,37 +136,32 @@ const optionsFDF = {
  
 }
 
-app.get("/generateReport", (req, res) => {
-  
- 
-
-	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
-        baseURL,
-    }, (err, data) => {
-      // let optionsR = { format: 'A4' };
-      // let file1 = { content: data };
-      // // or //
-      // html_to_pdf.generatePdf(file1, optionsR).then(pdfBuffer => {
-      //   console.log("PDF Buffer:-", pdfBuffer);
-      // });
-        if (err) {
-            res.send(err);
-        } else {
-            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
-                if (err) {
-                  console.log({ err });
-                    res.send(err);
-                } else {
-                  console.log("File created successfully");
-                  res.send("File created successfully");
-                }
-            });
-        }
-    });
-})
+// app.get("/generateReport", (req, res) => {
+// 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
+//         baseURL,
+//     }, (err, data) => {
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
+//                 if (err) {
+//                   console.log({ err });
+//                     res.send(err);
+//                 } else {
+//                   console.log("File created successfully");
+//                   res.send("File created successfully");
+//                 }
+//             });
+//         }
+//     });
+// })
 
 app.post("/api/generateReport", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
+  // let renderingOptions = {
+  //   client: true,
+  //   rmWhitespace: true
+  // };
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
         ...req.body,
@@ -172,13 +170,21 @@ app.post("/api/generateReport", (req, res) => {
             res.send(err);
         } else {
             
-            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data) {
+            pdf.create(data, optionsFDF).toFile("./storage/pdfs/report.pdf", function (err, data1) {
                 if (err) {
                   console.log({ err });
                     res.send(err);
                 } else {
                   console.log("File created successfully");
                   res.send({ data });
+      //             let optionsR = { format: 'A4' };
+      // let file1 = { content: data };
+      // // or //
+      // html_to_pdf.generatePdf(file1, optionsR).then(pdfBuffer => {
+      //   console.log("PDF Buffer:-", pdfBuffer);
+      //   res.send({ data, pdfBuffer });
+      // });
+                  
                 }
             });
         }

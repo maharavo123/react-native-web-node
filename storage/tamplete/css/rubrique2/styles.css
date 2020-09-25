@@ -1,0 +1,51 @@
+/* 2480x3508 */
+@media print {
+  #rubrique2 {
+  }
+
+  #rubrique2:after, #m-ouvrage:after, #bureau:after, #r-dossier:after, #calculs:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  #m-ouvrage {
+    float: left;
+    width: 280px;
+  }
+
+  #bureau {
+    float: right;
+    width: 280px;
+  }
+
+  #r-dossier {
+    float: left;
+    width: 280px;
+  }
+
+  #calculs {
+    float: right;
+    width: 280px;
+  }
+
+  #r2-footer-l {
+    float: left;
+    width: 160px;
+  }
+
+  #r2-footer-l2 {
+    float: right;
+    width: 160px;
+  }
+
+  #r2-footer-l {
+    float: right;
+    width: 160px;
+  }
+
+  #site img {
+    height: 200px;
+  }
+
+}
