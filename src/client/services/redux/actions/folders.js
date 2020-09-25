@@ -26,6 +26,7 @@ export const getAllfolders = (callBack) => async (dispatch) => {
 export const getPfd = (data, callBack) => async (dispatch) => {
   const res = await foldersApp.getPfd(constants.url.getPfd, data);
   console.log({ res });
+  callBack && callBack();
   if (res && res.status === 200) {
     return dispatch({
       type: constants.getPfd,

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList, Image } from 'react-native';
+import { Text, View, FlatList, Image, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
@@ -36,22 +36,39 @@ class HomeScreen extends PureComponent {
       name: '',
       phoneFix: '',
       phonePortable: '',
+      mail: '',
       csv: null,
       liciel: null,
       kizeo: null,
+      xml: null,
+      imagesAll: null,
+      errors: false,
+      loading: false,
     };
   }
 
-  navigateTo = (arc, cb) => {
-    const { csv, liciel, kizeo } = this.state;
-    console.log({ csv, liciel, kizeo });
-    cb && typeof cb === 'function' && cb();
-    this.props.getPfd(this.state);
-    this.props.setFormAudit(this.state);
+  validation = () => {
+    const { csv, xml, documentName, clientName, lieuName, name, phoneFix, phonePortable, mail  } = this.state;
+    return csv && xml && documentName && clientName && lieuName && name && phoneFix && phonePortable && mail
+      && documentName.length > 2 && clientName.length > 2 && lieuName.length > 2 && name.length > 2 && phoneFix.length > 2 && phonePortable.length > 2 && mail.length > 2
+  }
+
+  navigateTo = async (arc, cb) => {
+    const { loading, csv, xml, errors, imagesAll, ...inputForm } = this.state;
+    if (loading) return;
+    if (this.validation()) {
+        this.setState({ loading: true });
+        await this.props.getPfd(inputForm, () => cb && typeof cb === 'function' && cb());
+        await this.props.setFormAudit(inputForm);
+        this.setState({ loading: false });
+    } else {
+      this.setState({ errors: true });
+    }
+    console.log({ csv, xml });
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <View className={styles.containt}>
         <View className={styles.body}>
@@ -100,22 +117,32 @@ class HomeScreen extends PureComponent {
             <InputContaint>
               <View className={styles.importFileView}>
                 <ImportFile
-                  label={'CSV'}
+                  label={'CSV kizeo'}
                   accept={'.csv'}
-                  onAddfile={(csv) => this.setState({ csv })}
-                  value={this.state.csv}
-                />
-                <ImportFile
-                  label={'XLM kizeo'}
-                  accept={'.xml'}
-                  onAddfile={(kizeo) => this.setState({ kizeo, liciel: null })}
+                  multiple={false}
+                  onAddfile={(kizeo) => this.setState({ kizeo, liciel: null, csv: kizeo })}
                   value={this.state.kizeo}
                 />
                 <ImportFile
-                  label={'XLM liciel'}
-                  accept={'.xml'}
-                  onAddfile={(liciel) => this.setState({ liciel, kizeo: null })}
+                  label={'CSV liciel'}
+                  accept={'.csv'}
+                  multiple={false}
+                  onAddfile={(liciel) => this.setState({ liciel, kizeo: null, csv: liciel })}
                   value={this.state.liciel}
+                />
+                <ImportFile
+                  label={'XML'}
+                  accept={'.xml'}
+                  multiple={false}
+                  onAddfile={(xml) => this.setState({ xml })}
+                  value={this.state.xml}
+                />
+                <ImportFile
+                  label={'Images'}
+                  accept={'image/*'}
+                  multiple
+                  onAddfile={(imagesAll) => this.setState({ imagesAll })}
+                  value={this.state.imagesAll}
                 />
               </View>
             </InputContaint>
@@ -123,14 +150,15 @@ class HomeScreen extends PureComponent {
           <View className={styles.corps}>
             <Navigate
               className={{}}
-              style={{}}
+              style={this.validation() ? { backgroundColor: '#2C7AC3', borderRadius: 10 } : { borderRadius: 10 }}
               to={'/aperçu'}
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
+              activeOpacity={this.validation() ? 0 : 1}
             >
-              <View className={styles.selector} onTouchEnd={(e) => console.log({ e })}>
+              {this.state.loading ? <ActivityIndicator size='large' color='red' style={{ padding: 10 }} /> : <View className={styles.selector}>
                 <Image source={images.right_arrow} className={styles.right_arrow} />
                 <Text>Valider</Text>
-              </View>
+              </View>}
             </Navigate>
           </View>
         </View>

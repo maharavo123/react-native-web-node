@@ -9,7 +9,7 @@ const xmlToJson = require('xml-js');
 
 import images from 'images';
 
-const MyDropzone = ({ children, accept, onAddfile }) => {
+const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
   const onDrop = useCallback((acceptedFiles) => {
     let arrayJson = [];
     acceptedFiles.forEach((file) => {
@@ -25,8 +25,8 @@ const MyDropzone = ({ children, accept, onAddfile }) => {
             arrayJson.push(json[i])
           }
           onAddfile(arrayJson);
-        } else {
-
+        }
+        if (accept === '.xml') {
           arrayJson = xmlToJson.xml2json(csv, {compact: true, spaces: 4});
           onAddfile(JSON.parse(arrayJson));
         }
@@ -39,7 +39,7 @@ const MyDropzone = ({ children, accept, onAddfile }) => {
 
   return (
     <div {...getRootProps()}>
-      <input {...getInputProps()} accept={accept} multiple={false} />
+      <input {...getInputProps()} accept={accept} multiple={multiple} />
       {children}
     </div>
   )
