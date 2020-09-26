@@ -132,6 +132,7 @@ const optionsFDF = {
 }
 
 app.post("/api/generateReport", (req, res) => {
+  console.log(req.body);
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
         ...req.body,

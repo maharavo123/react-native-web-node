@@ -1,49 +1,61 @@
 <div id="rubrique2">
-  <h2 class="r2-title" > 2 Informations générales (1/4)</h1>
-  <div id="m-ouvrage">
-    <h3>2.1 Maître d'ouvrage</h3>
-    <p><span>NON : </span></p>
-    <p><span>ADRESSE : </span></p>
-    <p><span>STATUT : </span></p>
-  </div>
-  <div id="bureau">
-    <h3>2.2 Bureau d'étude</h3>
-    <p><span>NON : </span></p>
-    <p><span>CONCTACT : </span></p>
-    <p><span>TÉL : </span>00 00 00 00</p>
-    <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
-  </div>
-  <div id="r-dossier">
-    <h3>2.3 Référence dossier xxxxxxx</h3>
-    <p><span>OBJET : </span></p>
-    <p><span>ADRESSE BÂTIMENT: </span></p>
-    <p><span>CP/VILLE : </span>000000 venet elit</p>
-  </div>
-  <div id="calculs">
-    <h3>2.4 Calculs</h3>
-    <p><span>NON : </span></p>
-    <p><span>TEMP. EXT. DE BASE: </span> 0°C</p>
-  </div>
-  <div style="clear: both;"></div>
-  <div id="site">
-    <h3>2.5 Site audité le xx/xx/xxxx</h3>
-    <img src="<%= baseURL %>tamplete/img/r2/plan.png">
-  </div>
-  <div id="r2-footer">
-    <div id="r2-footer-l">
-      <img src="<%= baseURL %>tamplete/img/r2/localisation.png" style="width: 40px; height: 50px;">
-      <span>Dépt.</span>
-      <span>42</span>
+  <h2 class="r2-title"> 2 Informations générales (1/4)</h1>
+    <div id="m-ouvrage">
+      <h3>2.1 Maître d'ouvrage</h3>
+      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+      <p><span>NON : <%= csv.maitre_de_ouvrage.nom_all %></span></p>
+      <% } else{ %>
+      <p><span style="color: red;">NON : </span></p>
+      <% } %>
+      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+      <p><span>ADRESSE : <%= csv.maitre_de_ouvrage.adresse %></span></p>
+      <% } else{ %>
+      <p><span style="color: red;">ADRESSE : </span></p>
+      <% } %>
+      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.statut){ %>
+      <p><span>STATUT : <%= csv.maitre_de_ouvrage.statut %></span></p>
+      <% } else{ %>
+      <p><span style="color: red;">STATUT : </span></p>
+      <% } %>
     </div>
-    <div id="r2-footer-l2">
-      <span>Surface Habitabme</span>
-      <span>00 m²</span>
+    <div id="bureau">
+      <h3>2.2 Bureau d'étude</h3>
+      <p><span>NON : </span></p>
+      <p><span>CONCTACT : </span></p>
+      <p><span>TÉL : </span>00 00 00 00</p>
+      <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
     </div>
-    <div id="r2-footer-r">
-      <span>Année de Construction</span>
-      <span>2000</span>
+    <div id="r-dossier">
+      <h3>2.3 Référence dossier xxxxxxx</h3>
+      <p><span>OBJET : </span></p>
+      <p><span>ADRESSE BÂTIMENT: </span></p>
+      <p><span>CP/VILLE : </span>000000 venet elit</p>
     </div>
-  </div>
-  <div style="clear: both;"></div>
-  <div id="place-footer"></div>
+    <div id="calculs">
+      <h3>2.4 Calculs</h3>
+      <p><span>NON : </span></p>
+      <p><span>TEMP. EXT. DE BASE: </span> 0°C</p>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="site">
+      <h3>2.5 Site audité le xx/xx/xxxx</h3>
+      <img src="<%= baseURL %>tamplete/img/r2/plan.png">
+    </div>
+    <div id="r2-footer">
+      <div id="r2-footer-l">
+        <img src="<%= baseURL %>tamplete/img/r2/localisation.png" style="width: 40px; height: 50px;">
+        <span>Dépt.</span>
+        <span>42</span>
+      </div>
+      <div id="r2-footer-l2">
+        <span>Surface Habitabme</span>
+        <span>00 m²</span>
+      </div>
+      <div id="r2-footer-r">
+        <span>Année de Construction</span>
+        <span>2000</span>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="place-footer"></div>
 </div>

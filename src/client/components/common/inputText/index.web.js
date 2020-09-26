@@ -15,12 +15,13 @@ const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
   const onDrop = useCallback((acceptedFiles) => {
     let arrayJson = [];
     acceptedFiles.forEach((file) => {
-      const reader = new FileReader()
+      const reader = new FileReader();
 
       reader.onabort = () => console.log('file reading was aborted')
       reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
         var csv = reader.result;
+        console.log({ csv });
         if (accept === '.csv') {
           const jsonOutput = csvToJson.getJsonFromCsv(csv);
           // for(let i=0; i<jsonOutput.length;i++){
@@ -35,7 +36,7 @@ const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
         }
         
       }
-      reader.readAsText(file);
+      reader.readAsText(file, 'Cp1252');
     })
   }, [])
   const { getRootProps, getInputProps } = useDropzone({ onDrop })
