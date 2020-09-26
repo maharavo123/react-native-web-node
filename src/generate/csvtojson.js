@@ -13,7 +13,7 @@
 // })
 
 let csvToJson = require('convert-csv-to-json');
- 
+
 const jsons = csvToJson.getJsonFromCsv("./test1.csv");
 
 console.log(jsons);

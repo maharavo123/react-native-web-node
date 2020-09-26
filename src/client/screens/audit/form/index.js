@@ -54,7 +54,7 @@ class HomeScreen extends PureComponent {
   }
 
   navigateTo = async (arc, cb) => {
-    const { loading, csv, xml, errors, imagesAll, ...inputForm } = this.state;
+    const { loading, liciel, kizeo, errors, imagesAll, ...inputForm } = this.state;
     if (loading) return;
     if (this.validation()) {
         this.setState({ loading: true });
@@ -64,7 +64,7 @@ class HomeScreen extends PureComponent {
     } else {
       this.setState({ errors: true });
     }
-    console.log({ csv, xml });
+    console.log({ liciel, kizeo });
   }
 
   render() {
