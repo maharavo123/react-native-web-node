@@ -344,13 +344,6 @@ const infoG1_4 = (i, xml) => {
       nom_all: i["CoordonnéesMaîtred'ouvrage#Civilité:"] + ' ' + i["NomduMaîtred'ouvrage:"] + ' ' + i["CoordonnéesMaîtred'ouvrage#Prénom:"],
       adresse: i["CoordonnéesMaîtred'ouvrage#Adresse:"] + ' ' + i["CoordonnéesMaîtred'ouvrage#Codepostal:"] + ' ' + i["CoordonnéesMaîtred'ouvrage#Ville:"],
     },
-    reference_dossier: {
-      object: '', // Text Indentique
-      adresse: i['Adresse:Adresse'],
-      codepostal: i['Adresse:Codepostal'],
-      ville: i['Adresse:Ville'],
-      pays: i['Adresse:Pays'],
-    },
     // XML
     surface_habitable, version_log, temp_ext_base_corrige, numero_departement,
   
