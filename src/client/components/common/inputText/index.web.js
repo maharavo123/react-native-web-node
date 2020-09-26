@@ -9,6 +9,8 @@ const xmlToJson = require('xml-js');
 
 import images from 'images';
 
+import { trasformXML, trasformCSVKizeoArray } from '../../../../utils';
+
 const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
   const onDrop = useCallback((acceptedFiles) => {
     let arrayJson = [];
@@ -20,15 +22,16 @@ const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
       reader.onload = () => {
         var csv = reader.result;
         if (accept === '.csv') {
-          let json = csvToJson.getJsonFromCsv(csv);
-          for(let i=0; i<json.length;i++){
-            arrayJson.push(json[i])
-          }
-          onAddfile(arrayJson);
+          const jsonOutput = csvToJson.getJsonFromCsv(csv);
+          // for(let i=0; i<jsonOutput.length;i++){
+          //   arrayJson.push(trasformCSVKizeo(jsonOutput[i]))
+          // }
+          // const csvFile = jsonOutput.reduce((acc, cu))
+          onAddfile(trasformCSVKizeoArray(jsonOutput));
         }
         if (accept === '.xml') {
           arrayJson = xmlToJson.xml2json(csv, {compact: true, spaces: 4});
-          onAddfile(JSON.parse(arrayJson));
+          onAddfile(trasformXML(JSON.parse(arrayJson)));
         }
         
       }
