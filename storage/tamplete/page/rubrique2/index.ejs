@@ -69,7 +69,8 @@
         <% } %>
       </div>
       <div id="r2-footer-l2">
-        <span>Surface Habitabme</span>
+        <img src="<%= baseURL %>tamplete/img/r2/maison.png" style="width: 40px; height: 50px;">
+        <span>Surface Habitable</span>
         <% if(typeof csv == 'object' && csv.surface_habitable){ %>
         <span><%= csv.surface_habitable %> m²</span>
         <% } else{ %>
@@ -77,6 +78,7 @@
         <% } %>
       </div>
       <div id="r2-footer-r">
+        <img src="<%= baseURL %>tamplete/img/r2/calendrier.png" style="width: 40px; height: 50px;">
         <span>Année de Construction</span>
         <% if(typeof csv == 'object' && csv.annee_de_construction){ %>
         <span><%= csv.annee_de_construction %></span>

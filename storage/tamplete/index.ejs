@@ -4,12 +4,13 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>PDF</title>
+  <title>Rapport</title>
   <link href="<%= baseURL %>tamplete/css/couverture/styles.css" rel="stylesheet" type="text/css">
   <link href="<%= baseURL %>tamplete/css/rubrique1/styles.css" rel="stylesheet" type="text/css">
   <link href="<%= baseURL %>tamplete/css/rubrique2/styles.css" rel="stylesheet" type="text/css">
   <link href="<%= baseURL %>tamplete/css/rubrique4/styles.css" rel="stylesheet" type="text/css">
   <link href="<%= baseURL %>tamplete/css/rubrique5/styles.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 </head>
 
 <body>
@@ -40,6 +41,27 @@
     <div style="width: 16px; background-color: #74c000; height: 8px; float: right; margin-left: 2px;"></div>
     <div style="clear: both;"></div>
   </div>
+  <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: [],
+        datasets: [{
+          backgroundColor: [
+            "#2ecc71",
+            "#3498db",
+            "#95a5a6",
+            "#9b59b6",
+            "#f1c40f",
+            "#e74c3c",
+            "#34495e"
+          ],
+          data: [12, 19, 3, 17, 28, 24, 7]
+        }]
+      }
+    });
+</script>
 </body>
 
 </html>

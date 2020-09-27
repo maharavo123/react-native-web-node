@@ -37,9 +37,9 @@ table
   .chauffage {
     border-bottom: 1px gray dashed;
   }
-  #graphique{
-    width: 20%;
-    display: inline-block;
+  #circleCenter p {
+    line-height: 0;
+    font-size: 8px;
   }
   #Objetdynamiquevector{
     width: 20%;
