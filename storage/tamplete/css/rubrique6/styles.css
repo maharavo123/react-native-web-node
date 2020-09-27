@@ -1,0 +1,17 @@
+/* 2480x3508 */
+@media print {
+  #rubrique5 {
+    margin: 10px;
+
+  }
+  .r4-tittle,.td-2 { 
+    color: blue;
+    font-weight: bold;
+  }
+  .r4-tittle h3 { 
+    display: inline;}
+  .number {
+    color:green;
+  }
+
+}
