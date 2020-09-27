@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import {
   Image,
   View,
-  TouchableOpacity,
   Text,
-  Platform,
 } from 'react-native';
 import { connect } from 'react-redux';
 
 import {
   HashRouter as Router,
-  Link,
 } from 'react-router-dom';
 
 import mapStateToProps from 'mapStateToProps';
@@ -34,67 +31,76 @@ const Headers = (props) => {
     cb && typeof cb === 'function' && cb();
   }
 
+  const logout = (arg, cb) => {
+    cb && typeof cb === 'function' && cb();
+    props.logout();
+  }
+
   const background = i => i === index
     ? { backgroundColor: colors.activated }
     : { backgroundColor: colors.noActive };
 
   return (
     <View className={styles.containt}>
-      <View className={styles.body}>
-        <View className={styles.top}>
-          <View className={styles.topLeft}>
-            <Image
-              source={images.logo}
-              className={styles.thremi_png}
-            />
-          </View>
-          <View>
-            <TouchableOpacity onPress={() => props.logout()}>
+      <Router>
+        <View className={styles.body}>
+          <View className={styles.top}>
+            <View className={styles.topLeft}>
               <Image
-                source={images.logout}
-                className={styles.logout_png}
+                source={images.logo}
+                className={styles.thremi_png}
               />
-            </TouchableOpacity>
-          </View>
-        </View>
-        {Platform.OS === 'web' &&
-          <Router>
-            <View className={styles.buttom}>
+            </View>
+            <View>
               <Navigate
-                className={styles.itemNavigation}
-                style={background(0)}
+                className={{}}
+                style={{}}
                 to={'/'}
-                onPress={(arg, cb) => redirect(arg, cb, 0)}
+                onPress={(arg, cb) => logout(arg, cb, 0)}
               >
-                <Text className={styles.textItem}>Accueil</Text>
-              </Navigate>
-              <Navigate
-                className={styles.itemNavigation}
-                style={background(1)}
-                to={'audit'}
-                onPress={(arg, cb) => redirect(arg, cb, 1)}
-              >
-                <Text className={styles.textItem}>Audit</Text>
-              </Navigate>
-              <Navigate
-                className={styles.itemNavigation}
-                style={background(2)}
-                to={'dossiers'}
-                onPress={(arg, cb) => redirect(arg, cb, 2)}
-              >
-                <Text className={styles.textItem}>Dossiers</Text>
-              </Navigate>
-              <Navigate
-                className={styles.itemNavigation}
-                style={background(3)}
-                to={'comptes'}
-                onPress={(arg, cb) => redirect(arg, cb, 3)}
-              >
-                <Text className={styles.textItem}>Mon compte</Text>
+                <Image
+                  source={images.logout}
+                  className={styles.logout_png}
+                />
               </Navigate>
             </View>
-          </Router>}
-      </View>
+          </View>
+          <View className={styles.buttom}>
+            <Navigate
+              className={styles.itemNavigation}
+              style={background(0)}
+              to={'/'}
+              onPress={(arg, cb) => redirect(arg, cb, 0)}
+            >
+              <Text className={styles.textItem}>Accueil</Text>
+            </Navigate>
+            <Navigate
+              className={styles.itemNavigation}
+              style={background(1)}
+              to={'audit'}
+              onPress={(arg, cb) => redirect(arg, cb, 1)}
+            >
+              <Text className={styles.textItem}>Audit</Text>
+            </Navigate>
+            <Navigate
+              className={styles.itemNavigation}
+              style={background(2)}
+              to={'dossiers'}
+              onPress={(arg, cb) => redirect(arg, cb, 2)}
+            >
+              <Text className={styles.textItem}>Dossiers</Text>
+            </Navigate>
+            <Navigate
+              className={styles.itemNavigation}
+              style={background(3)}
+              to={'comptes'}
+              onPress={(arg, cb) => redirect(arg, cb, 3)}
+            >
+              <Text className={styles.textItem}>Mon compte</Text>
+            </Navigate>
+          </View>
+        </View>
+      </Router>
     </View>
   )
 };

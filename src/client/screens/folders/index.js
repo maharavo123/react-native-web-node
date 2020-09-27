@@ -30,7 +30,7 @@ class FoldersScreen extends Component {
 
     return (
       <View className={styles.containt}>
-        <View className={styles.searchContainers}>
+        {/* <View className={styles.searchContainers}>
           <View className={styles.btnAdd}>
             <TouchableOpacity onPress={() => this.props.navigation(4)}>
               <Text className={styles.btnAddText}>Ajouter</Text>
@@ -77,7 +77,7 @@ class FoldersScreen extends Component {
               })
             }
           </ScrollView>
-        </View>
+        </View> */}
       </View>
     );
   }
