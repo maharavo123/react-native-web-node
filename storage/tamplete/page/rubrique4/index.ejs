@@ -6,29 +6,39 @@
         style="width: 10px; height: 10px;"></div>
     <h4><span class="number">4.3.1</span> Consommations théoriques en énergie finale</h4>
   </div>
-  <div id="graphique"><img src="<%= baseURL %>tamplete/img/r4/graphique.png" style="width: 100px; height: 100px;">
-  </div>
-  <div id="Objetdynamiquevector">
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_12.png" style="width: 30px; height: 10px;">
-      chauffage</div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_13.png" style="width: 30px; height: 10px;">ECS
+  <div id="graphique">
+    <div style="width: 200px; height: 140px; float: left; padding-right: 0px; padding-left: 0px;">
+      <canvas id="myChart" height="240px" style="margin-left: -20px; height: 140px;" ></canvas>
     </div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_14.png"
-        style="width: 30px; height: 10px;">Eclairage </div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_15.png" style="width: 30px; height: 10px;">
-      ventilation</div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_16.png" style="width: 30px; height: 10px;"> autre
-      usage </div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_17.png" style="width: 30px; height: 10px;">
-      réfroidissemnt</div>
-    <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_18.png" style="width: 30px; height: 10px;">
-      AUXILLIAIRE</div>
+    <div style="float: right; width: 220px; background-color: cyan;">
+      <p>ABONNEMENTS</p>
+      <p>corehenist officiandea quaq escipit qui delorum eum rem</p>
+      <p>corehenist officiandea quaq escipit qui delorum eum rem</p>
+    </div>
+    <div style="float: right; width: 120px; margin-right: 20px; font-size: 12px; margin-top: -100px;">
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_12.png" style="width: 25px; height: 10px;">
+        chauffage</div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_13.png" style="width: 25px; height: 10px;"> ECS
+      </div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_14.png"
+          style="width: 25px; height: 10px;"> Eclairage </div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_15.png" style="width: 25px; height: 10px;">
+        ventilation</div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_16.png" style="width: 25px; height: 10px;"> autre
+        usage </div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_17.png" style="width: 25px; height: 10px;">
+        réfroidissemnt</div>
+      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_18.png" style="width: 25px; height: 10px;">
+        AUXILLIAIRE</div>
+    </div >
   </div>
-  <div id="paragraphe">
-    <p>« Le secteur du bâtiment absorbe 45 % de la consommation d'énergie nationale et produit 27 % des émissions de gaz
-      à effet de serre. Avec 7 à 8 millions
-      de passoires thermiques (logements classés F ou G) en France, l’Etat s’est fixé comme objectif de rénover 500 000
-      logements par an.</p>
+  <div style="clear: both;"></div>
+  <div style="margin-top: -81px; margin-left: 60px;" id="circleCenter">
+    <p>23 000</p>
+    <p>KwH EF/an</p>
+    <p>23 000</p>
+    <p>€/an</p>
+  </div>
   </div>
   <div id="table">
     <table>
