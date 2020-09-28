@@ -76,8 +76,8 @@ class HomeScreen extends PureComponent {
 
   onDownload = () => {
     // console.log('onDownload');
-    this.onGenerate();
-    // window.open(url);
+    // this.onGenerate();
+    window.open(url);
   }
 
   render() {
