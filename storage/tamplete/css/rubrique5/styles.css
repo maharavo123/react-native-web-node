@@ -4,52 +4,39 @@
     margin: 10px;
 
   }
-  .r4-tittle,.td-2 { 
-    color: blue;
-    font-weight: bold;
-  }
-  .r4-tittle h3 { 
-    display: inline;}
+
   .number {
     color:green;
   }
-  #r4-footer{
-    margin-top: 10px;
-    background-color: #e9f2d3;
-    height: 88px;
-    border-radius: 5px;
-  }
-  .aside {
- width: 170px;
- height: 170px;
- display: inline-block;
 
+  .aside {
+    width: 170px;
+    height: 170px;
+    display: inline-block;
   }
+
   .top {
     border-top: 1px solid grey;
     padding: 15px;
     height: 170px;
-      }
-  .foto {
-width: 100%;
-height: 100%;
-  }   
-  #conteneur2{
-    background-color: lightgreen;
+  }
 
+  .foto {
+    width: 100%;
+    height: 100%;
+  }
+
+  #conteneurR5{
+    background-color: lightgreen;
   } 
-  .article{
+
+  .article {
     width: 45%;
     height: auto;
     display: inline-block;
     margin-left: 15px;
     margin-right: 15px;
     
-  }
-
-  #r4-footer-span{
-    padding-top: 20px;
-    display: block;
   }
 
 }
