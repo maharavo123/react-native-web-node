@@ -13,12 +13,12 @@
   .number {
     color:green;
   }
-  h3 , th {
-    color: darkblue;
+  h3{
+    color: blue;
   }
   .article1 {
     display: inline-block;
-    height: 170px;
+    z-index: 1;
    
      }
   .aside {
@@ -33,5 +33,25 @@
      .foto {
    width: 100%;
    height: 100%;
-     }   
+     }  
+     .article2 {
+       width: 30%;
+       height:auto;
+       display: inline-block;
+       padding-left: 15px;
+       color: black;
+       font-size: 10px;
+     }
+    
+     .td-R8 {
+        width: 20%;
+        height: 150px;
+        margin: 10px;
+        border-right: lavender 1px solid;
+     }
+     .conteneurR8 {
+       border-top: darkgrey solid 1px;
+       padding: 15px;
+       height: 160px;
+     }
 }
