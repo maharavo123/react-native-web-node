@@ -1,0 +1,40 @@
+/* 2480x3508 */
+@media print {
+  #rubrique5 {
+    margin: 10px;
+
+  }
+  .r4-tittle,.td-2 { 
+    color: blue;
+    font-weight: bold;
+  }
+  .r4-tittle h3 { 
+    display: inline;}
+  .number {
+    color:green;
+  }
+
+  .aside {
+ width: 170px;
+ height: 170px;
+ display: inline-block;
+
+  }
+  .top {
+    padding: 15px;
+    height: 170px;
+      }
+  .foto {
+width: 100%;
+height: 100%;
+  }   
+  .r7-tittle{
+    background-color: cadetblue;
+  }
+
+  #r4-footer-span{
+    padding-top: 20px;
+    display: block;
+  }
+
+}
