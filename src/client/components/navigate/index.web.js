@@ -3,11 +3,11 @@ import { View, TouchableOpacity } from 'react-native';
 import { useHistory } from 'react-router-dom';
 
 const LinkTo = props => {
-  const { children, className, to, onPress, style, activeOpacity= 0 } = props;
+  const { children, className, to, onPress, style, activeOpacity = 0, params } = props;
   const history = useHistory();
-
+  console.log({ params })
   const redirect = () => {
-    onPress({}, () => history.push(to));
+    onPress({}, () => history.push(to, { params }));
   }
 
   return (

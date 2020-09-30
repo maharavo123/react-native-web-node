@@ -59,10 +59,26 @@ class AuditScreen extends PureComponent {
               <View>
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
                   <View />
-                  <View style={{ marginBottom: -30, padding: 5, marginRight: -25 }}>
+                  <View style={{ marginBottom: -90, padding: 5, marginRight: -35 }}>
+                  <Navigate
+                    key={`${_id} name`}
+                    className={{}}
+                    style={{}}
+                    to={'add-audit'}
+                    params={{ name, etoile, _id }}
+                    onPress={(arg, cb) => this.navigateTo(arg, cb)}
+                    >
+                    {/* <TouchableOpacity
+                      onPress={() => this.props.editAudit(_id)}
+                      style={{  }}> */}
+                      <Image
+                        source={images.edit}
+                        className={styles.recycle}
+                      />
+                    </Navigate>
                     <TouchableOpacity
                       onPress={() => this.props.deleteAudit(_id)}
-                      style={{ padding: 10 }}>
+                      style={{ marginTop: 5 }}>
                       <Image
                         source={images.recycle}
                         className={styles.recycle}

@@ -29,10 +29,20 @@ export const addAudit = (data, callBack) => async (dispatch) => {
 export const deleteAudit = (id, callBack) => async (dispatch) => {
   const payload = await serviceApplicatif.deleteAudit(`${constants.url.deleteAudit}/${id}`);
   callBack && callBack(payload);
-  console.log({ payload: payload.data });
   if (payload && payload.data && payload.data.sucsess) {
     return dispatch({
       type: constants.deleteAudit,
+      payload: payload.data.sucsess,
+    });
+  }
+};
+
+export const editAudit = (id, callBack) => async (dispatch) => {
+  const payload = await serviceApplicatif.editAudit(`${constants.url.deleteAudit}/${id}`);
+  callBack && callBack(payload);
+  if (payload && payload.data && payload.data.sucsess) {
+    return dispatch({
+      type: constants.editAudit,
       payload: payload.data.sucsess,
     });
   }

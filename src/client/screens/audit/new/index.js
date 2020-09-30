@@ -37,15 +37,14 @@ class AuditNewScreen extends PureComponent {
   }
 
   callBack = (res, cb) => {
+    console.log('callBack =====================+>', { cb });
     if (res && res.data) {
       cb && typeof cb === 'function' && cb();
     }
   }
 
   navigateTo = (arc, cb) => {
-    console.log({ arc });
-    // cb && typeof cb === 'function' && cb();
-    console.log(this.state)
+    console.log('=====================+>', { arc });
     this.props.addAudit(this.state, (res) => this.callBack(res, cb));
   }
 
@@ -62,6 +61,7 @@ class AuditNewScreen extends PureComponent {
 
   render() {
     const { name, rubriques, etoile } = this.state;
+    console.log(this.props)
     return (
       <View className={styles.containtNew}>
         <View className={styles.bodyNew}>
@@ -126,7 +126,7 @@ class AuditNewScreen extends PureComponent {
             <Navigate
               className={{}}
               style={this.validation() ? { backgroundColor: '#2C7AC3', borderRadius: 10 } : { borderRadius: 10 }}
-              to={'/add-audit'}
+              to={'/audit'}
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
               activeOpacity={this.validation() ? 0 : 1}
             >

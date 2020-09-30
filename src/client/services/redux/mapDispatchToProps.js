@@ -1,5 +1,5 @@
 import crud from './actions/crud';
-import { setFormAudit, addAudit, getAll, deleteAudit } from './actions/audit';
+import { setFormAudit, addAudit, getAll, deleteAudit, editAudit } from './actions/audit';
 import users from './actions/users';
 import folders from './actions/folders';
 import comptes from './actions/comptes';
@@ -33,6 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
   addAudit: (payload, cb) => dispatch(addAudit(payload, cb)),
   getAll: (payload, cb) => dispatch(getAll(payload, cb)),
   deleteAudit: (payload, cb) => dispatch(deleteAudit(payload, cb)),
+  editAudit: (payload, cb) => dispatch(editAudit(payload, cb)),
 });
 
 export default mapDispatchToProps;

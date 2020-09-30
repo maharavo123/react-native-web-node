@@ -4,4 +4,5 @@ export default {
   getAll: (url) => audit.getAll(url),
   addAudit: (url, data) => audit.addAudit(url, data),
   deleteAudit: (url) => audit.deleteAudit(url),
+  editAudit: (url) => audit.deleteAudit(url),
 };

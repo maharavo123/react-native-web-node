@@ -13,4 +13,5 @@ export default {
   time: require('./images/time.png'),
   pdf3: require('./images/pdf3.png'),
   recycle: require('./images/recycle.png'),
+  edit: require('./images/edit.png'),
 };

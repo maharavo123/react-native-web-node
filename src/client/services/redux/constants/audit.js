@@ -11,5 +11,6 @@ export default {
   form: 'formAudit',
   getAll: 'getAll',
   deleteAudit: 'deleteAudit',
+  editAudit: 'editAudit',
   url,
 };
