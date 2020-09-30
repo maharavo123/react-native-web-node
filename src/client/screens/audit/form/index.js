@@ -49,6 +49,10 @@ class HomeScreen extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Fiche Audit" });
+  }
+
   validation = () => {
     const { csv, xml, documentName, clientName, lieuName, name, phoneFix, phonePortable, mail  } = this.state;
     return csv && xml && documentName && clientName && lieuName && name && phoneFix && phonePortable && mail

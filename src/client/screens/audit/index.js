@@ -20,7 +20,7 @@ class AuditScreen extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.navigateHeader({ index: 1, name: 'Créer un audit' });
+    this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Choix type d'audit" });
   }
 
   navigateTo = (arc, cb) => {
@@ -31,6 +31,22 @@ class AuditScreen extends PureComponent {
     return (
       <View className={styles.containt}>
         <View className={styles.body}>
+          <View className={styles.itemView} style={{}}>
+            <Navigate
+              className={{}}
+              style={{}}
+              to={'page-coverture'}
+              onPress={(arg, cb) => this.navigateTo(arg, cb)}
+            >
+              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+              </View>
+            </Navigate>
+            <Text className={styles.name}>Existant</Text>
+          </View>
           <View className={styles.itemView}>
             <Navigate
               className={{}}
@@ -38,25 +54,41 @@ class AuditScreen extends PureComponent {
               to={'page-coverture'}
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
             >
-              <Image
-                source={images.audit}
-                className={styles.icon}
-              />
+              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+              </View>
             </Navigate>
-            <Text className={styles.name}>Existant</Text>
-          </View>
-          <View className={styles.itemView}>
-            <Image
-              source={images.files}
-              className={styles.icon}
-            />
             <Text className={styles.name}>Optimum</Text>
           </View>
           <View className={styles.itemView}>
-            <Image
-              source={images.files}
-              className={styles.icon}
-            />
+            <Navigate
+              className={{}}
+              style={{}}
+              to={'page-coverture'}
+              onPress={(arg, cb) => this.navigateTo(arg, cb)}
+            >
+              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+                <Image
+                  source={images.star}
+                  className={styles.icon}
+                />
+              </View>
+            </Navigate>
             <Text className={styles.name}>Premium</Text>
           </View>
           <View className={styles.itemView}>

@@ -7,23 +7,24 @@
   opacity: 0.47;
   height: 40px;
   width: 90vw;
+  padding: 0 10px 0 10px;
 }
 
 .title {
-  color: #5A6978;
+  color: #2C7AC3;
   font-size: 18px;
   line-height: 62px;
   text-align: left;
 }
 
-.selector {
+.selectorTitleInput {
   justify-content: center;
 }
 
 .InputContaint {
   background-color: #2C7AC3;
   border: 1px solid #8492A6;
-  opacity: 0.56;
+  opacity: 0.6;
   width: 90vw;
   padding: 0 1vw 0 1vw;
   justify-content: space-around;
