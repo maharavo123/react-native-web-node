@@ -1,17 +1,18 @@
-import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 
-import mapStateToProps from 'mapStateToProps';
-import mapDispatchToProps from 'mapDispatchToProps';
+import mapStateToProps from '../../services/redux/mapStateToProps';
+import mapDispatchToProps from '../../services/redux/mapDispatchToProps';
 
-import styles from 'css/screens/home/styles.css';
+import Create from './create';
 
-class CompteScreen extends PureComponent {
+class ComptesScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
+      isReady: false,
+      data: {},
     };
   }
 
@@ -19,11 +20,21 @@ class CompteScreen extends PureComponent {
     this.props.navigateHeader({ index: 3, name: 'Mon Compte' });
   }
 
+  signUp = async (data, callBack) => {
+    this.props.signup(data, callBack);
+  }
+
   render() {
-    console.log('CompteScreen');
+    const { users } = this.props;
+    const user = { ...users?.user, role: 2 };
+
     return (
-      <View className={styles.containt}>
-        <Text className={styles.textFull}>Compte</Text>
+      <View style={{ flex: 1 }}>
+        <Create
+          {...this.props}
+          signUp={this.signUp}
+          user={user}
+        />
       </View>
     );
   }
@@ -32,4 +43,4 @@ class CompteScreen extends PureComponent {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CompteScreen);
+)(ComptesScreen);

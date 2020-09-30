@@ -50,7 +50,8 @@ const Headers = (props) => {
                 className={styles.thremi_png}
               />
             </View>
-            <View>
+            <View style={{ justifyContent: 'flex-end', flexDirection: 'row' }}>
+              <View style={{ justifyContent: 'center', paddingRight: 10 }}><Text>LEFAVRE Eric</Text></View>
               <Navigate
                 className={{}}
                 style={{}}
