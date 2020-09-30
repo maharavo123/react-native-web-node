@@ -13,32 +13,40 @@ import Navigate from '../../../components/navigate';
 
 import styles from './styles.css';
 
-const inputT = [
-  { id: 1, label: 'Nom du document*', state: 'documentName' },
-  { id: 2, label: 'Nom du client*', state: 'clientName' },
-  { id: 3, label: 'Nom du lieu*', state: 'lieuName' },
-  { id: 4, label: 'Référence dossier*', state: 'reference' },
+// type_audit
+
+const inputLeft = [
+  { id: 1, label: 'Référence du document*', state: 'reference_document', default_value: '' },
+  { id: 2, label: 'Nom du client*', state: 'nom_client', default_value: '' },
+];
+
+const inputCenter = [
+  { id: 155, label: 'Adresse*', state: 'adress_client', default_value: '' },
+  { id: 254, label: 'Code postal*', state: 'code_client', default_value: '' },
+  { id: 366, label: 'Ville*', state: 'vile_client', default_value: '' },
+];
+
+const inputRigth = [
+  { id: 336, label: 'Telephone portable*', state: 'phone_client', default_value: '' },
+  { id: 323, label: 'Mail*', state: 'mail_client', default_value: '' },
 ];
 
 const inputT2 = [
-  { id: 12, label: 'Nom et prénom*', state: 'name' },
-  { id: 24, label: 'Telephone fixe*', state: 'phoneFix' },
-  { id: 33, label: 'Telephone portable*', state: 'phonePortable' },
-  { id: 32, label: 'Mail*', state: 'mail' },
+  { id: 12, label: 'Nom et prénom*', state: 'nom_interlocuteur', default_value: '' },
+  { id: 24, label: 'Telephone fixe', state: 'phone_fix_interlocuteur', default_value: '' },
+  { id: 33, label: 'Telephone portable*', state: 'phone_interlocuteur', default_value: '' },
+  { id: 32, label: 'Mail*', state: 'mail_interlocuteur', default_value: '' },
 ];
+
+const initialStateInput = [...inputLeft, ...inputCenter, ...inputRigth].reduce((acc, { state, default_value }) =>
+  ({ ...acc, [state]: default_value }), {})
 
 class HomeScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      documentName: '',
-      clientName: '',
-      lieuName: '',
-      name: '',
-      phoneFix: '',
-      phonePortable: '',
-      reference: '',
-      mail: '',
+      ...initialStateInput,
+      type_audit: 'Existant',
       csv: null,
       liciel: null,
       kizeo: null,
@@ -54,19 +62,21 @@ class HomeScreen extends PureComponent {
   }
 
   validation = () => {
-    const { csv, xml, documentName, clientName, lieuName, name, phoneFix, phonePortable, mail  } = this.state;
-    return csv && xml && documentName && clientName && lieuName && name && phoneFix && phonePortable && mail
-      && documentName.length > 2 && clientName.length > 2 && lieuName.length > 2 && name.length > 2 && phoneFix.length > 2 && phonePortable.length > 2 && mail.length > 2
+    return !Object.keys(initialStateInput).some(i => {
+      const state = this.state[i];
+      console.log({ [i]: state });
+      return (!state || state.length < 4);
+    });
   }
 
-  navigateTo = async (arc, cb) => {
+  navigateTo = async (_arc, cb) => {
     const { loading, liciel, kizeo, errors, imagesAll, ...inputForm } = this.state;
     if (loading) return;
     if (this.validation()) {
-        this.setState({ loading: true });
-        await this.props.getPfd(inputForm, () => cb && typeof cb === 'function' && cb());
-        await this.props.setFormAudit(inputForm);
-        this.setState({ loading: false });
+      this.setState({ loading: true });
+      await this.props.getPfd(inputForm, () => cb && typeof cb === 'function' && cb());
+      await this.props.setFormAudit(inputForm);
+      this.setState({ loading: false });
     } else {
       this.setState({ errors: true });
     }
@@ -81,27 +91,59 @@ class HomeScreen extends PureComponent {
           <View className={styles.corpsForm}>
             <TitleInput title={'Information du document'} />
             <InputContaint>
-              <FlatList style={{ margin: 5 }}
-                numColumns={2}
-                columnWrapperStyle={{ justifyContent: 'space-between' }}
-                data={inputT}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => {
-                  return (
-                    <InputText
-                      label={item.label}
-                      value={this.state[item.state]}
-                      onChangeText={(text) => this.setState({ [item.state]: text })}
-                    />
-                  )
-                }}
-              />
+              <View style={{ justifyContent: 'center', flexDirection: 'column', flex: 1, marginTop: 10, marginBottom: 10 }}>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                  {
+                    inputLeft.map(input => {
+                      return (
+                        <InputText
+                          columns={2}
+                          key={input.id}
+                          label={input.label}
+                          value={this.state[input.state]}
+                          onChangeText={(text) => this.setState({ [input.state]: text })}
+                        />
+                      )
+                    })
+                  }
+                </View>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                  {
+                    inputCenter.map(input => {
+                      return (
+                        <InputText
+                          columns={3}
+                          key={input.id}
+                          label={input.label}
+                          value={this.state[input.state]}
+                          onChangeText={(text) => this.setState({ [input.state]: text })}
+                        />
+                      )
+                    })
+                  }
+                </View>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                  {
+                    inputRigth.map(input => {
+                      return (
+                        <InputText
+                          columns={2}
+                          key={input.id}
+                          label={input.label}
+                          value={this.state[input.state]}
+                          onChangeText={(text) => this.setState({ [input.state]: text })}
+                        />
+                      )
+                    })
+                  }
+                </View>
+              </View>
             </InputContaint>
           </View>
           <View className={styles.corpsForm}>
             <TitleInput title={'Information interlocuteur'} />
             <InputContaint>
-              <FlatList style={{ margin: 5 }}
+              <FlatList style={{ marginTop: 10, marginBottom: 10 }}
                 numColumns={2}
                 columnWrapperStyle={{ justifyContent: 'space-between' }}
                 data={inputT2}

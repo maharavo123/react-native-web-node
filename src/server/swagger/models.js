@@ -4,8 +4,8 @@ module.exports = {
   swagger: '2.0',
   info: {
     version: '1.0.0',
-    title: 'Gestion banquaire Application API',
-    description: 'Gestion banquaire Application API',
+    title: 'Audit Energetique Application API',
+    description: 'Gestion Audit Energetique Application API',
     license: {
       name: 'MIT',
       url: 'https://opensource.org/licenses/MIT',
@@ -22,6 +22,10 @@ module.exports = {
       name: 'Folders',
       description: 'API for folders in the system',
     },
+   {
+     name: 'Audit',
+     description: 'API for audit in the system',
+   } 
   ],
   schemes: [
     'https',
@@ -102,7 +106,7 @@ module.exports = {
             schema: {
               properties: {
                 error: {
-                  type: 'Invalid token.',
+                  type: 'string',
                 },
               },
             },
@@ -110,12 +114,446 @@ module.exports = {
         },
       },
     },
-    '/comptes': {
+    // '/comptes': {
+    //   get: {
+    //     tags: [
+    //       'Comptes',
+    //     ],
+    //     summary: 'Get all compte in system',
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'OK',
+    //         schema: {
+    //           $ref: '#/definitions/Comptes',
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   post: {
+    //     tags: [
+    //       'Comptes',
+    //     ],
+    //     description: 'Create new compte in system',
+    //     parameters: [
+    //       {
+    //         name: 'comptes',
+    //         in: 'body',
+    //         description: 'Comptes that we want to signin',
+    //         schema: {
+    //           properties: {
+    //             rib: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     produces: [
+    //       'application/json',
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'OK',
+    //         schema: {
+    //           $ref: '#/definitions/Comptes',
+    //         },
+    //       },
+    //       400: {
+    //         description: 'Bad Request',
+    //         schema: {
+    //           $ref: '#/definitions/Errors',
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    // '/comptes/{compteId}': {
+    //   parameters: [
+    //     {
+    //       name: 'compteId',
+    //       in: 'path',
+    //       required: true,
+    //       description: 'ID of compte that we want to find',
+    //       type: 'string',
+    //     },
+    //   ],
+    //   get: {
+    //     tags: [
+    //       'Comptes',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     summary: 'Get Compte with given ID',
+    //     responses: {
+    //       200: {
+    //         description: 'Compte is found',
+    //         schema: {
+    //           $ref: '#/definitions/Comptes',
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Compte not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Compte not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   delete: {
+    //     summary: 'Delete Compte with given ID',
+    //     tags: [
+    //       'Comptes',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'Compte is deleted',
+    //         schema: {
+    //           properties: {
+    //             success: {
+    //               type: 'string',
+    //             },
+    //             _id: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Comptes not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Compte not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   put: {
+    //     summary: 'Update user with give ID',
+    //     tags: [
+    //       'Comptes',
+    //     ],
+    //     parameters: [
+    //       {
+    //         name: 'user',
+    //         in: 'body',
+    //         description: 'User with new values of properties',
+    //         schema: {
+    //           $ref: '#/definitions/Comptes',
+    //         },
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'User is updated',
+    //         schema: {
+    //           $ref: '#/definitions/Comptes',
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Compte not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Compte not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    // '/folders': {
+    //   get: {
+    //     tags: [
+    //       'Folders',
+    //     ],
+    //     summary: 'Get all Folders in system',
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'OK',
+    //         schema: {
+    //           $ref: '#/definitions/FoldersAll',
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   post: {
+    //     summary: 'Add folders',
+    //     tags: [
+    //       'Folders',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     parameters: [
+    //       {
+    //         name: 'user',
+    //         in: 'body',
+    //         description: 'User with new values of properties',
+    //         schema: {
+    //           $ref: '#/definitions/Folders',
+    //         },
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'User is updated',
+    //         schema: {
+    //           $ref: '#/definitions/Folders',
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       400: {
+    //         description: 'Bad Request',
+    //         schema: {
+    //           $ref: '#/definitions/Errors',
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    // '/folders/{foldersID}': {
+    //   parameters: [
+    //     {
+    //       name: 'foldersID',
+    //       in: 'path',
+    //       required: true,
+    //       description: 'ID of folders that we want to find',
+    //       type: 'string',
+    //     },
+    //   ],
+    //   get: {
+    //     tags: [
+    //       'Folders',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     summary: 'Get Folders with given ID',
+    //     responses: {
+    //       200: {
+    //         description: 'Folders is found',
+    //         schema: {
+    //           $ref: '#/definitions/Folders',
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Folders not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Folders not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   delete: {
+    //     summary: 'Delete Folders with given ID',
+    //     tags: [
+    //       'Folders',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'Folders is deleted',
+    //         schema: {
+    //           properties: {
+    //             success: {
+    //               type: 'string',
+    //             },
+    //             _id: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Folders not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Folders not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   put: {
+    //     summary: 'Update Folders with give ID',
+    //     tags: [
+    //       'Folders',
+    //     ],
+    //     security: [
+    //       {
+    //         JWT: [],
+    //       },
+    //     ],
+    //     parameters: [
+    //       {
+    //         name: 'Folders',
+    //         in: 'body',
+    //         description: 'Folders with new values of properties',
+    //         schema: {
+    //           $ref: '#/definitions/Folders',
+    //         },
+    //       },
+    //     ],
+    //     responses: {
+    //       200: {
+    //         description: 'Folders is updated',
+    //         schema: {
+    //           $ref: '#/definitions/Folders',
+    //         },
+    //       },
+    //       404: {
+    //         description: 'Folders not found',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'Folders not found',
+    //             },
+    //           },
+    //         },
+    //       },
+    //       401: {
+    //         description: 'KO',
+    //         schema: {
+    //           properties: {
+    //             error: {
+    //               type: 'string',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    '/audit': {
       get: {
         tags: [
-          'Comptes',
+          'Audit',
         ],
-        summary: 'Get all compte in system',
+        summary: 'Get all Audit in system',
         security: [
           {
             JWT: [],
@@ -125,7 +563,8 @@ module.exports = {
           200: {
             description: 'OK',
             schema: {
-              $ref: '#/definitions/Comptes',
+              // type: 'array',
+              $ref: '#/definitions/Audit',
             },
           },
           401: {
@@ -133,7 +572,7 @@ module.exports = {
             schema: {
               properties: {
                 error: {
-                  type: 'Invalid token.',
+                  type: 'string',
                 },
               },
             },
@@ -142,20 +581,16 @@ module.exports = {
       },
       post: {
         tags: [
-          'Comptes',
+          'Audit',
         ],
-        description: 'Create new compte in system',
+        description: 'Create new Audit in system',
         parameters: [
           {
-            name: 'comptes',
+            name: 'audit',
             in: 'body',
-            description: 'Comptes that we want to signin',
+            description: 'Audit that we want to create',
             schema: {
-              properties: {
-                rib: {
-                  type: 'string',
-                },
-              },
+              $ref: '#/definitions/Audit',
             },
           },
         ],
@@ -171,7 +606,7 @@ module.exports = {
           200: {
             description: 'OK',
             schema: {
-              $ref: '#/definitions/Comptes',
+              $ref: '#/definitions/Audit',
             },
           },
           400: {
@@ -185,7 +620,7 @@ module.exports = {
             schema: {
               properties: {
                 error: {
-                  type: 'Invalid token.',
+                  type: 'string',
                 },
               },
             },
@@ -193,39 +628,39 @@ module.exports = {
         },
       },
     },
-    '/comptes/{compteId}': {
+    '/audit/{auditId}': {
       parameters: [
         {
-          name: 'compteId',
+          name: 'auditId',
           in: 'path',
           required: true,
-          description: 'ID of compte that we want to find',
+          description: 'ID of Audit that we want to find',
           type: 'string',
         },
       ],
       get: {
         tags: [
-          'Comptes',
+          'Audit',
         ],
         security: [
           {
             JWT: [],
           },
         ],
-        summary: 'Get Compte with given ID',
+        summary: 'Get Audit with given ID',
         responses: {
           200: {
-            description: 'Compte is found',
+            description: 'Audit is found',
             schema: {
-              $ref: '#/definitions/Comptes',
+              $ref: '#/definitions/Audit',
             },
           },
           404: {
-            description: 'Compte not found',
+            description: 'Audit not found',
             schema: {
               properties: {
                 error: {
-                  type: 'Compte not found',
+                  type: 'Audit not found',
                 },
               },
             },
@@ -235,7 +670,7 @@ module.exports = {
             schema: {
               properties: {
                 error: {
-                  type: 'Invalid token.',
+                  type: 'string',
                 },
               },
             },
@@ -243,9 +678,9 @@ module.exports = {
         },
       },
       delete: {
-        summary: 'Delete Compte with given ID',
+        summary: 'Delete Audit with given ID',
         tags: [
-          'Comptes',
+          'Audit',
         ],
         security: [
           {
@@ -254,7 +689,7 @@ module.exports = {
         ],
         responses: {
           200: {
-            description: 'Compte is deleted',
+            description: 'Audit is deleted',
             schema: {
               properties: {
                 success: {
@@ -267,11 +702,11 @@ module.exports = {
             },
           },
           404: {
-            description: 'Comptes not found',
+            description: 'Audit not found',
             schema: {
               properties: {
                 error: {
-                  type: 'Compte not found',
+                  type: 'Audit not found',
                 },
               },
             },
@@ -281,7 +716,7 @@ module.exports = {
             schema: {
               properties: {
                 error: {
-                  type: 'Invalid token.',
+                  type: 'string',
                 },
               },
             },
@@ -289,254 +724,33 @@ module.exports = {
         },
       },
       put: {
-        summary: 'Update user with give ID',
+        summary: 'Update Audit with give ID',
         tags: [
-          'Comptes',
+          'Audit',
         ],
         parameters: [
           {
-            name: 'user',
+            name: 'audit',
             in: 'body',
-            description: 'User with new values of properties',
+            description: 'Audit with new values of properties',
             schema: {
-              $ref: '#/definitions/Comptes',
+              $ref: '#/definitions/Audit',
             },
           },
         ],
         responses: {
           200: {
-            description: 'User is updated',
+            description: 'Audit is updated',
             schema: {
-              $ref: '#/definitions/Comptes',
+              $ref: '#/definitions/Audit',
             },
           },
           404: {
-            description: 'Compte not found',
+            description: 'Audit not found',
             schema: {
               properties: {
                 error: {
-                  type: 'Compte not found',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    '/folders': {
-      get: {
-        tags: [
-          'Folders',
-        ],
-        summary: 'Get all Folders in system',
-        security: [
-          {
-            JWT: [],
-          },
-        ],
-        responses: {
-          200: {
-            description: 'OK',
-            schema: {
-              $ref: '#/definitions/FoldersAll',
-            },
-          },
-          401: {
-            description: 'KO',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Invalid token.',
-                },
-              },
-            },
-          },
-        },
-      },
-      post: {
-        summary: 'Add folders',
-        tags: [
-          'Folders',
-        ],
-        security: [
-          {
-            JWT: [],
-          },
-        ],
-        parameters: [
-          {
-            name: 'user',
-            in: 'body',
-            description: 'User with new values of properties',
-            schema: {
-              $ref: '#/definitions/Folders',
-            },
-          },
-        ],
-        responses: {
-          200: {
-            description: 'User is updated',
-            schema: {
-              $ref: '#/definitions/Folders',
-            },
-          },
-          401: {
-            description: 'KO',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Invalid token.',
-                },
-              },
-            },
-          },
-          400: {
-            description: 'Bad Request',
-            schema: {
-              $ref: '#/definitions/Errors',
-            },
-          },
-        },
-      },
-    },
-    '/folders/{foldersID}': {
-      parameters: [
-        {
-          name: 'foldersID',
-          in: 'path',
-          required: true,
-          description: 'ID of folders that we want to find',
-          type: 'string',
-        },
-      ],
-      get: {
-        tags: [
-          'Folders',
-        ],
-        security: [
-          {
-            JWT: [],
-          },
-        ],
-        summary: 'Get Folders with given ID',
-        responses: {
-          200: {
-            description: 'Folders is found',
-            schema: {
-              $ref: '#/definitions/Folders',
-            },
-          },
-          404: {
-            description: 'Folders not found',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Folders not found',
-                },
-              },
-            },
-          },
-          401: {
-            description: 'KO',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Invalid token.',
-                },
-              },
-            },
-          },
-        },
-      },
-      delete: {
-        summary: 'Delete Folders with given ID',
-        tags: [
-          'Folders',
-        ],
-        security: [
-          {
-            JWT: [],
-          },
-        ],
-        responses: {
-          200: {
-            description: 'Folders is deleted',
-            schema: {
-              properties: {
-                success: {
-                  type: 'string',
-                },
-                _id: {
-                  type: 'string',
-                },
-              },
-            },
-          },
-          404: {
-            description: 'Folders not found',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Folders not found',
-                },
-              },
-            },
-          },
-          401: {
-            description: 'KO',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Invalid token.',
-                },
-              },
-            },
-          },
-        },
-      },
-      put: {
-        summary: 'Update Folders with give ID',
-        tags: [
-          'Folders',
-        ],
-        security: [
-          {
-            JWT: [],
-          },
-        ],
-        parameters: [
-          {
-            name: 'Folders',
-            in: 'body',
-            description: 'Folders with new values of properties',
-            schema: {
-              $ref: '#/definitions/Folders',
-            },
-          },
-        ],
-        responses: {
-          200: {
-            description: 'Folders is updated',
-            schema: {
-              $ref: '#/definitions/Folders',
-            },
-          },
-          404: {
-            description: 'Folders not found',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Folders not found',
-                },
-              },
-            },
-          },
-          401: {
-            description: 'KO',
-            schema: {
-              properties: {
-                error: {
-                  type: 'Invalid token.',
+                  type: 'Audit not found',
                 },
               },
             },
@@ -713,6 +927,23 @@ module.exports = {
           type: 'string',
         },
         role: {
+          description: 'missing description',
+          type: 'string',
+        },
+      },
+    },
+    Audit: {
+      type: 'object',
+      properties: {
+        name: {
+          description: 'missing description',
+          type: 'string',
+        },
+        etoile: {
+          description: 'missing description',
+          type: 'string',
+        },
+        rubriques: {
           description: 'missing description',
           type: 'string',
         },

@@ -12,4 +12,5 @@ export default {
   right_arrow: require('./images/right-arrow.png'),
   time: require('./images/time.png'),
   pdf3: require('./images/pdf3.png'),
+  recycle: require('./images/recycle.png'),
 };

@@ -14,7 +14,7 @@ const { baseURL } = require('../config/index');
 
 // route
 const usersRoute = require('./routers/users');
-const operationsRouter = require('./routers/opetations');
+const auditRouter = require('./routers/audit');
 const comptesRouter = require('./routers/comptes');
 const foldersRouter = require('./routers/folders');
 const authRoute = require('./routers/auth');
@@ -177,11 +177,11 @@ app.use('/api/login', authRoute);
 
 app.use('/api/users', verifyToken, usersRoute);
 
-app.use('/api/operations', verifyToken, operationsRouter);
-
 app.use('/api/comptes', verifyToken, comptesRouter);
 
 app.use('/api/folders', verifyToken, foldersRouter);
+
+app.use('/api/audit', verifyToken, auditRouter);
 
 app.use(notFound);
 

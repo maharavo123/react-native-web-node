@@ -49,8 +49,8 @@ const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
   )
 }
 
-const InputText = ({ label, ...props }) => (
-  <View className={styles.inputView}>
+const InputText = ({ label, columns, ...props }) => (
+  <View className={styles[columns === 3 ? 'inputView3' : 'inputView']}>
     <Text className={styles.label}>{label}</Text>
     <TextInput
       className={styles.input}

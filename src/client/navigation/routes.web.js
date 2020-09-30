@@ -10,6 +10,7 @@ import history from './history';
 
 import Home from '../screens/home';
 import Audit from '../screens/audit';
+import NewAudit from '../screens/audit/new';
 import FormAudit from '../screens/audit/form';
 import Apercu from '../screens/audit/apercu';
 import Dossiers from '../screens/folders';
@@ -39,6 +40,9 @@ const App = props => {
           </Route>
           <Route path='/page-coverture'>
             <FormAudit {...props} />
+          </Route>
+          <Route path='/add-audit'>
+            <NewAudit {...props} />
           </Route>
           <Route path='/audit'>
             <Audit {...props} history={history} />

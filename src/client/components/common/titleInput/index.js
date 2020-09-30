@@ -11,7 +11,7 @@ const InputText = ({ title }) => (
       <Text className={styles.title}>{title}</Text>
     </View>
     <View className={styles.selectorTitleInput}>
-      <Image source={images.Raster} style={{ width: 25, height: 25 }} />
+      <Image source={images.Raster} style={{ width: 25, height: 25, tintColor: "red" }} />
     </View>
   </View>
 );

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
@@ -11,6 +11,21 @@ import Navigate from '../../components/navigate';
 
 import styles from './styles.css';
 
+const etoileList = (key) => {
+  switch (key) {
+    case 1:
+      return [1];
+    case 2:
+      return [2, 4];
+    case 3:
+      return [2, 3, 4];
+    case 4:
+      return [1, 2, 3, 4];
+    default:
+      return [];
+  }
+};
+
 class AuditScreen extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,6 +36,7 @@ class AuditScreen extends PureComponent {
 
   componentDidMount() {
     this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Choix type d'audit" });
+    this.props.getAll();
   }
 
   navigateTo = (arc, cb) => {
@@ -28,75 +44,91 @@ class AuditScreen extends PureComponent {
   }
 
   render() {
+    const { list } = this.props.audit;
     return (
       <View className={styles.containt}>
-        <View className={styles.body}>
-          <View className={styles.itemView} style={{}}>
+        <View className={styles.bodyAudit}>
+        <FlatList style={{ marginTop: 20, marginBottom: 10 }}
+          numColumns={4}
+          columnWrapperStyle={{ justifyContent: 'space-evenly', marginBottom: 10 }}
+          data={list}
+          keyExtractor={(item) => item._id}
+          renderItem={({ item }) => {
+            const { name, etoile, _id } = item;
+            return (
+              <View>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                  <View />
+                  <View style={{ marginBottom: -30, padding: 5, marginRight: -25 }}>
+                    <TouchableOpacity
+                      onPress={() => this.props.deleteAudit(_id)}
+                      style={{ padding: 10 }}>
+                      <Image
+                        source={images.recycle}
+                        className={styles.recycle}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              <View className={styles.itemViewC} style={{}}>
+                <Navigate
+                  key={`${_id} name`}
+                  className={{}}
+                  style={{}}
+                  to={'page-coverture'}
+                  onPress={(arg, cb) => this.navigateTo(arg, cb)}
+                >
+                  <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                    {
+                      (etoileList(etoile)).map((_i, key) => <Image
+                        key={`${key} etoile ${_id}`}
+                        source={images.star}
+                        className={styles.icon}
+                      />)
+                    }
+                  </View>
+                </Navigate>
+                <Text className={styles.name}>{name}</Text>
+              </View>
+              </View>
+            )
+          }}
+        />
+          {/* {
+            list && list.map(({ name, etoile }, index) => <View className={styles.itemViewC} style={{}}>
+              <Navigate
+                key={`${index} name`}
+                className={{}}
+                style={{}}
+                to={'page-coverture'}
+                onPress={(arg, cb) => this.navigateTo(arg, cb)}
+              >
+                <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                  {
+                    (etoileList(etoile)).map((_i, key) => <Image
+                      key={`${key} etoile ${name}`}
+                      source={images.star}
+                      className={styles.icon}
+                    />)
+                  }
+                </View>
+              </Navigate>
+              <Text className={styles.name}>{name}</Text>
+            </View>)
+          } */}
+          <View className={styles.itemViewC}>
             <Navigate
               className={{}}
               style={{}}
-              to={'page-coverture'}
+              to={'/add-audit'}
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
             >
-              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-              </View>
+              <Image
+                source={images.plus}
+                className={styles.icon}
+              />
+              <Text className={styles.name}>Ajout</Text>
             </Navigate>
-            <Text className={styles.name}>Existant</Text>
-          </View>
-          <View className={styles.itemView}>
-            <Navigate
-              className={{}}
-              style={{}}
-              to={'page-coverture'}
-              onPress={(arg, cb) => this.navigateTo(arg, cb)}
-            >
-              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-              </View>
-            </Navigate>
-            <Text className={styles.name}>Optimum</Text>
-          </View>
-          <View className={styles.itemView}>
-            <Navigate
-              className={{}}
-              style={{}}
-              to={'page-coverture'}
-              onPress={(arg, cb) => this.navigateTo(arg, cb)}
-            >
-              <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-                <Image
-                  source={images.star}
-                  className={styles.icon}
-                />
-              </View>
-            </Navigate>
-            <Text className={styles.name}>Premium</Text>
-          </View>
-          <View className={styles.itemView}>
-            <Image
-              source={images.plus}
-              className={styles.icon}
-            />
-            <Text className={styles.name}>Ajout</Text>
           </View>
         </View>
       </View>
