@@ -136,6 +136,18 @@ app.post("/api/generateReport", (req, res) => {
 	ejs.renderFile(path.join(__dirname, '../../storage/tamplete/', "index.ejs"), {
         baseURL,
         ...req.body,
+        datasets: [{
+        backgroundColor: [
+          "#2ecc71",
+          "#3498db",
+          "#95a5a6",
+          "#9b59b6",
+          "#f1c40f",
+          "#e74c3c",
+          "#34495e"
+        ],
+        data: [12, 19, 3, 17, 28, 24, 7]
+      }],
     }, (err, data) => {
         if (err) {
           console.log("err =====> File created Field", err);

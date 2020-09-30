@@ -17,6 +17,7 @@ const inputT = [
   { id: 1, label: 'Nom du document*', state: 'documentName' },
   { id: 2, label: 'Nom du client*', state: 'clientName' },
   { id: 3, label: 'Nom du lieu*', state: 'lieuName' },
+  { id: 4, label: 'Référence dossier*', state: 'reference' },
 ];
 
 const inputT2 = [
@@ -36,6 +37,7 @@ class HomeScreen extends PureComponent {
       name: '',
       phoneFix: '',
       phonePortable: '',
+      reference: '',
       mail: '',
       csv: null,
       liciel: null,
