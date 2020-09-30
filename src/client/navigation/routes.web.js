@@ -22,7 +22,8 @@ import styles from './styles.css';
 
 const App = props => {
   return (
-    <Router history={history}>
+    <View className={styles.corps1}>
+      <Router history={history}>
       <div>
         <Switch>
           <Route exact path='/'>
@@ -54,6 +55,7 @@ const App = props => {
         </Switch>
       </div>
     </Router>
+    </View>
   );
 }
 

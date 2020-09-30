@@ -21,12 +21,11 @@ import styles from './styles.css';
 const colors = {
   activated: '#2C7AC3',
   noActive: 'white'
-}
+};
 
 const Headers = (props) => {
-  const [index, setIndex] = useState(0);
+  const { crud } = props;
   const redirect = (arg, cb, i) => {
-    setIndex(i);
     console.log({ arg, cb });
     cb && typeof cb === 'function' && cb();
   }
@@ -36,7 +35,7 @@ const Headers = (props) => {
     props.logout();
   }
 
-  const background = i => i === index
+  const background = i => i === crud.navigate?.index || 0
     ? { backgroundColor: colors.activated }
     : { backgroundColor: colors.noActive };
 
@@ -80,7 +79,7 @@ const Headers = (props) => {
               to={'audit'}
               onPress={(arg, cb) => redirect(arg, cb, 1)}
             >
-              <Text className={styles.textItem}>Audit</Text>
+              <Text className={styles.textItem}>Créer un audit</Text>
             </Navigate>
             <Navigate
               className={styles.itemNavigation}
@@ -88,7 +87,7 @@ const Headers = (props) => {
               to={'dossiers'}
               onPress={(arg, cb) => redirect(arg, cb, 2)}
             >
-              <Text className={styles.textItem}>Dossiers</Text>
+              <Text className={styles.textItem}>Rechercher</Text>
             </Navigate>
             <Navigate
               className={styles.itemNavigation}
@@ -99,6 +98,9 @@ const Headers = (props) => {
               <Text className={styles.textItem}>Mon compte</Text>
             </Navigate>
           </View>
+        </View>
+        <View className={styles.headerTitleView}>
+          <Text className={styles.headerTitle}>{ crud.navigate?.name || 'Accueil'}</Text>
         </View>
       </Router>
     </View>

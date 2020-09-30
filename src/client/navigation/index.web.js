@@ -8,7 +8,6 @@ import mapDispatchToProps from 'mapDispatchToProps';
 import styles from './styles.css';
 
 import Headers from '../components/headers';
-import NavBar from '../components/navBar';
 import Routes from './routes.web';
 import history from './history';
 
@@ -23,13 +22,8 @@ class LayoutApp extends Component {
     return (
       <ScrollView className={styles.wrapper}>
         <View className={styles.containt}>
-          <View className={styles.body}>
-            <Headers {...this.props} history={history} />
-            <View className={styles.corps}>
-              {/* <NavBar {...this.props} /> */}
-              <Routes {...this.props} />
-            </View>
-          </View>
+          <Headers {...this.props} history={history} />
+          <Routes {...this.props} />
         </View>
       </ScrollView>
     );

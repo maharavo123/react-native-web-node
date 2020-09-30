@@ -40,10 +40,10 @@ const MyDropzone = ({ children, accept, onAddfile, multiple }) => {
     })
   }, [])
   const { getRootProps, getInputProps } = useDropzone({ onDrop })
-
+  // directory="" webkitdirectory=""
   return (
     <div {...getRootProps()}>
-      <input {...getInputProps()} accept={accept} multiple={multiple} />
+      <input {...getInputProps()} accept={accept} multiple={multiple} /> 
       {children}
     </div>
   )

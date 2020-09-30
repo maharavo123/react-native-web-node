@@ -17,6 +17,7 @@ class FoldersScreen extends Component {
   }
 
   componentDidMount() {
+    this.props.navigateHeader({ index: 2, name: 'Rechercher' });
     this.props.getAllfolders(this.cb);
   }
 
@@ -42,7 +43,7 @@ class FoldersScreen extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        <View className={styles.listContainers}>
+        {/* <View className={styles.listContainers}>
           <ScrollView>
             {
               folders && folders.map(({ info_generale, _id }) => {
@@ -71,7 +72,7 @@ class FoldersScreen extends Component {
               })
             }
           </ScrollView>
-        </View>
+        </View> */}
       </View>
     );
   }

@@ -11,3 +11,7 @@ export const getAllCrud = (callBack) => async (dispatch) => {
     });
   }
 };
+
+export const navigateHeader = (payload) => ({ payload, type: constants.navigateHeader });
+
+export default { navigateHeader, getAllCrud };

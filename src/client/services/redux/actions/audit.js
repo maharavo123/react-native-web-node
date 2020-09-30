@@ -12,4 +12,4 @@ export const getAllCrud = (callBack) => async (dispatch) => {
   }
 };
 
-export const setFormAudit = (payload, cb) => (dispatch) => dispatch({ payload, type: constants.form })
+export const setFormAudit = (payload, cb) => ({ payload, type: constants.form });

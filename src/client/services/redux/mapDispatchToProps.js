@@ -6,6 +6,7 @@ import comptes from './actions/comptes';
 
 const mapDispatchToProps = (dispatch) => ({
   getAllCrud: (payload, cb) => dispatch(crud.getAllCrud(payload, cb)),
+  navigateHeader: (payload, cb) => dispatch(crud.navigateHeader(payload, cb)),
 
   // Users
   signin: (payload, cb) => dispatch(users.signin(payload, cb)),

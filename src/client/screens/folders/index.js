@@ -17,6 +17,7 @@ class FoldersScreen extends Component {
   }
 
   componentDidMount() {
+    this.props.navigateHeader({ index: 2, name: 'Rechercher' });
     this.props.getAllfolders(this.cb);
   }
 

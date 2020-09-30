@@ -15,6 +15,10 @@ class CompteScreen extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.props.navigateHeader({ index: 3, name: 'Mon Compte' });
+  }
+
   render() {
     console.log('CompteScreen');
     return (

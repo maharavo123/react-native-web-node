@@ -3,7 +3,7 @@
 }
 
 .body {
-  height: 80vh;
+  height: 75vh;
   width: 96vw;
   justify-content: space-around;
   flex-direction: row;
@@ -14,11 +14,11 @@
 
 .icon {
   width: 80px;
-  height: 70px;
+  height: 80px;
 }
 
 .itemView {
-  opacity: 0.22;
+  opacity: 0.5;
   background-color: #13CE66;
   justify-content: center;
   align-content: center;
@@ -38,7 +38,7 @@
 
 @media screen and (min-width: 67rem) {
   .itemView {
-    opacity: 0.22;
+    opacity: 0.5;
     background-color: #13CE66;
     justify-content: center;
     align-content: center;

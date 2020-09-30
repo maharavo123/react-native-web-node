@@ -11,12 +11,16 @@ import Navigate from '../../components/navigate';
 
 import styles from './styles.css';
 
-class HomeScreen extends PureComponent {
+class AuditScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       message: '',
     };
+  }
+
+  componentDidMount() {
+    this.props.navigateHeader({ index: 1, name: 'Créer un audit' });
   }
 
   navigateTo = (arc, cb) => {
@@ -71,4 +75,4 @@ class HomeScreen extends PureComponent {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomeScreen);
+)(AuditScreen);

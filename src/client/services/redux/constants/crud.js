@@ -5,4 +5,5 @@ const url = {
 export default {
   getAll: 'getAll',
   url,
+  navigateHeader: 'navigateHeader',
 };

@@ -1,17 +1,16 @@
-.containt {
+.containtForm {
   /* width: 95vw; */
   /* height: 85vh; */
   background-color: #97CC53;
 }
 
-.body {
+.bodyForm {
   padding: 1vh 0 2vh 0;
   justify-content: center;
 }
 
-.corps {
+.corpsForm {
   justify-content: center;
-  width: 95vw;
   align-items: center;
 }
 
@@ -25,7 +24,7 @@
   height: 25px;
 }
 
-.selector {
+.selectorForm {
   justify-content: center;
   align-items: center;
   background-color: #5A6978;

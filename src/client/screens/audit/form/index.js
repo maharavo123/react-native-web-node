@@ -70,9 +70,9 @@ class HomeScreen extends PureComponent {
   render() {
     console.log(this.state);
     return (
-      <View className={styles.containt}>
-        <View className={styles.body}>
-          <View className={styles.corps}>
+      <View className={styles.containtForm}>
+        <View className={styles.bodyForm}>
+          <View className={styles.corpsForm}>
             <TitleInput title={'Information du document'} />
             <InputContaint>
               <FlatList style={{ margin: 5 }}
@@ -92,7 +92,7 @@ class HomeScreen extends PureComponent {
               />
             </InputContaint>
           </View>
-          <View className={styles.corps}>
+          <View className={styles.corpsForm}>
             <TitleInput title={'Information interlocuteur'} />
             <InputContaint>
               <FlatList style={{ margin: 5 }}
@@ -112,7 +112,7 @@ class HomeScreen extends PureComponent {
               />
             </InputContaint>
           </View>
-          <View className={styles.corps}>
+          <View className={styles.corpsForm}>
             <TitleInput title={'Import fichier'} />
             <InputContaint>
               <View className={styles.importFileView}>
@@ -147,7 +147,7 @@ class HomeScreen extends PureComponent {
               </View>
             </InputContaint>
           </View>
-          <View className={styles.corps}>
+          <View className={styles.corpsForm}>
             <Navigate
               className={{}}
               style={this.validation() ? { backgroundColor: '#2C7AC3', borderRadius: 10 } : { borderRadius: 10 }}
@@ -155,7 +155,7 @@ class HomeScreen extends PureComponent {
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
               activeOpacity={this.validation() ? 0 : 1}
             >
-              {this.state.loading ? <ActivityIndicator size='large' color='red' style={{ padding: 10 }} /> : <View className={styles.selector}>
+              {this.state.loading ? <ActivityIndicator size='large' color='red' style={{ padding: 10 }} /> : <View className={styles.selectorForm}>
                 <Image source={images.right_arrow} className={styles.right_arrow} />
                 <Text>Valider</Text>
               </View>}

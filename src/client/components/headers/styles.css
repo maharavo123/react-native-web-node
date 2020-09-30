@@ -13,6 +13,20 @@
   /* height: 5vh; */
 }
 
+.headerTitle {
+  color: #2C7AC3;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.headerTitleView {
+  height: 5vh;
+  background-color: #97CC53;
+  justify-content: center;
+  padding-left: 10px;
+}
+
 .logout_png {
   width: 3vh;
   height: 3vh;
@@ -21,8 +35,8 @@
 
 @media screen and (min-width: 67rem) {
   .thremi_png {
-    width: 25vh;
-    height: 6vh;
+    width: 32vh;
+    height: 7.5vh;
     margin: 0 0 0 5vh;
   }
   .containt {

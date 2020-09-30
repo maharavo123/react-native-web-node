@@ -3,9 +3,17 @@
   height: 100vh;
 }
 
+.corps1 {
+  margin-top: 6vh;
+}
+
 .corps3 {
   justify-content: start;
   flex-direction: row;
+}
+
+.body {
+  background-color: red;
 }
 
 @media screen and (min-width: 67rem) {

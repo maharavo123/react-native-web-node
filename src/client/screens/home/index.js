@@ -17,6 +17,10 @@ class AuditScreen extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.props.navigateHeader({ index: 0, name: 'Accueil' });
+  }
+
   render() {
     return (
       <View className={styles.containt}>
@@ -26,14 +30,14 @@ class AuditScreen extends PureComponent {
               source={images.audit}
               className={styles.icon}
             />
-            <Text className={styles.name}>Nouvelle audits</Text>
+            <Text className={styles.name}>Créer un nouvel audit</Text>
           </View>
           <View className={styles.itemView}>
             <Image
               source={images.files}
               className={styles.icon}
             />
-            <Text className={styles.name}>Consulter un dossier</Text>
+            <Text className={styles.name}>Rechercher un audit, un client, ....</Text>
           </View>
         </View>
       </View>
