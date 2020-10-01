@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   // oneRibOperation: (payload, cb) => dispatch(folders.oneRibOperation(payload, cb)),
   getAllfolders: (payload, cb) => dispatch(folders.getAllfolders(payload, cb)),
   getPfd: (payload, cb) => dispatch(folders.getPfd(payload, cb)),
+  createFolder: (payload, cb) => dispatch(folders.createFolder(payload, cb)),
 
   // Comptes
   getComptes: (payload, cb) => dispatch(comptes.getComptes(payload, cb)),

@@ -6,7 +6,7 @@ const url = {
 
 export default {
   getAllfolders: 'getAllfolders',
-  // oneRibOperation: 'oneRibOperation',
+  createFolder: 'createFolder',
   getPfd: '/generateReport',
   url,
 };

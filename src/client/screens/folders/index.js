@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import mapStateToProps from 'mapStateToProps';
 import mapDispatchToProps from 'mapDispatchToProps';
 
-import styles from 'css/screens/folders/styles.css';
+import styles from './styles.css';
+
+// adress_client: "dsfsdfsdf"
+// audits: ["5f763474a8b8f74c9ba8fea9"]
+// code_client: "sdfsfsfsf"
+// mail_client: "qsdqsdqsd@qsdqsdq"
+// nom_client: "sdfsdfsd sdfsfsfs"
+// onwer: "5f7609396ecd29364bda65cb"
+// phone_client: "0888888888"
+// reference_document: "sqsdqsdqs"
+// type_audit: "Existant"
+// vile_client: "dsfdfsdf"
 
 class FoldersScreen extends Component {
   constructor(props) {
@@ -26,59 +37,14 @@ class FoldersScreen extends Component {
   }
 
   render() {
-    const { folders } = this.props.folders;
+    const { folder, folders } = this.props.folders;
     const { search } = this.state;
-
+    console.log({ folder, folders });
     return (
-      <View className={styles.containt}>
-        {/* <View className={styles.searchContainers}>
-          <View className={styles.btnAdd}>
-            <TouchableOpacity onPress={() => this.props.navigation(4)}>
-              <Text className={styles.btnAddText}>Ajouter</Text>
-            </TouchableOpacity>
-          </View>
-          <View className={styles.searchInput}>
-            <TextInput
-              className={styles.textInput}
-              placeholder='Recherche'
-              placeholderTextColor='#47525E'
-              value={search}
-              onChangeText={(text) => this.setState({ search: text })}
-              underlineColorAndroid="transparent"
-            />
-          </View>
+      <View className={styles.containtFolders}>
+        <View className={styles.bodyFolders}>
+          <Text>List</Text>
         </View>
-        <View className={styles.listContainers}>
-          <ScrollView>
-            {
-              folders && folders.map(({ info_generale, _id }) => {
-                console.log({ info_generale });
-                if (!info_generale || !info_generale.maitre_ovrage) {
-                  return <View key={_id} />;
-                }
-                const { maitre_ovrage, reference } = info_generale;
-                const { adress_batiment, code, code_postal, objet } = reference;
-                const { adress, statut, nom } = maitre_ovrage;
-                return (
-                  <View className={styles.item} key={`XXXXXXXXXXXXXX ${_id}`}>
-                    <View className={styles.reference}>
-                      <Text className={styles.labelText}>{code}</Text>
-                      <Text className={styles.valueText}>{objet}</Text>
-                      <Text className={styles.valueText}>{adress_batiment}</Text>
-                      <Text className={styles.valueText}>{code_postal}</Text>
-                    </View>
-                    <View className={styles.maitreOuvrage}>
-                      <Text className={styles.labelText}>Maître d’ouvrage</Text>
-                      <Text className={styles.valueText}>{adress}</Text>
-                      <Text className={styles.valueText}>{nom}</Text>
-                      <Text className={styles.valueText}>{statut}</Text>
-                    </View>
-                  </View>
-                );
-              })
-            }
-          </ScrollView>
-        </View> */}
       </View>
     );
   }

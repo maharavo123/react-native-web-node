@@ -1,62 +1,45 @@
 const Folders = require('../models/folders');
-const path = require('path');
-// var html_to_pdf = require('html-pdf-node');
-
-var fs = require('fs');
-var pdf = require('html-pdf');
+const Rubriques = require('../models/rubriques');
 
 module.exports = {
   create: async (req, res) => {
-
-    const id = req.user.id;
-    const folder = await Folders.create({ ...req.body, onwer: id });
-    const newFolders = await folder.save();
-
-    return res.send(newFolders);
+    const rubrique = await Rubriques.create(req.body);
+    const newRubrique = await rubrique.save();
+    const folders = await Folders.create(req.body);
+    folders.onwer = req.user.id;
+    folders.audits = newRubrique._id;
+    const newFolders = await folders.save();
+    return res.send({ folder: newFolders, rubrique: newRubrique });
   },
   remove: async (req, res) => {
     const folders = await Folders.findByIdAndRemove(req.params.id);
-    res.json({ sucsess: folders && folders._id, _id: req.params.id });
+    res.send({ sucsess: folders && folders._id, _id: req.params.id });
   },
   view: async (req, res) => {
-    const folder = await Folders.findById(req.params.id);
-    res.json(folder);
+    const folders = await Folders.findById(req.params.id);
+    res.json(folders);
   },
-  foldersByCompte: async (req, res) => {
+  userByFolders: async (req, res) => {
     const { id } = req.params;
-    const foldersByCompte = await Folders.findById(id).populate('onwer');
-    res.send(foldersByCompte);
+    const userByFolders = await Folders.findById(id).populate('user');
+    res.send(userByFolders);
   },
   list: async (_, res) => {
     const folders = await Folders.find();
     res.json(folders);
   },
-  pdf: async (_, res) => {
+  update: async (req, res) => {
+    const folders = await Folders.findById(req.params.id);
+    if (!folders) {
+      return res.status(404).json({ error: 'Not Found' });
+    }
 
-    var html = fs.readFileSync('./public/html/index.html', 'utf8');
-    var options = {
-      format: 'A4',
-      base: path.resolve('./public') + '/'
-    };
-
-    // pdf.create(html).toStream(function(err, stream){
-    //   console.log({ stream });
-    //   if (err) {
-    //     console.log({ err });
-    //     return res.end(err.stack);
-    //   }
-    //   stream.pipe(fs.createWriteStream('./foo.pdf'));
-
-    //   res.setHeader('Content-type', 'application/pdf');
-    //   res.setHeader('Content-disposition', 'attachment; filename=export-from-html.pdf'); // Remove this if you don't want direct download
-    //   res.setHeader('Content-Length', '' +stream.length);
-    //   stream.pipe(res);
-    // });
-
-    pdf.create(html, options).toFile('./businesscard.pdf', function(err, response) {
-      if (err) return console.log(err);
-      console.log(response); // { filename: '/app/businesscard.pdf' }
-      res.send(response);
-    });
-  },
+    const update = await Folders.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...req.body },
+      { new: true },
+    ).exec();
+  
+    res.json(update);
+  }
 };

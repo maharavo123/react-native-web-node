@@ -35,4 +35,16 @@ export const getPfd = (data, callBack) => async (dispatch) => {
   }
 };
 
-export default { getAllfolders, getPfd };
+export const createFolder = (data, callBack) => async (dispatch) => {
+  const res = await foldersApp.getPfd(constants.url.getAllfolders, data);
+  console.log({ res });
+  callBack && callBack();
+  if (res && res.status === 200) {
+    return dispatch({
+      type: constants.createFolder,
+      payload: res.data,
+    });
+  }
+};
+
+export default { getAllfolders, getPfd, createFolder };

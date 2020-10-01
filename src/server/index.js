@@ -18,7 +18,7 @@ mongoose
   })
   .then(() => {
     console.log('Connected to MongoDB...');
-    // mongoose.connection.collections['users'].drop( function(err) {
+    // mongoose.connection.collections['folders'].drop( function(err) {
     //   console.log('collection dropped');
     // });
   })
@@ -30,6 +30,7 @@ require('./models/users');
 require('./models/folders');
 require('./models/media');
 require('./models/audit');
+require('./models/rubriques');
 
 app.listen(port, () => {
   console.log(`Server running on localhost:${port}`);

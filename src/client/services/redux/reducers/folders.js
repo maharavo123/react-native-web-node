@@ -5,10 +5,16 @@ const initialState = {
   folders: [],
   // oneRibOperation: [],
   pdf: '',
+  folder: {},
 };
 
 const folders = (state = initialState, action) => {
   switch (action.type) {
+    case constants.createFolder:
+      return {
+        ...state,
+        folder: action.payload,
+      };
     case constants.getPfd:
       return {
         ...state,

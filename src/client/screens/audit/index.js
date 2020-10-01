@@ -37,6 +37,7 @@ class AuditScreen extends PureComponent {
   componentDidMount() {
     this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Choix type d'audit" });
     this.props.getAll();
+    this.props.getAllfolders();
   }
 
   navigateTo = (arc, cb) => {

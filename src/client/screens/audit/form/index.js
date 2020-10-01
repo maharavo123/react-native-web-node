@@ -59,12 +59,18 @@ class HomeScreen extends PureComponent {
 
   componentDidMount() {
     this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Fiche Audit" });
+    const { nom, prenom, phone, phone_fix, email } = this.props.users.user;
+    this.setState({
+      nom_interlocuteur: nom + ' ' + prenom,
+      phone_fix_interlocuteur: phone_fix,
+      phone_interlocuteur: phone,
+      mail_interlocuteur: email,
+    });
   }
 
   validation = () => {
     return !Object.keys(initialStateInput).some(i => {
       const state = this.state[i];
-      console.log({ [i]: state });
       return (!state || state.length < 4);
     });
   }
@@ -76,15 +82,14 @@ class HomeScreen extends PureComponent {
       this.setState({ loading: true });
       await this.props.getPfd(inputForm, () => cb && typeof cb === 'function' && cb());
       await this.props.setFormAudit(inputForm);
+      await this.props.createFolder(inputForm);
       this.setState({ loading: false });
     } else {
       this.setState({ errors: true });
     }
-    console.log({ liciel, kizeo });
   }
 
   render() {
-    console.log(this.state);
     return (
       <View className={styles.containtForm}>
         <View className={styles.bodyForm}>
