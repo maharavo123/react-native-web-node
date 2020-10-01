@@ -5,6 +5,12 @@ module.exports = {
   not_found: 'User not found',
   find: 'Rechercher',
   auth: {
+    code: 'Code Postal',
+    nom: 'Nom',
+    prenom: 'Prenom',
+    phone: 'Téléphone portable',
+    fix: 'Téléphone fix',
+    adress: 'Adresse',
     signTitle: 'Connexion',
     signupTitle: 'Création',
     sign: 'Authentification',

@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   Button,
-  ScrollView,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
@@ -48,15 +47,20 @@ const ModalRole = ({ setRole, role }) => (
 );
 
 const SignInScreen = (props) => {
-  const { signUp, selectedRIB, user } = props;
+  const { signUp, user } = props;
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [nom, setNom] = React.useState('');
+  const [prenom, setPrenom] = React.useState('');
+  const [adress, setAdress] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [phone_fix, setPhone_fix] = React.useState('');
+  const [code_postal, setCode_postal] = React.useState('');
   const [role, setRole] = React.useState(1);
   const [messageall, setMessage] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
   const [errors, setErrors] = React.useState({});
-  const [roleModal, setRoleModal] = React.useState(false);
 
   const callBack = (res) => {
     setRole(1);
@@ -78,7 +82,7 @@ const SignInScreen = (props) => {
 
   const createCompte = async () => {
     setMessage('');
-    const data = { email, password, role, rib: [selectedRIB] };
+    const data = { email, password, role, code_postal, adress, phone, phone_fix, nom, prenom };
     const validators = validatorUsers(data);
     if (validators && validators.length > 0) {
       const toObjectErrors = validators.reduce((acc, { name, message }) => ({ ...acc, [name]: message }), {});
@@ -93,7 +97,7 @@ const SignInScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
+      <View
         contentContainerStyle={styles.contentContainerStyle}
       >
         <View style={styles.body}>
@@ -108,7 +112,7 @@ const SignInScreen = (props) => {
                 <TouchableOpacity
                   onPress={() => {
                     setModalVisible(!modalVisible);
-                    setRoleModal(true);
+                    // setRoleModal(true);
                   }}>
                   <Text style={styles.mgnText}>{auth.edit}</Text>
                 </TouchableOpacity>
@@ -117,6 +121,84 @@ const SignInScreen = (props) => {
             <DisplyErrorComponet
               errors={errors.role}
               name='role'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.nom}</Text>
+              <TextInput
+                placeholder={auth.nom}
+                value={nom}
+                onChangeText={setNom}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.prenom}
+              name='nom'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.prenom}</Text>
+              <TextInput
+                placeholder={auth.prenom}
+                value={prenom}
+                onChangeText={setPrenom}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.prenom}
+              name='prenom'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.phone}</Text>
+              <TextInput
+                placeholder={auth.phone}
+                value={phone}
+                onChangeText={setPhone}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.phone}
+              name='phone'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.fix}</Text>
+              <TextInput
+                placeholder={auth.fix}
+                value={phone_fix}
+                onChangeText={setPhone_fix}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.fix}
+              name='fix'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.adress}</Text>
+              <TextInput
+                placeholder={auth.adress}
+                value={adress}
+                onChangeText={setAdress}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.adress}
+              name='adress'
+            />
+            <View style={styles.inputVew}>
+              <Text style={styles.labelInput}>{auth.code}</Text>
+              <TextInput
+                placeholder={auth.code}
+                value={code_postal}
+                onChangeText={setCode_postal}
+                style={styles.TextInput}
+              />
+            </View>
+            <DisplyErrorComponet
+              errors={errors.code_postal}
+              name='code_postal'
             />
             <View style={styles.inputVew}>
               <Text style={styles.labelInput}>{auth.identification}</Text>
@@ -159,7 +241,7 @@ const SignInScreen = (props) => {
               <ActivityIndicator size={'large'} />}
           </View>}
         </View>
-      </ScrollView>
+      </View>
       <Modal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}

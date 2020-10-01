@@ -5,20 +5,12 @@ const y = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
+    justifyContent: 'center',
   },
   body: {
-    justifyContent: 'center',
-    flexDirection: 'column',
-    // flex: 1,
-    position: 'absolute',
-    alignItems: 'center',
-    margin: 10,
-    padding: 10,
-    paddingTop: 20,
-    paddingBottom: 20,
-    width: x,
-    // height: y - 100,
+    backgroundColor: '#97CC53',
+    opacity: 0.6,
   },
   titleContainer: {
     paddingTop: 20,
@@ -29,12 +21,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     alignContent: 'center',
+    flex: 1,
   },
   labelInput: {
     paddingRight: 10,
     width: x / 4,
     color: 'red',
     fontWeight: 'bold',
+    color: '#47525E',
+    fontSize: 16,
+    lineHeight: 4,
   },
   TextInput: {
     padding: 10,
@@ -90,8 +86,10 @@ const styles = StyleSheet.create({
     paddingRight: 30,
   },
   contentContainerStyle: {
-    width: x,
-    height: y - 160,
+    // width: x,
+    // height: y - 160,
+    flex: 1,
+    backgroundColor: 'red',
   },
   containerStyle: {
     padding: 10,

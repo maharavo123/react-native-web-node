@@ -21,7 +21,8 @@ class ComptesScreen extends React.Component {
   }
 
   signUp = async (data, callBack) => {
-    this.props.signup(data, callBack);
+    console.log({ data });
+    // this.props.signup(data, callBack);
   }
 
   render() {

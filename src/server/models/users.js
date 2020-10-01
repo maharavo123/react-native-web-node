@@ -14,16 +14,23 @@ const UserSchema = new mongoose.Schema({
     maxlength: 255,
     unique: true,
   },
-  // rib: {
-  //   type: String,
-  //   required: true,
-  //   minlength: 20,
-  //   maxlength: 255,
-  //   // unique: true
-  // },
-  // rib: [String],
-  rib: {
-    type: mongoose.Schema.Types.Array,
+  adress: {
+    type: String,
+  },
+  nom: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  phone_fix: {
+    type: String,
+  },
+  prenom: {
+    type: String,
+  },
+  code_postal: {
+    type: String,
   },
   password: {
     type: String,
