@@ -35,14 +35,15 @@ module.exports.checkUser = checkUser;
 
 module.exports.create = async (req, res) => {
   const { role } = req.user;
-  if (!role || role === 1) {
-    return res.status(401).json({ error: { message: 'Access denied' } });
-  }
-  const errors = validatorUsers(req.body);
-  // const errors = validationResult(req);
-  if (!errors || errors.length > 0) {
-    return res.status(400).json({ errors: errors });
-  }
+  console.log({ role });
+  // if (!role || role === 1) {
+  //   return res.status(401).json({ error: { message: 'Access denied' } });
+  // }
+  // const errors = validatorUsers(req.body);
+  // // const errors = validationResult(req);
+  // if (!errors || errors.length > 0) {
+  //   return res.status(400).json({ errors: errors });
+  // }
   const isExist = await User.findOne({ email: req.body.email });
 
   // throw error when email is wrong
@@ -50,14 +51,14 @@ module.exports.create = async (req, res) => {
     return res.status(400).json(errorMessage(is_exist));
   }
   const salt = await bcrypt.genSalt(10);
-  const password = await bcrypt.hash(req.body.password, salt);
+  const passwordNew = await bcrypt.hash(req.body.password, salt);
   const user = new User({
     ...req.body,
-    password,
-    rib: req.body.rib && req.body.role === 1 ? req.body.rib.map(r => `${req.body.email}//${r}`) : [],
+    password: passwordNew,
   });
   await user.save();
-  res.json(user);
+  const { password, ...res_send } = user;
+  res.json(res_send);
 };
 
 module.exports.remove = async (req, res) => {
@@ -76,19 +77,22 @@ module.exports.list = async (_, res) => {
 };
 
 module.exports.update = async (req, res) => {
-  const isFound = await checkUser(req.params.id);
-  if (!isFound) {
+  const user = await User.findOne({ _id: req.params.id });
+  
+  if (!user) {
     return res.status(404).json(errorMessage(not_found));
   }
-  const errors = validatorUsers(req.body);
-  if (!(errors && errors.length === 0)) {
-    return res.status(400).json({ errors: errors });
-  }
-  const user = await User.findOneAndUpdate(
-    { _id: req.params.id },
-    { username: req.body.username, rib: req.body.rib },
-    { new: true },
-  ).exec();
+
+  const { role, adress, nom, phone, phone_fix, prenom, code_postal } = req.body;
+  user.role = role;
+  user.adress  = adress;
+  user.nom = nom;
+  user.phone  = phone;
+  user.phone_fix = phone_fix;
+  user.prenom  = prenom;
+  user.code_postal  = code_postal;
+
+  await user.save();
 
   res.json(user);
 };
@@ -105,7 +109,6 @@ module.exports.view = async (req, res) => {
 
 module.exports.login = async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
-
   // throw error when email is wrong
   if (!user) {
     return res.status(201).json(errorMessage(error_email));
@@ -117,23 +120,26 @@ module.exports.login = async (req, res) => {
     return res.status(201).json(errorMessage(error_mdp));
   }
 
-  // create token
   const token = jwt.sign(
     {
-      name: user.name,
+      nom: user.nom,
       id: user._id,
       role: user.role,
     },
     process.env.TOKEN_SECRET,
   );
-
-  res.header('auth-token', token).json({
+  
+  res.json({
     error: null,
-    data: {
-      token,
-      rib: user.rib,
-      email: user.email,
-      role: user.role,
-    },
+    token,
+    id: user._id,
+    adress: user.adress,
+    code_postal: user.code_postal,
+    email: user.email,
+    nom: user.nom,
+    phone: user.phone,
+    phone_fix: user.phone_fix,
+    prenom: user.prenom,
+    role: user.role,
   });
 };

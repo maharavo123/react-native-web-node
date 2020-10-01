@@ -24,7 +24,8 @@ const colors = {
 };
 
 const Headers = (props) => {
-  const { crud } = props;
+  const { crud, users } = props;
+  const { nom, prenom } = users.user;
   const redirect = (arg, cb, i) => {
     console.log({ arg, cb });
     cb && typeof cb === 'function' && cb();
@@ -51,7 +52,7 @@ const Headers = (props) => {
               />
             </View>
             <View style={{ justifyContent: 'flex-end', flexDirection: 'row' }}>
-              <View style={{ justifyContent: 'center', paddingRight: 10 }}><Text>LEFAVRE Eric</Text></View>
+              <View style={{ justifyContent: 'center', paddingRight: 10 }}><Text>{nom} {prenom}</Text></View>
               <Navigate
                 className={{}}
                 style={{}}
@@ -93,7 +94,7 @@ const Headers = (props) => {
             <Navigate
               className={styles.itemNavigation}
               style={background(3)}
-              to={'/comptes'}
+              to={'/profile'}
               onPress={(arg, cb) => redirect(arg, cb, 3)}
             >
               <Text className={styles.textItem}>Mon compte</Text>

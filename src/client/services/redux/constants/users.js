@@ -7,5 +7,6 @@ export default {
   signinUSER: 'signinUSER',
   signupUSER: 'signupUSER',
   logout: 'logout',
+  updateUser: 'updateUser',
   url,
 };

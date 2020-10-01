@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
   signin: (payload, cb) => dispatch(users.signin(payload, cb)),
   signup: (payload, cb) => dispatch(users.signup(payload, cb)),
   logout: () => dispatch(users.logout()),
+  updateUser: (payload, cb) => dispatch(users.updateUser(payload, cb)),
 
   // Folders
   // oneRibOperation: (payload, cb) => dispatch(folders.oneRibOperation(payload, cb)),

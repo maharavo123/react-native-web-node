@@ -6,6 +6,7 @@ import mapStateToProps from '../../services/redux/mapStateToProps';
 import mapDispatchToProps from '../../services/redux/mapDispatchToProps';
 
 import Create from './create';
+import Profile from './profile';
 
 class ComptesScreen extends React.Component {
   constructor(props) {
@@ -21,13 +22,12 @@ class ComptesScreen extends React.Component {
   }
 
   signUp = async (data, callBack) => {
-    console.log({ data });
-    // this.props.signup(data, callBack);
+    this.props.signup(data, callBack);
   }
 
   render() {
     const { users } = this.props;
-    const user = { ...users?.user, role: 2 };
+    const user = { ...users?.user };
 
     return (
       <View style={{ flex: 1 }}>

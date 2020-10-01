@@ -7,6 +7,11 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import mapStateToProps from '../../services/redux/mapStateToProps';
+import mapDispatchToProps from '../../services/redux/mapDispatchToProps';
 
 import Modal from '../../components/common/Modal';
 
@@ -15,7 +20,7 @@ import { auth } from '../../../config/constants';
 
 const validatorUsers = () => [];
 
-const signTitle = auth.signUp;
+const signTitle = auth.updateUser;
 
 const DisplyErrorComponet = ({ errors, name }) => {
   if (!errors || !name) {
@@ -46,21 +51,23 @@ const ModalRole = ({ setRole, role }) => (
   </View>
 );
 
-const SignInScreen = (props) => {
-  const { signUp, user } = props;
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [nom, setNom] = React.useState('');
-  const [prenom, setPrenom] = React.useState('');
-  const [adress, setAdress] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [phone_fix, setPhone_fix] = React.useState('');
-  const [code_postal, setCode_postal] = React.useState('');
-  const [role, setRole] = React.useState(1);
+const Profile = (props) => {
+  const { updateUser, user } = props;
+  const [email, setEmail] = React.useState(user.email);
+  // const [password, setPassword] = React.useState('');
+  const [nom, setNom] = React.useState(user.nom);
+  const [prenom, setPrenom] = React.useState(user.prenom);
+  const [adress, setAdress] = React.useState(user.adress);
+  const [phone, setPhone] = React.useState(user.phone);
+  const [phone_fix, setPhone_fix] = React.useState(user.phone_fix);
+  const [code_postal, setCode_postal] = React.useState(user.code_postal);
+  const [role, setRole] = React.useState(user.role);
   const [messageall, setMessage] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
   const [errors, setErrors] = React.useState({});
+
+  const history = useHistory();
 
   const callBack = (res) => {
     setRole(1);
@@ -75,25 +82,27 @@ const SignInScreen = (props) => {
       return;
     }
     if (res && res.data) {
-      setMessage(auth.succes);
+      setMessage(auth.update_succes);
     }
 
   };
 
-  const createCompte = async () => {
+  const updateCompte = async () => {
     setMessage('');
-    const data = { email, password, role, code_postal, adress, phone, phone_fix, nom, prenom };
+    const data = { id: user.id, role, code_postal, adress, phone, phone_fix, nom, prenom };
     const validators = validatorUsers(data);
     if (validators && validators.length > 0) {
       const toObjectErrors = validators.reduce((acc, { name, message }) => ({ ...acc, [name]: message }), {});
       setErrors(toObjectErrors);
     }
-    await signUp(data, (res) => callBack(res));
+    await updateUser(data, (res) => callBack(res));
   };
 
-  const isAdmin = user && user.role === 2;
 
-  const title = isAdmin ? signTitle : auth.profil;
+
+  const isAdmin = user.role === 2;
+
+  const title = auth.profil;
 
   return (
     <View style={styles.container}>
@@ -102,7 +111,13 @@ const SignInScreen = (props) => {
       >
         <View style={styles.body}>
           <View style={styles.titleContainer}>
-            <Text style={styles.textPage}>{title}</Text>
+            {
+              isAdmin ? <TouchableOpacity
+              onPress={() => history.push('/comptes')}>
+              <Text style={styles.textPage}>{'Ajouter un Utilisateur'}</Text>
+              </TouchableOpacity>
+              : <Text style={styles.textPage}>{title}</Text>
+            }
           </View>
           <View>
             {isAdmin && <View style={styles.inputVew}>
@@ -206,13 +221,14 @@ const SignInScreen = (props) => {
                 value={email}
                 onChangeText={setEmail}
                 style={[styles.TextInput, true ? {} : {borderColor: 'red', color: 'red'}]}
+                editable={false}
               />
             </View>
             <DisplyErrorComponet
               errors={errors.email}
               name='email'
             />
-            {isAdmin && <View style={styles.inputVew}>
+            {/* {isAdmin && <View style={styles.inputVew}>
               <Text style={styles.labelInput}>{auth.password}</Text>
               <TextInput
                 placeholder={auth.password}
@@ -226,14 +242,14 @@ const SignInScreen = (props) => {
             <DisplyErrorComponet
               errors={errors.password}
               name={auth.password}
-            />
+            /> */}
             <Text style={styles.messageShow}>{messageall}</Text>
           </View>
-          {isAdmin && <View>
+          {<View>
             {!loading ? <Button
               // disabled={isInvalidate}
-              onPress={async () => await createCompte()}
-              title={signTitle}
+              onPress={async () => await updateCompte()}
+              title={'Modifier'}
               color={'#2C7AC3'}
               style={styles.btn}
             /> :
@@ -251,4 +267,41 @@ const SignInScreen = (props) => {
   );
 };
 
-export default SignInScreen;
+class ProfileScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+      data: {},
+    };
+  }
+
+  componentDidMount() {
+    this.props.navigateHeader({ index: 3, name: 'Mon Compte > profile' });
+  }
+
+  updateUser = async (data, callBack) => {
+    this.props.updateUser(data, callBack);
+  }
+
+  render() {
+    const { users } = this.props;
+    const user = { ...users?.user, role: 2 };
+
+    return (
+      <View style={{ flex: 1 }}>
+        <Profile
+          {...this.props}
+          updateUser={this.updateUser}
+          user={user}
+        />
+      </View>
+    );
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProfileScreen);
+

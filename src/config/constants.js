@@ -1,9 +1,10 @@
 module.exports = {
-  home_title: 'Compagnie fiduciaire',
+  home_title: 'Audit Enérgetique',
   error_mdp: 'Le mot de passe est incorrect.',
   error_email: 'Identifiants est incorrect.',
   not_found: 'User not found',
-  find: 'Rechercher',
+  invalid_date: 'Invalid date format',
+  is_exist: 'Identifiants déjà utilise',
   auth: {
     code: 'Code Postal',
     nom: 'Nom',
@@ -15,7 +16,8 @@ module.exports = {
     signupTitle: 'Création',
     sign: 'Authentification',
     signUp: 'Création compte',
-    succes: 'Ajout avec success',
+    succes: 'Ajout avec succèss',
+    update_succes: 'Modification avec succèss',
     username: 'Pseudo',
     email: 'Email',
     password: 'Mot de passe',

@@ -15,8 +15,8 @@ class AuthComponent extends PureComponent {
     this.state = {
       // email: '',
       // password: '',
-      email: 'resdyyy3@body.email',
-      password: 'req1dd12.body.password',
+      email: 'admin@audit.fr',
+      password: '12345678',
       loading: false,
       message: '',
     };
@@ -88,6 +88,7 @@ class AuthComponent extends PureComponent {
                     placeholderTextColor='#8190A5'
                     value={password}
                     onChangeText={(text) => this.setState({ password: text })}
+                    secureTextEntry
                   />
                 </View>
                 <View className={styles.containtBtnConnex}>

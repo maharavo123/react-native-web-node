@@ -37,8 +37,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: x / 2,
     borderRadius: 15,
-    borderColor: 'red',
-    color: 'red',
     fontWeight: 'bold',
   },
   modalInput: {

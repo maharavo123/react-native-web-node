@@ -16,6 +16,7 @@ import Apercu from '../screens/audit/apercu';
 import Dossiers from '../screens/folders';
 import Comptes from '../screens/comptes';
 import NoMatch from '../screens/noMatch';
+import Profile from '../screens/comptes/profile';
 
 import NavBar from '../components/navBar';
 
@@ -55,6 +56,9 @@ const App = props => {
           </Route>
           <Route path='/comptes'>
             <Comptes />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
           <Route>
             <NoMatch />

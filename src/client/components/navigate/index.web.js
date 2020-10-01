@@ -5,12 +5,9 @@ import { useHistory } from 'react-router-dom';
 const LinkTo = props => {
   const { children, className, to, onPress, style, activeOpacity = 0, params } = props;
   const history = useHistory();
-  console.log({ params, to })
   const redirect = () => {
     onPress({}, () => history.push({
       pathname: to,
-      // search: '?query=abc',
-      state: { params: 'dd' },
       params: {},
     }));
   }

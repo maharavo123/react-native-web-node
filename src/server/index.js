@@ -16,7 +16,12 @@ mongoose
     useFindAndModify: true,
     // ensureIndex: true,
   })
-  .then(() => console.log('Connected to MongoDB...'))
+  .then(() => {
+    console.log('Connected to MongoDB...');
+    // mongoose.connection.collections['users'].drop( function(err) {
+    //   console.log('collection dropped');
+    // });
+  })
   .catch(err => console.error('Could not connect to MongoDB...', err));
 
 require('./models/comptes');

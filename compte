@@ -18,6 +18,11 @@ Api Users
 }
 
 {
+  "email": "admin@audit.fr",
+  "password": "12345678"
+}
+
+{
   "email": "resdyyy3@body.email",
   "password": "req1dd12.body.password"
 }
