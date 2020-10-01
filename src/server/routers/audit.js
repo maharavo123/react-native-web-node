@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { list, create, view, remove } = require('../controllers/audit');
+const { list, create, view, remove, update } = require('../controllers/audit');
 
 const router = express.Router();
 
@@ -12,6 +12,7 @@ router
 router
   .route('/:id')
   .get(view)
+  .put(update)
   .delete(remove);
 
 module.exports = router;

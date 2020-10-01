@@ -37,13 +37,13 @@ export const deleteAudit = (id, callBack) => async (dispatch) => {
   }
 };
 
-export const editAudit = (id, callBack) => async (dispatch) => {
-  const payload = await serviceApplicatif.editAudit(`${constants.url.deleteAudit}/${id}`);
+export const editAudit = (data, callBack) => async (dispatch) => {
+  const payload = await serviceApplicatif.editAudit(`${constants.url.deleteAudit}/${data._id}`, data);
   callBack && callBack(payload);
-  if (payload && payload.data && payload.data.sucsess) {
+  if (payload && payload.data && payload.data) {
     return dispatch({
       type: constants.editAudit,
-      payload: payload.data.sucsess,
+      payload: payload.data,
     });
   }
 };

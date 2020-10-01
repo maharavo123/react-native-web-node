@@ -24,4 +24,18 @@ module.exports = {
     const audits = await Audit.find();
     res.json(audits);
   },
+  update: async (req, res) => {
+    const audit = await Audit.findById(req.params.id);
+    if (!audit) {
+      return res.status(404).json({ error: 'Not Found' });
+    }
+
+    const update = await Audit.findOneAndUpdate(
+      { _id: req.params.id },
+      { ...req.body },
+      { new: true },
+    ).exec();
+  
+    res.json(update);
+  }
 };

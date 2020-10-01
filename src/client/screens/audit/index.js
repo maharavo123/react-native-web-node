@@ -48,90 +48,77 @@ class AuditScreen extends PureComponent {
     return (
       <View className={styles.containt}>
         <View className={styles.bodyAudit}>
-        <FlatList style={{ marginTop: 20, marginBottom: 10 }}
-          numColumns={4}
-          columnWrapperStyle={{ justifyContent: 'space-evenly', marginBottom: 10 }}
-          data={list}
-          keyExtractor={(item) => item._id}
-          renderItem={({ item }) => {
-            const { name, etoile, _id } = item;
-            return (
-              <View>
-                <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
-                  <View />
-                  <View style={{ marginBottom: -90, padding: 5, marginRight: -35 }}>
-                  <Navigate
-                    key={`${_id} name`}
-                    className={{}}
-                    style={{}}
-                    to={'add-audit'}
-                    params={{ name, etoile, _id }}
-                    onPress={(arg, cb) => this.navigateTo(arg, cb)}
+          <FlatList style={{ marginTop: 20, marginBottom: 10 }}
+            numColumns={4}
+            columnWrapperStyle={{ justifyContent: 'space-evenly', marginBottom: 10 }}
+            data={list}
+            keyExtractor={(item) => item._id}
+            renderItem={({ item }) => {
+              const { name, etoile, _id } = item;
+              const nb_etoile = etoile > 4 ? 4 : etoile;
+              return (
+                <View>
+                  <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                    <View />
+                    <View style={{ marginBottom: -90, padding: 5, marginRight: -35 }}>
+                      <Navigate
+                        key={`${_id} name`}
+                        className={{}}
+                        style={{}}
+                        to={'/audit/' + _id}
+                        params={'params'}
+                        onPress={(arg, cb) => this.navigateTo(arg, cb)}
+                      >
+                        <Image
+                          source={images.edit}
+                          className={styles.recycle}
+                        />
+                      </Navigate>
+                      <TouchableOpacity
+                        onPress={() => this.props.deleteAudit(_id)}
+                        style={{ marginTop: 5 }}>
+                        <Image
+                          source={images.recycle}
+                          className={styles.recycle}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <View className={styles.itemViewC} style={{}}>
+                    <Navigate
+                      key={`${_id} name`}
+                      className={{}}
+                      style={{}}
+                      to={'/page-coverture'}
+                      onPress={(arg, cb) => this.navigateTo(arg, cb)}
                     >
-                    {/* <TouchableOpacity
-                      onPress={() => this.props.editAudit(_id)}
-                      style={{  }}> */}
-                      <Image
-                        source={images.edit}
-                        className={styles.recycle}
-                      />
+                      <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                        {
+                          (etoileList(nb_etoile)).map((_i, key) => <Image
+                            key={`${key} etoile ${_id}`}
+                            source={images.star}
+                            // className={styles.icon}
+                            style={{ width: 40, height: 40 }}
+                          />)
+                        }
+                      </View>
+                      <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+                        {
+                          (etoileList(etoile - 4)).map((_i, key) => <Image
+                            key={`${key} etoile ${_id}`}
+                            source={images.star}
+                            // className={styles.icon}
+                            style={{ width: 40, height: 40 }}
+                          />)
+                        }
+                      </View>
                     </Navigate>
-                    <TouchableOpacity
-                      onPress={() => this.props.deleteAudit(_id)}
-                      style={{ marginTop: 5 }}>
-                      <Image
-                        source={images.recycle}
-                        className={styles.recycle}
-                      />
-                    </TouchableOpacity>
+                    <Text className={styles.name}>{name}</Text>
                   </View>
                 </View>
-              <View className={styles.itemViewC} style={{}}>
-                <Navigate
-                  key={`${_id} name`}
-                  className={{}}
-                  style={{}}
-                  to={'page-coverture'}
-                  onPress={(arg, cb) => this.navigateTo(arg, cb)}
-                >
-                  <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-                    {
-                      (etoileList(etoile)).map((_i, key) => <Image
-                        key={`${key} etoile ${_id}`}
-                        source={images.star}
-                        className={styles.icon}
-                      />)
-                    }
-                  </View>
-                </Navigate>
-                <Text className={styles.name}>{name}</Text>
-              </View>
-              </View>
-            )
-          }}
-        />
-          {/* {
-            list && list.map(({ name, etoile }, index) => <View className={styles.itemViewC} style={{}}>
-              <Navigate
-                key={`${index} name`}
-                className={{}}
-                style={{}}
-                to={'page-coverture'}
-                onPress={(arg, cb) => this.navigateTo(arg, cb)}
-              >
-                <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-                  {
-                    (etoileList(etoile)).map((_i, key) => <Image
-                      key={`${key} etoile ${name}`}
-                      source={images.star}
-                      className={styles.icon}
-                    />)
-                  }
-                </View>
-              </Navigate>
-              <Text className={styles.name}>{name}</Text>
-            </View>)
-          } */}
+              )
+            }}
+          />
           <View className={styles.itemViewC}>
             <Navigate
               className={{}}

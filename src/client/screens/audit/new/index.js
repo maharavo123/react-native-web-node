@@ -29,23 +29,38 @@ class AuditNewScreen extends PureComponent {
       name: '',
       rubriques: [],
       etoile: 1,
+      _id: null,
     };
   }
 
   componentDidMount() {
+    if (window.location && window.location.hash) {
+      const params = window.location.hash.split('/');
+      const id = params[params.length - 1];
+      const audit = this.props.audit.list.find(i => i._id === id);
+      if (audit) {
+        this.setState(audit);
+        return this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Modifier type d'audit" });
+      }
+    }
     this.props.navigateHeader({ index: 1, name: "Création Audit Energétique > Ajout type d'audit" });
   }
 
   callBack = (res, cb) => {
-    console.log('callBack =====================+>', { cb });
+    this.setState({ loading: false });
     if (res && res.data) {
       cb && typeof cb === 'function' && cb();
     }
   }
 
-  navigateTo = (arc, cb) => {
-    console.log('=====================+>', { arc });
-    this.props.addAudit(this.state, (res) => this.callBack(res, cb));
+  navigateTo = (_arc, cb) => {
+    this.setState({ loading: true });
+    const { _id, ...rubrique } = this.state;
+    if (_id) {
+      this.props.editAudit(this.state, (res) => this.callBack(res, cb));
+    } else {
+      this.props.addAudit(rubrique, (res) => this.callBack(res, cb));
+    }
   }
 
   selectRubrique = (rubrique) => {
@@ -57,11 +72,13 @@ class AuditNewScreen extends PureComponent {
     }
   }
 
-  validation = () => true;
+  validation = () => {
+    const { name, rubriques, etoile } = this.state;
+    return name.length > 2 && rubriques.length > 0 && etoile > 0
+  };
 
   render() {
     const { name, rubriques, etoile } = this.state;
-    console.log(this.props)
     return (
       <View className={styles.containtNew}>
         <View className={styles.bodyNew}>
@@ -116,7 +133,6 @@ class AuditNewScreen extends PureComponent {
               <TextInput
                 value={etoile}
                 onChangeText={(text) => this.setState({ etoile: text })}
-                // className={styles.new_audi_textInput}
                 style={{ backgroundColor: 'white', fontSize: 30 }}
                 keyboardType='numeric'
               />

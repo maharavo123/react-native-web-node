@@ -77,7 +77,7 @@ const Headers = (props) => {
             <Navigate
               className={styles.itemNavigation}
               style={background(1)}
-              to={'audit'}
+              to={'/audit'}
               onPress={(arg, cb) => redirect(arg, cb, 1)}
             >
               <Text className={styles.textItem}>Créer un audit</Text>
@@ -85,7 +85,7 @@ const Headers = (props) => {
             <Navigate
               className={styles.itemNavigation}
               style={background(2)}
-              to={'dossiers'}
+              to={'/dossiers'}
               onPress={(arg, cb) => redirect(arg, cb, 2)}
             >
               <Text className={styles.textItem}>Rechercher</Text>
@@ -93,7 +93,7 @@ const Headers = (props) => {
             <Navigate
               className={styles.itemNavigation}
               style={background(3)}
-              to={'comptes'}
+              to={'/comptes'}
               onPress={(arg, cb) => redirect(arg, cb, 3)}
             >
               <Text className={styles.textItem}>Mon compte</Text>

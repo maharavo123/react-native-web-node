@@ -7,6 +7,11 @@ const initialState = {
 
 const audit = (state = initialState, action) => {
   switch (action.type) {
+    case constants.editAudit:
+      return {
+        ...state,
+        list: [...state.list.filter(({ _id }) => _id !== action.payload._id), action.payload],
+      };
     case constants.deleteAudit:
       return {
         ...state,

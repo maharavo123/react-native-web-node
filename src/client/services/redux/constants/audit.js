@@ -1,8 +1,7 @@
 const url = {
-  getAll: '/api/getAll',
-  addAudit: './audit',
-  getAll: './audit',
-  deleteAudit: './audit'
+  addAudit: 'audit',
+  getAll: 'audit',
+  deleteAudit: 'audit'
 };
 
 export default {

@@ -29,23 +29,26 @@ const App = props => {
         <Switch>
           <Route exact path='/'>
             {/* <NavBar {...this.props} /> */}
-            <Home {...props} />
+            <Home />
           </Route>
           <Route exact path='/aperçu'>
             {/* <Apercu {...props} /> */}
             <View className={styles.corps3}>
-              <NavBar {...this.props} />
-              <Apercu {...props} />
+              <NavBar />
+              <Apercu />
             </View>
           </Route>
           <Route path='/page-coverture'>
-            <FormAudit {...props} />
+            <FormAudit />
           </Route>
           <Route path='/add-audit'>
-            <NewAudit {...props} />
+            <NewAudit />
+          </Route>
+          <Route path='/audit/:audit'>
+            <NewAudit />
           </Route>
           <Route path='/audit'>
-            <Audit {...props} history={history} />
+            <Audit history={history} />
           </Route>
           <Route path='/dossiers'>
             <Dossiers />
