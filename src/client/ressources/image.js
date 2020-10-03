@@ -16,4 +16,5 @@ export default {
   edit: require('./images/edit.png'),
   bell: require('./images/bell.png'),
   bell_red: require('./images/bell_red.png'),
+  search: require('./images/search.png'),
 };
