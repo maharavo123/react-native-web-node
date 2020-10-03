@@ -1,10 +1,11 @@
 .containtFolders {
   display: flex;
+  background-color: #97CC53;
 }
 
 .bodyFolders {
-  background-color: #97CC53;
   opacity: 0.7;
+  align-self: center;
 }
 
 .selectBox {
