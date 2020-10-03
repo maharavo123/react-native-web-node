@@ -18,7 +18,7 @@
     <div class="itemR">
       <div class="itemRChild1">
         <img src="<%= baseURL %>tamplete/img/page-couverture/countryhouse.png" class="imageItem">
-        <h6 class="spanItem">MAINSON INDUVIDUELLE</h6>
+        <h6 class="spanItem">MAISON INDUVIDUELLE</h6>
       </div>
     </div>
     <div class="itemR">
@@ -35,10 +35,10 @@
     </div>
   </div>
 </div>
-<div style="margin-top: 10px; margin-bottom: 10px;">
-  <h2><%= type_audit %></h2>
-  <h3><%= nom_client %></h3>
-  <h3><%= adress_client %></h3>
+<div class="couv-content">
+  <h4 class="blue-conv"><%= type_audit %></h4>
+  <h3 class="name-client blue-conv"><%= nom_client %></h3>
+  <h5 class="addr-client"><%= adress_client %></h5>
 </div>
 <div class="photobtiment">
   <img src="<%= baseURL %>tamplete/img/page-couverture/photobtiment.png">
@@ -46,7 +46,7 @@
 <div class="c-footer">
   <img src="<%= baseURL %>tamplete/img/page-couverture/logoOPQIBI.png">
   <div class="interlocuteur">
-    <h3 class="f_h">VOTRE INTERLOCUTEUR</h3>
+    <h3 class="f_h blue-conv">VOTRE INTERLOCUTEUR</h3>
     <h6 class="f_h"><%= nom_interlocuteur %></h6>
       <h6 class="f_h">Tél. fix <%= phone_fix_interlocuteur %></h6>
         <h6 class="f_h">Tél. mobile <%= phone_interlocuteur %></h6>
