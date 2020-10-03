@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
   Platform,
+  Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -15,6 +16,10 @@ import images from 'images';
 import styles from './styles.css';
 
 import rubriques from '../../../utils/rubriques';
+
+const dm = Dimensions.get('window').width;
+
+const p_marg = (marg) => (17 * dm / 100) - marg;
 
 const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children }) => {
   const newItem = { title, id, children, parent };
@@ -38,14 +43,14 @@ const ItemView = (props) => {
   } = props;
 
   const idString = id.toString();
-  const margin_left = () => {
+  const margin_color_left = () => {
     if(typeof id === 'string') {
-      return 10;
+      return { left: 10, color: '#2C7AC3', text_color: '#FFFFFF' };
     }
     if(id && idString.split('.').length > 1) {
-      return 6;
+      return { left: 6, color: '#D3DCE6', text_color: '#97CC53' };
     }
-    return 0;
+    return { left: 0, color: '#FFFFFF', text_color: '#2C7AC3' };
   }
 
   if(idString.length > 1 && !isOpen.includes(id)) {
@@ -54,9 +59,15 @@ const ItemView = (props) => {
 
   return (
     <TouchableOpacity onPress={onPressItem}>
-      <View className={styles.itemView_navBar_containers}>
+      <View className={styles.itemView_navBar_containers}
+        style={{
+          marginLeft: margin_color_left().left,
+          backgroundColor: margin_color_left().color,
+          width: p_marg(margin_color_left().left)
+        }}
+      >
         <View className={styles.itemView_navBar}>
-          <View style={{ paddingLeft: margin_left() }}>
+          <View style={{}}>
             <Image
               source={image}
               className={styles.bell}
@@ -64,10 +75,15 @@ const ItemView = (props) => {
           </View>
           <View className={styles.itemTitle_navBarView}>
             <View>
-              <Text className={styles.itemTitle_navBarId}>{`${id} - `}</Text>
+              <Text
+                className={styles.itemTitle_navBarId}
+                style={{ color: margin_color_left().text_color }}
+              >{`${id} - `}</Text>
             </View>
             <View className={styles.itemTitle_navBarViewTitle}>
-              <Text className={styles.itemTitle_navBarText}>{title}</Text>
+              <Text
+                className={styles.itemTitle_navBarText}
+                style={{ color: margin_color_left().text_color }}>{title}</Text>
             </View>
           </View>
         </View>
@@ -78,6 +94,7 @@ const ItemView = (props) => {
             <Image
               source={images.Raster}
               className={styles.Raster_navBar}
+              style={{ }}
             />
           </TouchableOpacity>}
         </View>
