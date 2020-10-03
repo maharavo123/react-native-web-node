@@ -90,10 +90,10 @@ const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState([]);
   const [rotateIds, setRotateIds] = useState([]);
   const menuNav = menuGroupe(rubriques);
-  const toogleRaster = (data, parentId, id) => {
-    if(!parentId || data.length === 0) {
-      setIsOpen(data);
-      setRotateIds([])
+  const toogleRaster = (data, parentId, id, chIds) => {
+    if(rotateIds.includes(id)) {
+      setRotateIds(rotateIds.filter(i => i !== id));
+      setIsOpen(isOpen.filter(i => !chIds.includes(i)));
       return;
     }
     setRotateIds([parentId, id]);
@@ -112,11 +112,12 @@ const NavBar = (props) => {
         </View>
         {
           menuNav.map((item) => {
+            const childrenIds = item.children ? item.children.map(i => i.id) : []
             return <ItemView
             {...item}
             key={`rubrique ${item.id}`}
-            childrenIds={item.children && item.children.map(i => i.id)}
-            toogleRaster={(data, parentId) => toogleRaster(data, parentId, item.id)}
+            childrenIds={childrenIds}
+            toogleRaster={(data, parentId) => toogleRaster(data, parentId, item.id, childrenIds)}
             isOpen={isOpen}
             rotateIds={rotateIds}
           />})
