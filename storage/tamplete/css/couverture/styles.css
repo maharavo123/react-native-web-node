@@ -43,6 +43,29 @@
     margin-bottom: auto;
   }
 
+  .couv-content {
+    margin: 10px 0px 10px 25px;
+  }
+
+  .name-client {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .addr-client {
+
+  }
+
+  .blue-conv {
+    color: #0073bc;
+  }
+
+  /*  #0073bc bleu
+      #ff081c rouge
+      #74c000 Vert
+      #373b3d gris 
+      #a2a1a8 gris clair */
+
   .spanItem {
     color: white;
     font-size: 4.5px;
