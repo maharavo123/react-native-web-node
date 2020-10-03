@@ -7,13 +7,14 @@
   .r1-title {
     background-color: #2C7AC3;
     color: white;
-    font-size: 14;
+    font-size: 12px;
     padding: 5px;
     border-radius: 3px;
   }
 
   .r1-li {
     color:  #2C7AC3;
+    font-size: 10px;
   }
 
   .r1-p-2 {
@@ -80,6 +81,6 @@
     float: right;
     display: block;
     width: 500px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
