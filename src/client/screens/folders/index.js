@@ -46,6 +46,15 @@ const IndicatorSeparator = ({ innerProps }) => {
   return <span style={indicatorSeparatorStyle} {...innerProps} />;
 };
 
+const selectStyles = {
+  container: (base, state) => ({
+    ...base,
+    opacity: state.isDisabled ? ".5" : "1",
+    backgroundColor: 'red',
+    zIndex: "999"
+  })
+};
+
 class SelectOption extends React.Component {
   state = {
     selectedOption: null,
@@ -60,23 +69,27 @@ class SelectOption extends React.Component {
     return (
       <View style={{ alignItems: 'center', margin: 5 }}>
         <Text style={{ paddingBottom: 10, paddingTop: 5, color: '#2C7AC3' }}>{this.props.title}</Text>
-        <Select
-          value={selectedOption}
-          components={{ IndicatorSeparator }}
-          onChange={this.handleChange}
-          options={this.props.options}
-          className={styles.selectBox}
-          theme={theme => ({
-            ...theme,
-            borderRadius: 10,
-            colors: {
-              ...theme.colors,
-              primary25: '#E5E9F2',
-              primary: '#2C7AC3',
-            },
-            backgroundColor: '#2C7AC3',
-          })}
-        />
+          <Select
+            value={selectedOption}
+            isSearchable
+            components={{ IndicatorSeparator }}
+            onChange={this.handleChange}
+            options={this.props.options}
+            className={styles.selectBox}
+            theme={theme => ({
+              ...theme,
+              borderRadius: 10,
+              colors: {
+                ...theme.colors,
+                primary25: '#E5E9F2',
+                primary: '#2C7AC3',
+              },
+              backgroundColor: '#2C7AC3',
+            })}
+            placeholder="sélectionner"
+            menuPortalTarget={document.body}
+            styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+          />
       </View>
     );
   }
@@ -89,12 +102,18 @@ class FoldersScreen extends Component {
       message: '',
       search: '',
       selectedOption: null,
+      folders: [],
+      index: 0,
+      currentPage: 1,
+      numberDysplay: 10,
     };
   }
 
-  componentDidMount() {
-    this.props.navigateHeader({ index: 2, name: 'Rechercher' });
-    this.props.getAllfolders(this.cb);
+  async componentDidMount() {
+    await this.props.navigateHeader({ index: 2, name: 'Rechercher' });
+    await this.props.getAllfolders(this.cb);
+    const { folders } = this.props.folders;
+    this.setState({ folders });
   }
 
   cb = (res) => {
@@ -107,7 +126,7 @@ class FoldersScreen extends Component {
   };
 
   render() {
-    const { folder, folders } = this.props.folders;
+    const { folder, folders, index, currentPage, numberDysplay } = this.state;
     console.log({ folder, folders });
     return (
       <View className={styles.containtFolders}>
@@ -120,13 +139,12 @@ class FoldersScreen extends Component {
             <View style={{
               justifyContent: 'space-between',
               flexDirection: 'row',
-
             }}>
               <SelectOption title={'Ville'} options={optionsVille} />
               <SelectOption title={'Code postal'} options={optionsCodePostal} />
               <SelectOption title={"Type d'audit"} options={optionsTypeAudit} />
             </View>
-            <View style={{ justifyContent: 'flex-end', marginBottom: 10 }}>
+            <View style={{ justifyContent: 'flex-end', marginBottom: 10, marginRight: 3 }}>
               <View
                 style={{
                 justifyContent: 'space-between',
@@ -190,8 +208,9 @@ class FoldersScreen extends Component {
               <Text style={{ textAlign: 'center' }}>PDF Audit / Annex</Text>
             </View>
           </View>
+          <View style={{ minHeight: 400 }}>
           {
-            folders && folders.map(({ _id, nom_client, vile_client, reference_document, code_client, type_audit }) => {
+            folders.slice(index, currentPage * numberDysplay).map(({ _id, nom_client, vile_client, reference_document, code_client, type_audit }) => {
               return (<View
                 key={_id}
                 style={{
@@ -202,7 +221,7 @@ class FoldersScreen extends Component {
                   height: 45,
                   borderRadius: 5,
                   padding: 5,
-                  marginBottom: 3
+                  marginBottom: 3,
                 }}
               >
                 <View style={{ width: width_pourc(50) / 5, justifyContent: 'center' }}>
@@ -220,12 +239,44 @@ class FoldersScreen extends Component {
                 <View style={{ width: width_pourc(50) / 4, justifyContent: 'center' }}>
                   <Text style={{ textAlign: 'center' }}>{type_audit}</Text>
                 </View>
-                <View style={{ width: width_pourc(50) / 4, justifyContent: 'center' }}>
-                  <Text style={{ textAlign: 'center' }}>PDF Audit / Annex</Text>
+                <View style={{ width: width_pourc(50) / 4, justifyContent: 'space-evenly', flexDirection: 'row' }}>
+                  <View style={{ justifyContent: 'center' }}>
+                    <Image
+                      source={images.down_pdf}
+                      style={{ width: 35, height: 26 }}
+                    />
+                  </View>
+                  <View style={{ justifyContent: 'center' }}>
+                    <Image
+                      source={images.down_pdf}
+                      style={{ width: 35, height: 26 }}
+                    />
+                  </View>
                 </View>
               </View>)
             })
           }
+          <View style={{ justifyContent: 'center', flexDirection: 'row' }}>
+            <View style={{ padding: 10 }}>
+              <Text>5 / 25</Text>
+            </View>
+            <View style={{ padding: 10 }}>
+              <Image
+                source={images.Raster}
+                style={{ width: 13, height: 13, transform: [{ rotate: '90deg' }] }}
+              />
+            </View>
+            <View style={{ padding: 10 }}>
+              <Text>5</Text>
+            </View>
+            <View style={{ padding: 10 }}>
+              <Image
+                source={images.Raster}
+                style={{ width: 13, height: 13, transform: [{ rotate: '270deg' }] }}
+              />
+            </View>
+          </View>
+          </View>
         </View>
       </View>
     );
