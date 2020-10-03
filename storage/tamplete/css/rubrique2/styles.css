@@ -3,7 +3,7 @@
   #rubrique2 {
   }
 
-  #rubrique2:after, #m-ouvrage:after, #bureau:after, #r-dossier:after, #calculs:after {
+  #rubrique2:after, #ouvrage-bureau:after,  #m-ouvrage:after, #bureau:after, #r-dossier:after, #calculs:after {
     content: '';
     clear: both;
     display: block;
@@ -23,6 +23,23 @@
     width: 280px;
   }
 
+  #ouvrage-bureau {
+    display: block;
+  }
+
+  .sub-rubric-size {
+    font-size: 12px;
+  }
+
+  .sub-rubric-p {
+    font-size: 10px;
+  }
+
+  .legend-value {
+    font-weight: bold;
+    margin-left: 35px;
+  }
+
   #r-dossier {
     float: left;
     width: 280px;
@@ -40,18 +57,25 @@
   #r2-footer-l {
     float: left;
     width: 120px;
+    margin: 5px;
   }
 
   #r2-footer-l2 {
-    float: right;
+    float: left;
     width: 215px;
     display: block;
+    margin: 5px;
   }
 
   #r2-footer-r {
     float: right;
-    width: 215px;
+    width: 200px;
     display: block;
+    margin: 5px;
+  }
+
+  .space-pict {
+    margin: 5px;
   }
 
   #site img {
