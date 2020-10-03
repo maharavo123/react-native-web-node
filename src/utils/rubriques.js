@@ -171,7 +171,7 @@ export default [
         title: 'Consommations',
         children: [
           {
-            id: 1,
+            id: '4.3.1',
             title: 'Consommations théoriques en énergie finale',
           },
           {
@@ -183,7 +183,7 @@ export default [
     ],
   },
   {
-    id: 1,
+    id: 5,
     title: 'CONCLUSION AUDIT DE L’EXISTANT',
   },
 ];

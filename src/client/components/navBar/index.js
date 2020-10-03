@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   View,
@@ -16,10 +16,13 @@ import styles from './styles.css';
 
 import rubriques from '../../../utils/rubriques';
 
-const menuGroupe = rubriques.reduce((acc, curr) => {
-  const { title, id, children } = curr;
-  return [...acc, { title, id, children }];
-}, [])
+const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children }) => {
+  const newItem = { title, id, children, parent };
+  if(children){
+    return [...acc, newItem, ...menuGroupe(children, id)];
+  }
+  return [...acc, newItem];
+}, []);
 
 const ItemView = (props) => {
   const {
@@ -27,27 +30,51 @@ const ItemView = (props) => {
     image=images.bell,
     onPressItem=() => {},
     toogleRaster=() => {},
-    children=[],
+    childrenIds=[],
+    isOpen=[],
     parent=null,
-    margin_left=0
+    id,
+    rotateIds=[],
   } = props;
+
+  const idString = id.toString();
+  const margin_left = () => {
+    if(typeof id === 'string') {
+      return 10;
+    }
+    if(id && idString.split('.').length > 1) {
+      return 6;
+    }
+    return 0;
+  }
+
+  if(idString.length > 1 && !isOpen.includes(id)) {
+    return null;
+  }
 
   return (
     <TouchableOpacity onPress={onPressItem}>
       <View className={styles.itemView_navBar_containers}>
         <View className={styles.itemView_navBar}>
-          <View style={{ paddingLeft: margin_left }}>
+          <View style={{ paddingLeft: margin_left() }}>
             <Image
               source={image}
               className={styles.bell}
             />
           </View>
-          <View className={styles.itemTitle_navBar}>
-            <Text className={styles.itemTitle_navBar}>{title}</Text>
+          <View className={styles.itemTitle_navBarView}>
+            <View>
+              <Text className={styles.itemTitle_navBarId}>{`${id} - `}</Text>
+            </View>
+            <View className={styles.itemTitle_navBarViewTitle}>
+              <Text className={styles.itemTitle_navBarText}>{title}</Text>
+            </View>
           </View>
         </View>
         <View className={styles.viewReset_navBar}>
-          {children && children.length > 0 && <TouchableOpacity onPress={toogleRaster}>
+          {childrenIds && childrenIds.length > 0 && <TouchableOpacity
+            style={{transform: [{ rotate: rotateIds.includes(id) ? '180deg' : '0deg' }]}}
+            onPress={() => toogleRaster([...childrenIds, id], parent)}>
             <Image
               source={images.Raster}
               className={styles.Raster_navBar}
@@ -59,33 +86,45 @@ const ItemView = (props) => {
   )
 }
 
-const NavBar = (props) => (
-  <View className={styles.containt}>
-    <View className={styles.body}>
-      <View className={styles.itemLogo}>
-        <Image
-          source={images.home}
-          className={styles.home}
-        />
+const NavBar = (props) => {
+  const [isOpen, setIsOpen] = useState([]);
+  const [rotateIds, setRotateIds] = useState([]);
+  const menuNav = menuGroupe(rubriques);
+  const toogleRaster = (data, parentId, id) => {
+    if(!parentId || data.length === 0) {
+      setIsOpen(data);
+      setRotateIds([])
+      return;
+    }
+    setRotateIds([parentId, id]);
+    const openIds = menuNav.filter(({ parent }) => parent === parentId).map(i => i.id);
+    setIsOpen([...data, parentId, ...openIds]);
+  }
+
+  return (
+    <View className={styles.containt}>
+      <View className={styles.body}>
+        <View className={styles.itemLogo}>
+          <Image
+            source={images.home}
+            className={styles.home}
+          />
+        </View>
+        {
+          menuNav.map((item) => {
+            return <ItemView
+            {...item}
+            key={`rubrique ${item.id}`}
+            childrenIds={item.children && item.children.map(i => i.id)}
+            toogleRaster={(data, parentId) => toogleRaster(data, parentId, item.id)}
+            isOpen={isOpen}
+            rotateIds={rotateIds}
+          />})
+        }
       </View>
-      {/* {
-        menuGroupe.map(({ title, id, children }) => {
-          return <ItemView
-          key={`rubrique ${id}`}
-          title={`${id}- ${title}`}
-          children={children && children.map(i => i.id)}
-        /> })
-      } */}
-      <ItemView title={'1- Préambule'}/>
-      <ItemView title={'Informations génerale'} children={[2.1]}/>
-      <ItemView title={'Etat des lieux'} children={[3.1]} niveau={2} />
-      <ItemView title={'3.1- Descriptif des parois'} parent={2} margin_left={5} />
-      <ItemView title={'Audit énergetique'} />
-      <ItemView title={'Conclusion audit'} />
-      <ItemView title={'Aperçu pdf'} image={images.bell_red} />
     </View>
-  </View>
-);
+  )
+};
 
 export default connect(
   mapStateToProps,
