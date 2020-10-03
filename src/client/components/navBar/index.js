@@ -58,7 +58,7 @@ const ItemView = (props) => {
   }
 
   return (
-    <TouchableOpacity onPress={onPressItem}>
+    <TouchableOpacity onPress={() => toogleRaster([...childrenIds, id], parent)}>
       <View className={styles.itemView_navBar_containers}
         style={{
           marginLeft: margin_color_left().left,
@@ -88,15 +88,16 @@ const ItemView = (props) => {
           </View>
         </View>
         <View className={styles.viewReset_navBar}>
-          {childrenIds && childrenIds.length > 0 && <TouchableOpacity
+          {childrenIds && childrenIds.length > 0 && <View
             style={{transform: [{ rotate: rotateIds.includes(id) ? '180deg' : '0deg' }]}}
-            onPress={() => toogleRaster([...childrenIds, id], parent)}>
+            // onPress={() => toogleRaster([...childrenIds, id], parent)}
+          >
             <Image
               source={images.Raster}
               className={styles.Raster_navBar}
               style={{ }}
             />
-          </TouchableOpacity>}
+          </View>}
         </View>
       </View>
     </TouchableOpacity>

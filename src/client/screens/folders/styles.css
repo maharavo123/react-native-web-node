@@ -3,9 +3,15 @@
 }
 
 .bodyFolders {
-  background-color: '#97CC53';
+  background-color: #97CC53;
   opacity: 0.6;
-} 
+}
+
+.selectBox {
+  width: 180px;
+  background-color: #2C7AC3;
+  border-radius: 20px;
+}
 
 @media screen and (min-width: 67rem) {
 }
