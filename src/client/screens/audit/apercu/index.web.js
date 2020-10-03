@@ -26,7 +26,7 @@ const DisplayPDF = ({ file }) => {
     >
       {Array.apply(null, Array(numPages))
         .map((x, i) => i + 1)
-        .map((page, key) => <Page key={`page-${key}`} pageNumber={page} width={(1 - 1 / 4.75) * Dimensions.get('window').width} />)}
+        .map((page, key) => <Page key={`page-${key}`} pageNumber={page} width={(1 - 1 / 3.5) * Dimensions.get('window').width} />)}
     </Document>
   )
 }
