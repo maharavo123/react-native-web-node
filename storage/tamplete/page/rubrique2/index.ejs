@@ -1,92 +1,108 @@
 <div id="rubrique2">
-  <h2 class="r2-title"> 2 Informations générales (1/4)</h1>
-    <div id="m-ouvrage">
-      <h3>2.1 Maître d'ouvrage</h3>
-      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
-      <p><span>NON : <%= csv.maitre_de_ouvrage.nom_all %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">NON : </span></p>
-      <% } %>
-      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
-      <p><span>ADRESSE : <%= csv.maitre_de_ouvrage.adresse %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">ADRESSE : </span></p>
-      <% } %>
-      <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.statut){ %>
-      <p><span>STATUT : <%= csv.maitre_de_ouvrage.statut %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">STATUT : </span></p>
-      <% } %>
+  <h2 class="r2-title"> <span class="green-conv">2</span> <span class="blue-conv"> Informations générales (1/4)</span></h1>
+    <div id="ouvrage-bureau">
+      <div id="m-ouvrage">
+        <h3 class="sub-rubric-size"><span class="green-conv">2.1</span> <span class="blue-conv"> Maître d'ouvrage</span></h3>
+        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+        <p><span>NON : <%= csv.maitre_de_ouvrage.nom_all %></span></p>
+        <% } else{ %>
+        <p><span style="color: red;">NON : </span></p>
+        <% } %>
+        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+        <p><span>ADRESSE : <%= csv.maitre_de_ouvrage.adresse %></span></p>
+        <% } else{ %>
+        <p><span style="color: red;">ADRESSE : </span></p>
+        <% } %>
+        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.statut){ %>
+        <p><span>STATUT : <%= csv.maitre_de_ouvrage.statut %></span></p>
+        <% } else{ %>
+        <p><span style="color: red;">STATUT : </span></p>
+        <% } %>
+      </div>
+      <div id="bureau">
+        <h3 class="sub-rubric-size"><span class="green-conv">2.2</span> <span class="blue-conv"> Bureau d'étude</span></h3>
+        <div class="sub-rubric-p">
+          <p><span>NON : </span></p>
+          <p><span>CONCTACT : </span></p>
+          <p><span>TÉL : </span>00 00 00 00</p>
+          <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
+        </div>
+      </div>
     </div>
-    <div id="bureau">
-      <h3>2.2 Bureau d'étude</h3>
-      <p><span>NON : </span></p>
-      <p><span>CONCTACT : </span></p>
-      <p><span>TÉL : </span>00 00 00 00</p>
-      <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
-    </div>
-    <div id="r-dossier">
-      <h3>2.3 Référence dossier xxxxxxx</h3>
-      <p><span>OBJET : </span></p>
-      <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
-      <p><span>ADRESSE BÂTIMENT : <%= csv.reference_dossier.adresse %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">ADRESSE BÂTIMENT : </span></p>
-      <% } %>
 
-      <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
-      <p><span>CP/VILLE : <%= csv.reference_dossier.codepostal + csv.reference_dossier.ville %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">CP/VILLE : </span></p>
-      <% } %>
+    <div id="r-dossier">
+      <h3 class="sub-rubric-size"><span class="green-conv">2.3</span> <span class="blue-conv">  Référence dossier xxxxxxx</span> </h3>
+      <div class="sub-rubric-p">
+        <p><span>OBJET : </span></p>
+        <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
+        <p><span>ADRESSE BÂTIMENT : <%= csv.reference_dossier.adresse %></span></p>
+        <% } else{ %>
+        <p><span style="color: red;">ADRESSE BÂTIMENT : </span></p>
+        <% } %>
+  
+        <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
+        <p><span>CP/VILLE : <%= csv.reference_dossier.codepostal + csv.reference_dossier.ville %></span></p>
+        <% } else{ %>
+        <p><span style="color: red;">CP/VILLE : </span></p>
+        <% } %>
+      </div>
     </div>
     <div id="calculs">
-      <h3>2.4 Calculs</h3>
-      <% if(typeof xml == 'object' && xml.version_log){ %>
-      <p><span>LOGICIEL VERSION : <%= xml.version_log %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">LOGICIEL VERSION : </span></p>
-      <% } %>
-      <% if(typeof xml == 'object' && xml.temp_ext_base_corrige){ %>
-      <p><span>TEMP. EXT. DE BASE : <%= xml.temp_ext_base_corrige %></span></p>
-      <% } else{ %>
-      <p><span style="color: red;">TEMP. EXT. DE BASE : </span></p>
-      <% } %>
+      <h3 class="sub-rubric-size"><span class="green-conv">2.4</span> <span class="blue-conv"> Calculs</span></h3>
+      <div class="sub-rubric-p">
+        <% if(typeof xml == 'object' && xml.version_log){ %>
+          <p><span>LOGICIEL VERSION : <%= xml.version_log %></span></p>
+          <% } else{ %>
+          <p><span style="color: red;">LOGICIEL VERSION : </span></p>
+          <% } %>
+          <% if(typeof xml == 'object' && xml.temp_ext_base_corrige){ %>
+          <p><span>TEMP. EXT. DE BASE : <%= xml.temp_ext_base_corrige %></span></p>
+          <% } else{ %>
+          <p><span style="color: red;">TEMP. EXT. DE BASE : </span></p>
+          <% } %>
+      </div>
     </div>
     <div style="clear: both;"></div>
     <div id="site">
-      <h3>2.5 Site audité le xx/xx/xxxx</h3>
+      <h3 class="sub-rubric-size"><span class="green-conv">2.5</span> <span class="blue-conv"> Site audité le xx/xx/xxxx</span></h3>
       <img src="<%= baseURL %>tamplete/img/r2/plan.png">
     </div>
-    <div id="r2-footer">
+    <div id="r2-footer" class="sub-rubric-size r1-footer">
       <div id="r2-footer-l">
-        <img src="<%= baseURL %>tamplete/img/r2/localisation.png" style="width: 40px; height: 50px;">
-        <span>Dépt.</span>
-        <% if(typeof xml == 'object' && xml.numero_departement){ %>
-        <span><%= xml.numero_departement %></span>
-        <% } else{ %>
-        <span style="color: red;"> required </span>
-        <% } %>
+        <img src="<%= baseURL %>tamplete/img/r2/localisation.png" style="width: 30px; height: 40px;">
+        <span class="blue-conv">Dépt.</span>
+        <div class="legend-value">
+          <% if(typeof xml == 'object' && xml.numero_departement){ %>
+            <span><%= xml.numero_departement %></span>
+            <% } else{ %>
+            <span style="color: red;"> required </span>
+            <% } %>
+        </div>
       </div>
       <div id="r2-footer-l2">
-        <img src="<%= baseURL %>tamplete/img/r2/maison.png" style="width: 40px; height: 50px;">
-        <span>Surface Habitable</span>
-        <% if(typeof csv == 'object' && csv.surface_habitable){ %>
-        <span><%= csv.surface_habitable %> m²</span>
-        <% } else{ %>
-        <span style="color: red;"> m² </span>
-        <% } %>
+        <img src="<%= baseURL %>tamplete/img/r2/calendrier.png" style="width: 30px; height: 40px;">
+        <span class="blue-conv">Année de Construction</span>
+        <div class="legend-value">
+          <% if(typeof csv == 'object' && csv.annee_de_construction){ %>
+            <span><%= csv.annee_de_construction %></span>
+            <% } else{ %>
+            <span style="color: red;"> required </span>
+            <% } %>
+        </div>
       </div>
       <div id="r2-footer-r">
-        <img src="<%= baseURL %>tamplete/img/r2/calendrier.png" style="width: 40px; height: 50px;">
-        <span>Année de Construction</span>
-        <% if(typeof csv == 'object' && csv.annee_de_construction){ %>
-        <span><%= csv.annee_de_construction %></span>
-        <% } else{ %>
-        <span style="color: red;"> required </span>
-        <% } %>
+        <img src="<%= baseURL %>tamplete/img/r2/maison.png" style="width: 30px; height: 40px;">
+        <span class="blue-conv">Surface Habitable</span>
+        <div class="legend-value">
+          <% if(typeof csv == 'object' && csv.surface_habitable){ %>
+            <span><%= csv.surface_habitable %> m²</span>
+            <% } else{ %>
+            <span style="color: red;"> m² </span>
+            <% } %>
+        </div>
       </div>
     </div>
+    <br><br>
     <div style="clear: both;"></div>
     <div id="place-footer"></div>
 </div>
