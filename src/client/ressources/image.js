@@ -14,4 +14,6 @@ export default {
   pdf3: require('./images/pdf3.png'),
   recycle: require('./images/recycle.png'),
   edit: require('./images/edit.png'),
+  bell: require('./images/bell.png'),
+  bell_red: require('./images/bell_red.png'),
 };
