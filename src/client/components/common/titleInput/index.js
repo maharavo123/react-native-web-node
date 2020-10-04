@@ -5,8 +5,8 @@ import images from 'images';
 
 import styles from './styles.css';
 
-const InputText = ({ title }) => (
-  <View className={styles.containt}>
+const InputText = ({ title, style }) => (
+  <View className={styles.containt} style={style}>
     <View className={styles.selectorTitleInput}>
       <Text className={styles.title}>{title}</Text>
     </View>
@@ -16,8 +16,8 @@ const InputText = ({ title }) => (
   </View>
 );
 
-export const InputContaint = ({ children }) => (
-  <View className={styles.InputContaint}>
+export const InputContaint = ({ children, style }) => (
+  <View className={styles.InputContaint} style={style}>
     {children}
   </View>
 );

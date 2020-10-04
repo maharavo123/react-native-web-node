@@ -13,6 +13,7 @@ import Audit from '../screens/audit';
 import NewAudit from '../screens/audit/new';
 import FormAudit from '../screens/audit/form';
 import Apercu from '../screens/audit/apercu';
+import InfosG from '../screens/audit/form/infos_generale';
 import Dossiers from '../screens/folders';
 import Comptes from '../screens/comptes';
 import NoMatch from '../screens/noMatch';
@@ -37,6 +38,13 @@ const App = props => {
             <View className={styles.corps3}>
               <NavBar />
               <Apercu />
+            </View>
+          </Route>
+          <Route exact path='/infos-generale'>
+            {/* <Apercu {...props} /> */}
+            <View className={styles.corps3}>
+              <NavBar />
+              <InfosG />
             </View>
           </Route>
           <Route path='/page-coverture'>
