@@ -186,4 +186,19 @@ export default [
     id: 5,
     title: 'CONCLUSION AUDIT DE L’EXISTANT',
   },
+  {
+    id: 6,
+    title: 'APERCU PDF audit',
+    notLogo: true,
+  },
+  {
+    id: 7,
+    title: 'ANNEXES',
+    notLogo: true,
+  },
+  {
+    id: 8,
+    title: 'APERCU PDF Annexes',
+    notLogo: true,
+  },
 ];

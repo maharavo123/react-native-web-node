@@ -21,8 +21,8 @@ const dm = Dimensions.get('window').width;
 
 const p_marg = (marg) => (17 * dm / 100) - marg;
 
-const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children }) => {
-  const newItem = { title, id, children, parent };
+const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children, notLogo }) => {
+  const newItem = { title, id, children, parent, notLogo };
   if(children){
     return [...acc, newItem, ...menuGroupe(children, id)];
   }
@@ -40,6 +40,7 @@ const ItemView = (props) => {
     parent=null,
     id,
     rotateIds=[],
+    notLogo,
   } = props;
 
   const idString = id.toString();
@@ -68,17 +69,17 @@ const ItemView = (props) => {
       >
         <View className={styles.itemView_navBar}>
           <View style={{}}>
-            <Image
+            {!notLogo && <Image
               source={image}
               className={styles.bell}
-            />
+            />}
           </View>
           <View className={styles.itemTitle_navBarView}>
             <View>
-              <Text
+              {!notLogo && <Text
                 className={styles.itemTitle_navBarId}
                 style={{ color: margin_color_left().text_color }}
-              >{`${id} - `}</Text>
+              >{`${id} - `}</Text>}
             </View>
             <View className={styles.itemTitle_navBarViewTitle}>
               <Text
