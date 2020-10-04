@@ -69,9 +69,24 @@ class HomeScreen extends PureComponent {
       name: "name name",
       phoneFix: "777779999",
       phonePortable: "00588888972",
+      mail_client: "sdfsdfsfs@dffd.fddf",
+      mail_interlocuteur: "admin@audit.fr",
+      nom_client: "sdfsdfsd sdfsfsfs",
+      nom_interlocuteur: "Admin Eric",
+      phone_client: "0888888888",
+      phone_fix_interlocuteur: "9886555555",
+      phone_interlocuteur: "09776544434",
+      reference_document: "dfsdfsdfsdf",
+      type_audit: "Existant",
+      vile_client: "dsfdfsdf",
+      adress_client: "dsfsdfsdf",
+      code_client: "sdfsfsfsf",
+      ...this.props.audit.form,
     };
     const { clientName } = this.props.audit.form;
-    this.props.getPfd(clientName && clientName.length > 0 ? this.props.audit.form : data);
+    console.log(this.props.audit.form);
+    
+    this.props.getPfd(data);
   }
 
   onDownload = () => {
