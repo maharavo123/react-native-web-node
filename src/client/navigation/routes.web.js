@@ -43,7 +43,7 @@ const App = props => {
           <Route exact path='/infos-generale'>
             {/* <Apercu {...props} /> */}
             <View className={styles.corps3}>
-              <NavBar />
+              <NavBar defaultValue={2} />
               <InfosG />
             </View>
           </Route>

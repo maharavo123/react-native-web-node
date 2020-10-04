@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, TextInput, Image, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 
@@ -7,6 +7,8 @@ import mapStateToProps from 'mapStateToProps';
 import mapDispatchToProps from 'mapDispatchToProps';
 
 import images from 'images';
+
+import Loader from '../../components/common/loader';
 
 import styles from './styles.css';
 
@@ -67,7 +69,6 @@ class SelectOption extends React.Component {
 
   render() {
     const { selectedOption } = this.state;
- 
     return (
       <View style={{ alignItems: 'center', margin: 5 }}>
         <Text style={{ paddingBottom: 10, paddingTop: 5, color: '#2C7AC3' }}>{this.props.title}</Text>
@@ -166,6 +167,9 @@ class FoldersScreen extends Component {
 
   render() {
     const { folder, folders, currentPage, numberDysplay, code, ville, type } = this.state;
+    if(!folders || !(folders.length > 0)) {
+      return <Loader style={{ flex: 1, backgroundColor: '#97CC53', minHeight: 400, justifyContent: 'center' }} />
+    }
     console.log({ code, ville, type });
 
     const optionsVille = folders.map(({ vile_client }) => ({ value: vile_client.toLowerCase(), label: vile_client }));

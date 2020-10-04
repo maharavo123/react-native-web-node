@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Image,
   View,
@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import mapStateToProps from 'mapStateToProps';
 import mapDispatchToProps from 'mapDispatchToProps';
@@ -21,8 +22,8 @@ const dm = Dimensions.get('window').width;
 
 const p_marg = (marg) => (17 * dm / 100) - marg;
 
-const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children, notLogo }) => {
-  const newItem = { title, id, children, parent, notLogo };
+const menuGroupe = (data, parent) => data.reduce((acc, { title, id, children, notLogo, to }) => {
+  const newItem = { title, id, children, parent, notLogo, to };
   if(children){
     return [...acc, newItem, ...menuGroupe(children, id)];
   }
@@ -41,9 +42,11 @@ const ItemView = (props) => {
     id,
     rotateIds=[],
     notLogo,
+    to,
   } = props;
 
   const idString = id.toString();
+
   const margin_color_left = () => {
     if(typeof id === 'string') {
       return { left: 10, color: '#2C7AC3', text_color: '#FFFFFF' };
@@ -58,8 +61,17 @@ const ItemView = (props) => {
     return null;
   }
 
+  const history = useHistory();
+
+
   return (
-    <TouchableOpacity onPress={() => toogleRaster([...childrenIds, id], parent)}>
+    <TouchableOpacity onPress={() => {
+      toogleRaster([...childrenIds, id], parent);
+      history.push({
+        pathname: to,
+        params: {},
+      })
+      }}>
       <View className={styles.itemView_navBar_containers}
         style={{
           marginLeft: margin_color_left().left,
@@ -106,8 +118,14 @@ const ItemView = (props) => {
 }
 
 const NavBar = (props) => {
-  const [isOpen, setIsOpen] = useState([]);
-  const [rotateIds, setRotateIds] = useState([]);
+  let initOpen = [], initRotateIds = [];
+  const { defaultValue } = props;
+  if (defaultValue === 2) {
+    initOpen = [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2];
+    initRotateIds = [2];
+  }
+  const [isOpen, setIsOpen] = useState(initOpen);
+  const [rotateIds, setRotateIds] = useState(initRotateIds);
   const menuNav = menuGroupe(rubriques);
   const toogleRaster = (data, parentId, id, chIds) => {
     if(rotateIds.includes(id)) {
@@ -120,6 +138,7 @@ const NavBar = (props) => {
     setIsOpen([...data, parentId, ...openIds]);
   }
 
+  console.log({ defaultValue, isOpen });
   return (
     <View className={styles.containt}>
       <View className={styles.body}>
@@ -139,6 +158,7 @@ const NavBar = (props) => {
             toogleRaster={(data, parentId) => toogleRaster(data, parentId, item.id, childrenIds)}
             isOpen={isOpen}
             rotateIds={rotateIds}
+            // defaultValue={defaultValue}
           />})
         }
       </View>

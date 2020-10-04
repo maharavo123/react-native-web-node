@@ -35,6 +35,7 @@ export default [
   {
     id: 2,
     title: 'INFORMATIONS GENERALES',
+    to: 'infos-generale',
     children: [
       {
         id: 2.1,
