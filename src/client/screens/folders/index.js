@@ -188,21 +188,22 @@ class FoldersScreen extends Component {
             }}>
               <SelectOption
                 title={'Ville'}
-                options={[{ value: '', label: 'Clear' }, ...optionsVille.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                options={[{ value: '', label: 'Sélectionner' }, ...optionsVille.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
                 onSelectItem={({ value }) => this.setState({ ville: value })}
-                value={ville}
+                inputValue={ville}
+                // setValue={() => ville}
               />
               <SelectOption
                 title={'Code postal'}
-                options={[{ value: '', label: 'Clear' }, ...optionsCodePostal.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                options={[{ value: '', label: 'Sélectionner' }, ...optionsCodePostal.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
                 onSelectItem={({ value }) => this.setState({ code: value })}
-                value={code}
+                inputValue={code}
               />
               <SelectOption
                 title={"Type d'audit"}
-                options={[{ value: '', label: 'Clear' }, ...optionsTypeAudit.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                options={[{ value: '', label: 'Sélectionner' }, ...optionsTypeAudit.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
                 onSelectItem={({ value }) => this.setState({ type: value })}
-                value={type}
+                inputValue={type}
               />
             </View>
             <View style={{ justifyContent: 'flex-end', marginBottom: 10, marginRight: 3 }}>
