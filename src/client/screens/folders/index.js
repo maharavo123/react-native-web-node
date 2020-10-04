@@ -15,24 +15,24 @@ const width_d = (93 * dm / 100) - 80;
 
 const width_pourc = (pourc) => (pourc * width_d / 100);
 
-const optionsTypeAudit = [
-  { value: 'Existant', label: 'Existant' },
-  { value: 'Premium', label: 'Premium' },
-  { value: 'Optimum', label: 'Optimum' },
-];
+// const optionsTypeAudit = [
+//   { value: 'Existant', label: 'Existant' },
+//   { value: 'Premium', label: 'Premium' },
+//   { value: 'Optimum', label: 'Optimum' },
+// ];
 
-const optionsCodePostal = [
-  { value: '75000', label: '75000' },
-  { value: '75001', label: '75001' },
-  { value: '75002', label: '75002' },
-  { value: '75003', label: '75003' },
-];
+// const optionsCodePostal = [
+//   { value: '75000', label: '75000' },
+//   { value: '75001', label: '75001' },
+//   { value: '75002', label: '75002' },
+//   { value: '75003', label: '75003' },
+// ];
 
-const optionsVille = [
-  { value: 'Vienne', label: 'Vienne' },
-  { value: 'Paris', label: 'Paris' },
-  { value: 'Marseille', label: 'Marseille' },
-];
+// const optionsVille = [
+//   { value: 'Vienne', label: 'Vienne' },
+//   { value: 'Paris', label: 'Paris' },
+//   { value: 'Marseille', label: 'Marseille' },
+// ];
 
 const indicatorSeparatorStyle = {
   alignSelf: 'stretch',
@@ -59,10 +59,12 @@ class SelectOption extends React.Component {
   state = {
     selectedOption: null,
   };
+
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   };
+
   render() {
     const { selectedOption } = this.state;
  
@@ -73,7 +75,7 @@ class SelectOption extends React.Component {
             value={selectedOption}
             isSearchable
             components={{ IndicatorSeparator }}
-            onChange={this.handleChange}
+            // onChange={this.handleChange}
             options={this.props.options}
             className={styles.selectBox}
             theme={theme => ({
@@ -89,6 +91,11 @@ class SelectOption extends React.Component {
             placeholder="sélectionner"
             menuPortalTarget={document.body}
             styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+            onChange={(item) => {
+              console.log({ item });
+              this.props.onSelectItem(item);
+            }}
+            value={this.props.value}
           />
       </View>
     );
@@ -106,6 +113,9 @@ class FoldersScreen extends Component {
       index: 0,
       currentPage: 1,
       numberDysplay: 10,
+      code: '',
+      type: '',
+      ville: '',
     };
   }
 
@@ -125,9 +135,45 @@ class FoldersScreen extends Component {
     console.log(`Option selected:`, selectedOption);
   };
 
-  render() {
+  next = () => {
     const { folder, folders, index, currentPage, numberDysplay } = this.state;
-    console.log({ folder, folders });
+    if(currentPage < Math.ceil(folders.length / numberDysplay)) {
+      this.setState({ currentPage: currentPage + 1 })
+    }
+  }
+
+  prev = () => {
+    const { currentPage } = this.state;
+    if(currentPage > 1) {
+      this.setState({ currentPage: currentPage - 1 });
+    }
+  }
+
+  customerFilter = ({ vile_client, code_client, type_audit, nom_client, reference_document }) => {
+    const { code, ville, type, search } = this.state;
+    let f_code = code_client.toLowerCase(), f_ville = vile_client.toLowerCase(), f_type = type_audit.toLowerCase();
+    code.length > 0 && (f_code = code);
+    ville.length > 0 && (f_ville = ville);
+    type.length > 0 && (f_type = type);
+
+    const filter = vile_client.toLowerCase() === f_ville
+      && code_client.toLowerCase() === f_code
+      && type_audit.toLowerCase() === f_type
+      && (nom_client.toLowerCase().includes(search.toLowerCase()) || reference_document.toLowerCase().includes(search.toLowerCase()));
+    console.log({ filter });
+    return filter;
+  }
+
+  render() {
+    const { folder, folders, currentPage, numberDysplay, code, ville, type } = this.state;
+    console.log({ code, ville, type });
+
+    const optionsVille = folders.map(({ vile_client }) => ({ value: vile_client.toLowerCase(), label: vile_client }));
+    const optionsCodePostal = folders.map(({ code_client }) => ({ value: code_client.toLowerCase(), label: code_client }));
+    const optionsTypeAudit = folders.map(({ type_audit }) => ({ value: type_audit.toLowerCase(), label: type_audit }));
+
+    const list = folders.slice((currentPage - 1) * numberDysplay, currentPage * numberDysplay).filter(this.customerFilter);
+    const list_not_p = folders.filter(this.customerFilter);
     return (
       <View className={styles.containtFolders}>
         <View className={styles.bodyFolders}>
@@ -140,9 +186,24 @@ class FoldersScreen extends Component {
               justifyContent: 'space-between',
               flexDirection: 'row',
             }}>
-              <SelectOption title={'Ville'} options={optionsVille} />
-              <SelectOption title={'Code postal'} options={optionsCodePostal} />
-              <SelectOption title={"Type d'audit"} options={optionsTypeAudit} />
+              <SelectOption
+                title={'Ville'}
+                options={[{ value: '', label: 'Clear' }, ...optionsVille.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                onSelectItem={({ value }) => this.setState({ ville: value })}
+                value={ville}
+              />
+              <SelectOption
+                title={'Code postal'}
+                options={[{ value: '', label: 'Clear' }, ...optionsCodePostal.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                onSelectItem={({ value }) => this.setState({ code: value })}
+                value={code}
+              />
+              <SelectOption
+                title={"Type d'audit"}
+                options={[{ value: '', label: 'Clear' }, ...optionsTypeAudit.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
+                onSelectItem={({ value }) => this.setState({ type: value })}
+                value={type}
+              />
             </View>
             <View style={{ justifyContent: 'flex-end', marginBottom: 10, marginRight: 3 }}>
               <View
@@ -172,7 +233,8 @@ class FoldersScreen extends Component {
                       textAlign: 'center',
                     }}
                     placeholder='Search'
-                    />
+                    onChangeText={(search) => this.setState({ search })}
+                  />
                 </View>
               </View>
             </View>
@@ -210,7 +272,7 @@ class FoldersScreen extends Component {
           </View>
           <View style={{ minHeight: 400 }}>
           {
-            folders.slice(index, currentPage * numberDysplay).map(({ _id, nom_client, vile_client, reference_document, code_client, type_audit }) => {
+            list.map(({ _id, nom_client, vile_client, reference_document, code_client, type_audit }) => {
               return (<View
                 key={_id}
                 style={{
@@ -243,13 +305,13 @@ class FoldersScreen extends Component {
                   <View style={{ justifyContent: 'center' }}>
                     <Image
                       source={images.down_pdf}
-                      style={{ width: 35, height: 26 }}
+                      style={{ width: 30, height: 28 }}
                     />
                   </View>
                   <View style={{ justifyContent: 'center' }}>
                     <Image
                       source={images.down_pdf}
-                      style={{ width: 35, height: 26 }}
+                      style={{ width: 30, height: 28 }}
                     />
                   </View>
                 </View>
@@ -258,22 +320,29 @@ class FoldersScreen extends Component {
           }
           <View style={{ justifyContent: 'center', flexDirection: 'row' }}>
             <View style={{ padding: 10 }}>
-              <Text>5 / 25</Text>
+              <TouchableOpacity
+                onPress={this.prev}
+                activeOpacity={currentPage > 1 ? 0 : 1}
+              >
+                <Image
+                  source={images.Raster}
+                  style={{ width: 13, height: 13, transform: [{ rotate: '90deg' }] }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={{ padding: 10 }}>
-              <Image
-                source={images.Raster}
-                style={{ width: 13, height: 13, transform: [{ rotate: '90deg' }] }}
-              />
+              <Text>{`${currentPage} / ${Math.ceil(list_not_p.length / numberDysplay)}`}</Text>
             </View>
             <View style={{ padding: 10 }}>
-              <Text>5</Text>
-            </View>
-            <View style={{ padding: 10 }}>
-              <Image
-                source={images.Raster}
-                style={{ width: 13, height: 13, transform: [{ rotate: '270deg' }] }}
-              />
+              <TouchableOpacity
+                onPress={this.next}
+                activeOpacity={currentPage < Math.ceil(list_not_p.length / numberDysplay) ? 0 : 1}
+              >
+                <Image
+                  source={images.Raster}
+                  style={{ width: 13, height: 13, transform: [{ rotate: '270deg' }] }}
+                />
+              </TouchableOpacity>
             </View>
           </View>
           </View>
