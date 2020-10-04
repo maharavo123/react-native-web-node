@@ -55,10 +55,10 @@ const optionsFDF = {
   // "border": "0",             // default is 0, units: mm, cm, in, px
   // - or -
   "border": {
-    "top": "0",            // default is 0, units: mm, cm, in, px
-    "right": "5px",
-    "bottom": "0",
-    "left": "5px"
+    "top": "1.9cm",            // default is 0, units: mm, cm, in, px
+    "right": "1.32cm",
+    "bottom": "1.9cm",
+    "left": "1.9cm"
   },
  
   paginationOffset: 1,       // Override the initial pagination number

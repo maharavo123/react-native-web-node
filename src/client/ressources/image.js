@@ -18,4 +18,5 @@ export default {
   bell_red: require('./images/bell_red.png'),
   search: require('./images/search.png'),
   down_pdf: require('./images/down_pdf.png'),
+  calendarOn: require('./images/calendarOn.png'),
 };

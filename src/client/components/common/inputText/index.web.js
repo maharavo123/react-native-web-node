@@ -71,7 +71,7 @@ export const ImportFile = ({ label, accept, onAddfile, value, checkBox }) => (
       </View>
       <View>
         <Image
-          source={value ? images.time : images.calendar}
+          source={value ? images.calendarOn : images[checkBox ? 'time' : 'calendar']}
           className={styles.image}
         />
       </View>
