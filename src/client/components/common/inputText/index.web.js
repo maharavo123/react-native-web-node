@@ -60,11 +60,11 @@ const InputText = ({ label, columns, style, ...props }) => (
   </View>
 );
 
-export const ImportFile = ({ label, accept, onAddfile, value }) => (
+export const ImportFile = ({ label, accept, onAddfile, value, checkBox }) => (
   <MyDropzone accept={accept} onAddfile={onAddfile}>
     <View className={styles.importView}>
-      <View className={styles.check}>
-        {value && <Image
+      <View className={checkBox ? styles.check : styles.checkBoxOf}>
+        {value && checkBox && <Image
           source={images.Raster}
           className={styles.Raster}
         />}

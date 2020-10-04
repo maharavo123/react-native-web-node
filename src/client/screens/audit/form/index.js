@@ -72,7 +72,7 @@ class HomeScreen extends PureComponent {
     return !Object.keys(initialStateInput).some(i => {
       const state = this.state[i];
       return (!state || state.length < 4);
-    });
+    }) && this.state.csv && this.state.xml;
   }
 
   navigateTo = async (_arc, cb) => {
@@ -175,6 +175,7 @@ class HomeScreen extends PureComponent {
                   multiple={false}
                   onAddfile={(kizeo) => this.setState({ kizeo, liciel: null, csv: kizeo })}
                   value={this.state.kizeo}
+                  checkBox
                 />
                 <ImportFile
                   label={'CSV liciel'}
@@ -182,6 +183,7 @@ class HomeScreen extends PureComponent {
                   multiple={false}
                   onAddfile={(liciel) => this.setState({ liciel, kizeo: null, csv: liciel })}
                   value={this.state.liciel}
+                  checkBox
                 />
                 <ImportFile
                   label={'XML'}
