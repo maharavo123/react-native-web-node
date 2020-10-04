@@ -61,7 +61,7 @@ class AuditScreen extends PureComponent {
                 <View>
                   <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
                     <View />
-                    <View style={{ marginBottom: -90, padding: 5, marginRight: -35 }}>
+                    <View style={{ marginBottom: -90, padding: 5, marginRight: -39 }}>
                       <Navigate
                         key={`${_id} name`}
                         className={{}}
