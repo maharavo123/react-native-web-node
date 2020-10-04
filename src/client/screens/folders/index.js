@@ -193,20 +193,20 @@ class FoldersScreen extends Component {
               <SelectOption
                 title={'Ville'}
                 options={[{ value: '', label: 'Sélectionner' }, ...optionsVille.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
-                onSelectItem={({ value }) => this.setState({ ville: value })}
+                onSelectItem={({ value }) => this.setState({ ville: value, currentPage: 1 })}
                 inputValue={ville}
                 // setValue={() => ville}
               />
               <SelectOption
                 title={'Code postal'}
                 options={[{ value: '', label: 'Sélectionner' }, ...optionsCodePostal.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
-                onSelectItem={({ value }) => this.setState({ code: value })}
+                onSelectItem={({ value }) => this.setState({ code: value, currentPage: 1 })}
                 inputValue={code}
               />
               <SelectOption
                 title={"Type d'audit"}
                 options={[{ value: '', label: 'Sélectionner' }, ...optionsTypeAudit.filter((v,i,a)=>a.findIndex(t=>(t.value === v.value))===i)]}
-                onSelectItem={({ value }) => this.setState({ type: value })}
+                onSelectItem={({ value }) => this.setState({ type: value, currentPage: 1 })}
                 inputValue={type}
               />
             </View>
