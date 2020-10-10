@@ -36,9 +36,9 @@
   </div>
 </div>
 <div class="couv-content">
-  <h4 class="blue-conv"><%= type_audit %></h4>
-  <h3 class="name-client blue-conv"><%= nom_client %></h3>
-  <h5 class="addr-client"><%= adress_client %></h5>
+  <h4 class="blue-conv" style="margin-top: 30px; line-height: 60%;">Audit <%= type_audit %></h4>
+  <h3 class="name-client blue-conv testFonts" style="font-family: NSExtraBold; line-height: 60%; font-size: 28;"><%= nom_client %></h3>
+  <h5 class="addr-client" style="font-family: NSSemiBold; line-height: 60%;"><%= adress_client %></h5>
 </div>
 <div class="photobtiment">
   <img src="<%= baseURL %>tamplete/img/page-couverture/photobtiment.png">
@@ -46,10 +46,10 @@
 <div class="c-footer">
   <img src="<%= baseURL %>tamplete/img/page-couverture/logoOPQIBI.png">
   <div class="interlocuteur">
-    <h3 class="f_h blue-conv">VOTRE INTERLOCUTEUR</h3>
-    <h6 class="f_h"><%= nom_interlocuteur %></h6>
-      <h6 class="f_h">Tél. fix <%= phone_fix_interlocuteur %></h6>
-        <h6 class="f_h">Tél. mobile <%= phone_interlocuteur %></h6>
-        <h6 class="f_h">E-mail <%= mail_interlocuteur %></h6>
+    <p style="line-height: 30%;" class="f_h blue-conv">VOTRE INTERLOCUTEUR</p>
+    <p style="line-height: 20%;"><%= nom_interlocuteur %></p>
+    <p style="line-height: 20%;"><span>Tél. fix </span><span><%= phone_fix_interlocuteur %></span></p>
+    <p style="line-height: 20%;"><span>Tél. mobile </span><span><%= phone_interlocuteur %></span></p>
+    <p style="line-height: 20%;"><span>E-mail </span><span><%= mail_interlocuteur %></span></p>
   </div>
 </div>

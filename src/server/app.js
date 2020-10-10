@@ -55,9 +55,9 @@ const optionsFDF = {
   // "border": "0",             // default is 0, units: mm, cm, in, px
   // - or -
   "border": {
-    "top": "1.32cm",            // default is 0, units: mm, cm, in, px
+    "top": "0.8cm",            // default is 0, units: mm, cm, in, px
     "right": "1.32cm",
-    "bottom": "1.32cm",
+    "bottom": "0.8cm",
     "left": "1.32cm"
   },
  

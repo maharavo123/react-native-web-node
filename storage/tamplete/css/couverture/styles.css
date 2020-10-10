@@ -1,4 +1,57 @@
 /* 2480x3508 */
+@font-face {
+  font-family: "NSBlack";
+  src: url("../../Nunito_Sans/NunitoSans-Black.ttf");
+}
+@font-face {
+  font-family: "NSBlackItalic";
+  src: url("../../Nunito_Sans/NunitoSans-BlackItalic.ttf");
+}
+@font-face {
+  font-family: "NSBold";
+  src: url("../../Nunito_Sans/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: "NSBoldItalic";
+  src: url("../../Nunito_Sans/NunitoSans-BoldItalic.ttf");
+}
+@font-face {
+  font-family: "NSExtraLight";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "NSExtraBold";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "NSExtraLightItalic";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraLightItalic.ttf");
+}
+@font-face {
+  font-family: "NSItalic";
+  src: url("../../Nunito_Sans/NunitoSans-Italic.ttf");
+}
+@font-face {
+  font-family: "NSLight";
+  src: url("../../Nunito_Sans/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "NSLightItalic";
+  src: url("../../Nunito_Sans/NunitoSans-LightItalic.ttf");
+}
+@font-face {
+  font-family: "NSRegular";
+  src: url("../../Nunito_Sans/NunitoSans-Regular.ttf");
+}
+@font-face {
+  font-family: "NSSemiBold";
+  src: url("../../Nunito_Sans/NunitoSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "NSSemiBoldItalic";
+  src: url("../../Nunito_Sans/NunitoSans-SemiBoldItalic.ttf");
+}
+
 @media print {
   .headerC {
     display: block;
@@ -49,21 +102,22 @@
 
   .name-client {
     text-transform: uppercase;
-    font-weight: bold;
-    /* font-family: 'NSExtraBold'; */
+    /* font-weight: bold; */
+    font-family: 'NSExtraBold';
   }
 
   .addr-client {
     font-size: 14px;
-    line-height: 2px;
+    line-height: 1px;
     /* font-family: 'NSExtraBoldItalic'; */
-    color: #0073bc;
+    /* color: #0073bc; */
+    /* font-family: 'Nunito_ExtraBoldItalic'; */
   }
 
   .blue-conv {
     color: #0073bc;
-    font-size: 14px;
-    line-height: 2px;
+    /* font-size: 14px; */
+    line-height: 1px;
   }
 
   .green-conv {
@@ -93,7 +147,8 @@
   }
 
   .photobtiment img {
-    width: 570px
+    width: 504.5px;
+    height: 435px;
   }
 
   .c-footer {
@@ -102,19 +157,20 @@
     margin-top: auto;
     margin-bottom: auto;
     background-color: #e9f2d3;
-    padding: 25px 10px 20px 10px;
+    padding: 25px 10px 30px 10px;
   }
 
   .c-footer img {
-    width: 200px;
+    width: 120px;
   }
 
   .interlocuteur {
     float: right;
+    margin-top: -15px;
+    margin-right: 120px;
   }
 
   .f_h {
-    line-height: 0;
     display: block;
   }
 }
