@@ -30,5 +30,4 @@ export const ImportFile = ({ label }) => (
   </View>
 );
 
-
 export default InputText;

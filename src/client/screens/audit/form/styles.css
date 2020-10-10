@@ -1,7 +1,7 @@
 .containtForm {
   /* width: 95vw; */
   /* height: 85vh; */
-  background-color: #97CC53;
+  /* background-color: #97CC53; */
 }
 
 .bodyForm {
@@ -12,10 +12,11 @@
 .corpsForm {
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
 }
 
 .importFileView {
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
 }
 
@@ -31,7 +32,7 @@
   border-radius: 5px;
   opacity: 0.5;
   width: 125px;
-  height: 59px;
+  height: 40px;
 }
 
 @media screen and (min-width: 67rem) {

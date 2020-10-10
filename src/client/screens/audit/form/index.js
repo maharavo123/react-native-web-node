@@ -8,12 +8,16 @@ import mapDispatchToProps from 'mapDispatchToProps';
 import images from 'images';
 
 import InputText, { ImportFile } from '../../../components/common/inputText';
-import TitleInput, { InputContaint } from '../../../components/common/titleInput';
+import { InputContaint, InputTextNotColor } from '../../../components/common/titleInput';
 import Navigate from '../../../components/navigate';
 
 import styles from './styles.css';
 
 // type_audit
+
+// const propsInput = {
+//   keyboardType=''
+// }
 
 const inputLeft = [
   { id: 1, label: 'Référence du document*', state: 'reference_document', default_value: '' },
@@ -22,7 +26,7 @@ const inputLeft = [
 
 const inputCenter = [
   { id: 155, label: 'Adresse*', state: 'adress_client', default_value: '' },
-  { id: 254, label: 'Code postal*', state: 'code_client', default_value: '' },
+  { id: 254, label: 'Code postal*', state: 'code_client', default_value: 0 },
   { id: 366, label: 'Ville*', state: 'vile_client', default_value: '' },
 ];
 
@@ -94,7 +98,7 @@ class HomeScreen extends PureComponent {
       <View className={styles.containtForm}>
         <View className={styles.bodyForm}>
           <View className={styles.corpsForm}>
-            <TitleInput title={'Information du document'} />
+            <InputTextNotColor title={'Information du document'} />
             <InputContaint>
               <View style={{ justifyContent: 'center', flexDirection: 'column', flex: 1, marginTop: 10, marginBottom: 10 }}>
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
@@ -146,7 +150,7 @@ class HomeScreen extends PureComponent {
             </InputContaint>
           </View>
           <View className={styles.corpsForm}>
-            <TitleInput title={'Information interlocuteur'} />
+            <InputTextNotColor title={'Information interlocuteur'} />
             <InputContaint>
               <FlatList style={{ marginTop: 10, marginBottom: 10 }}
                 numColumns={2}
@@ -166,9 +170,11 @@ class HomeScreen extends PureComponent {
             </InputContaint>
           </View>
           <View className={styles.corpsForm}>
-            <TitleInput title={'Import fichier'} />
+            <InputTextNotColor title={'Import fichier'} />
             <InputContaint>
-              <View className={styles.importFileView}>
+              <View
+                className={styles.importFileView}
+                style={{ flex: 1, padding: 15, marginRight: 100, marginLeft: 100 }}>
                 <ImportFile
                   label={'CSV kizeo'}
                   accept={'.csv'}
@@ -186,6 +192,7 @@ class HomeScreen extends PureComponent {
                   checkBox
                 />
                 <ImportFile
+                  checkBox
                   label={'XML'}
                   accept={'.xml'}
                   multiple={false}
@@ -193,6 +200,7 @@ class HomeScreen extends PureComponent {
                   value={this.state.xml}
                 />
                 <ImportFile
+                  checkBox
                   label={'Images'}
                   accept={'image/*'}
                   multiple
@@ -210,10 +218,12 @@ class HomeScreen extends PureComponent {
               onPress={(arg, cb) => this.navigateTo(arg, cb)}
               activeOpacity={this.validation() ? 0 : 1}
             >
-              {this.state.loading ? <ActivityIndicator size='large' color='red' style={{ padding: 10 }} /> : <View className={styles.selectorForm}>
-                <Image source={images.right_arrow} className={styles.right_arrow} />
-                <Text>Valider</Text>
-              </View>}
+              <View className={styles.selectorForm}>
+                {this.state.loading
+                  ? <ActivityIndicator size='large' color='red' style={{ padding: 10 }} />
+                  : <Text>Valider</Text>
+                }
+              </View>
             </Navigate>
           </View>
         </View>

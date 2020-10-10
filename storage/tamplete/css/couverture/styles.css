@@ -50,14 +50,20 @@
   .name-client {
     text-transform: uppercase;
     font-weight: bold;
+    /* font-family: 'NSExtraBold'; */
   }
 
   .addr-client {
-
+    font-size: 14px;
+    line-height: 2px;
+    /* font-family: 'NSExtraBoldItalic'; */
+    color: #0073bc;
   }
 
   .blue-conv {
     color: #0073bc;
+    font-size: 14px;
+    line-height: 2px;
   }
 
   .green-conv {

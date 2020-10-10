@@ -46,6 +46,7 @@ class AuditScreen extends PureComponent {
 
   render() {
     const { list } = this.props.audit;
+    console.log({ list });
     return (
       <View className={styles.containt}>
         <View className={styles.bodyAudit}>
@@ -59,7 +60,7 @@ class AuditScreen extends PureComponent {
               const nb_etoile = etoile > 4 ? 4 : etoile;
               return (
                 <View>
-                  <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
+                  {/* <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
                     <View />
                     <View style={{ marginBottom: -90, padding: 5, marginRight: -39 }}>
                       <Navigate
@@ -84,7 +85,7 @@ class AuditScreen extends PureComponent {
                         />
                       </TouchableOpacity>
                     </View>
-                  </View>
+                  </View> */}
                   <View className={styles.itemViewC} style={{}}>
                     <Navigate
                       key={`${_id} name`}
@@ -120,7 +121,7 @@ class AuditScreen extends PureComponent {
               )
             }}
           />
-          <View className={styles.itemViewC}>
+          {/* <View className={styles.itemViewC}>
             <Navigate
               className={{}}
               style={{}}
@@ -133,7 +134,7 @@ class AuditScreen extends PureComponent {
               />
               <Text className={styles.name}>Ajout</Text>
             </Navigate>
-          </View>
+          </View> */}
         </View>
       </View>
     );

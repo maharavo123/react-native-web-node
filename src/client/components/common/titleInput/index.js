@@ -16,6 +16,14 @@ const InputText = ({ title, style }) => (
   </View>
 );
 
+export const InputTextNotColor = ({ title, style }) => (
+  <View className={styles.containtNotColor} style={style}>
+    <View className={styles.selectorTitleInput}>
+      <Text className={styles.title}>{title}</Text>
+    </View>
+  </View>
+);
+
 export const InputContaint = ({ children, style }) => (
   <View className={styles.InputContaint} style={style}>
     {children}

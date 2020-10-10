@@ -58,7 +58,8 @@ class AuthComponent extends PureComponent {
               <View className={styles.viewLogo}>
                 <Image
                   source={images.logo}
-                  style={{ width: '100%', height: '100%' }}
+                  style={{ width: 377, height: 104 }}
+                  // style={{ width: '100%', height: '100%' }}
                 />
               </View>
               <View />

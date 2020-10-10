@@ -1,10 +1,23 @@
 .containt {
   justify-content: space-between;
   flex-direction: row;
-  background-color: #47525E;
-  border: 1px solid #8492A6;
+  /* background-color: #47525E; */
+  /* border: 1px solid #8492A6; */
+  background-color: #2C7AC3;
   border-radius: 5px;
-  opacity: 0.47;
+  /* opacity: 0.47; */
+  height: 40px;
+  width: 90vw;
+  padding: 0 10px 0 10px;
+}
+
+.containtNotColor {
+  justify-content: space-between;
+  flex-direction: row;
+  /* background-color: #47525E; */
+  /* border: 1px solid #8492A6; */
+  border-radius: 5px;
+  /* opacity: 0.47; */
   height: 40px;
   width: 90vw;
   padding: 0 10px 0 10px;
@@ -22,14 +35,16 @@
 }
 
 .InputContaint {
-  background-color: #2C7AC3;
-  border: 1px solid #8492A6;
-  opacity: 0.6;
-  width: 90vw;
+  background-color: #97CC53;
+  /* border: 1px solid #8492A6; */
+  /* opacity: 0.6; */
+  width: 94vw;
   padding: 0 1vw 0 1vw;
   justify-content: space-around;
   flex-direction: row;
   margin-bottom: 10px;
+  border-radius: 4px;
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 67rem) {

@@ -97,7 +97,7 @@ const Headers = (props) => {
               to={'/profile'}
               onPress={(arg, cb) => redirect(arg, cb, 3)}
             >
-              <Text className={styles.textItem}>Mon compte</Text>
+              <Text className={styles.textItem}>ACCES ADMIN</Text>
             </Navigate>
           </View>
         </View>

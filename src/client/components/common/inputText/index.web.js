@@ -63,24 +63,26 @@ const InputText = ({ label, columns, style, ...props }) => (
 export const ImportFile = ({ label, accept, onAddfile, value, checkBox }) => (
   <MyDropzone accept={accept} onAddfile={onAddfile}>
     <View className={styles.importView}>
-      <View className={checkBox ? styles.check : styles.checkBoxOf}>
+      <View className={checkBox ? styles.check : styles.checkBoxOf}
+        style={{ paddingLeft: 5, paddingRight: 5, marginBottom: -2 }}
+      >
         {value && checkBox && <Image
           source={images.Raster}
           className={styles.Raster}
+          style={{ tintColor: '#97CC53' }}
         />}
       </View>
-      <View>
+      <View style={{ paddingLeft: 5, paddingRight: 5, justifyContent: 'center' }}>
+        <Text className={styles.labelBtn}>{label}</Text>
+      </View>
+      <View style={{ paddingLeft: 5, paddingRight: 5 }}>
         <Image
-          source={value ? images.calendarOn : images[checkBox ? 'time' : 'calendar']}
+          source={images.time}
           className={styles.image}
         />
-      </View>
-      <View>
-        <Text className={styles.labelBtn}>{label}</Text>
       </View>
     </View>
   </MyDropzone>
 );
-
 
 export default InputText;

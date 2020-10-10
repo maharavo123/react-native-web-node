@@ -23,6 +23,7 @@
     "unrar-promise": "^2.0.1",
     "xml-js": "^1.6.11",
     "youtube-dl": "^3.0.2",
-    "ytdl-core": "^3.2.2"
+    "ytdl-core": "^3.2.2",
+    "ytpl": "^1.0.1"
   }
 }

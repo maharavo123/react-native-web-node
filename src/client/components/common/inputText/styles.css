@@ -1,8 +1,10 @@
 .input {
-  background-color: #FFFFFF;
+  background-color: rgb(214, 236, 186);
   border: 1px solid #8492A6;
   border-radius: 5px;
   height: 35px;
+  /* opacity: 0.7; */
+  text-align: center;
 }
 
 .inputView {
@@ -49,9 +51,10 @@
 }
 
 .importView {
-  justify-content: center;
   margin: 5px 10px 5px 10px;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 @media screen and (min-width: 67rem) {

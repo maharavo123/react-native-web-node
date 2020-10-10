@@ -9,6 +9,7 @@
 .containtLogo {
   justify-content: space-between;
   flex-direction: row;
+  margin: -80px 0 0 0;
 }
 
 .textInput {
@@ -85,10 +86,10 @@
   }
 
   .viewLogo {
-    width: 454px;
-    height: 111px;
-    margin: -80px 0 0 0;
-    border-radius: 5px;
+    width: 400px;
+    height: 90px;
+    /* margin: -80px 0 0 0; */
+    border-radius: 50px;
   }
 
   .logo {
@@ -112,9 +113,8 @@
   }
 
   .viewLogo {
-    width: 302px;
-    height: 74px;
-    margin: -50px 0 0 0;
+    width: 754px;
+    height: 104px;
     border-radius: 5px;
   }
 }

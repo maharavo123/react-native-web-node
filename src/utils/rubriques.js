@@ -34,7 +34,7 @@ export default [
   },
   {
     id: 2,
-    title: 'INFORMATIONS GENERALES',
+    title: 'INFORMATIONS GENERALE',
     to: 'infos-generale',
     children: [
       {
@@ -73,7 +73,7 @@ export default [
   },
   {
     id: 3,
-    title: 'ETAT DES LIEUX DE L’EXISTANT',
+    title: 'ETAT DES LIEUX DE L’EXISTANTS',
     children: [
       {
         id: 3.1,
