@@ -62,8 +62,7 @@
     display: inline-block;
    
      }
-  .r7-top {
-    display: inline;
+  .r7-top_3 {
     padding: 5px;
     padding-top: 0px;
   }
@@ -97,6 +96,46 @@
   .table_altitude_td {
     background-color: rgba(3, 179, 185, 0.521);
     margin: 2px;
+  }
+
+  .r7-aside1_1 {
+    float: left;
+    width: 155px;
+  }
+
+  .r7-aside1_2 {
+    float: right;
+    width: 155px;
+  }
+
+  .r7-aside1_3 {
+    float: right;
+    width: 155px;
+  }
+
+  .r7-aside1_4 {
+    float: left;
+    width: 155px;
+  }
+
+  .r7-aside1_5 {
+    float: right;
+    width: 155px;
+  }
+
+  .r7-aside1_6 {
+    float: right;
+    width: 155px;
+  }
+
+  .r7-top_3 {
+    font-size: 10px;
+    text-align: left;
+  }
+
+  .r7-top_4 {
+    font-size: 10px;
+    text-align: left;
   }
 
 }

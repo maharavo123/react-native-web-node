@@ -1,9 +1,5 @@
 <div id="rubrique7">
   <h2 class="r2-title"> <span class="green-conv">2</span> <span class="blue-conv"> Informations générales (2/4)</span></h1>
-  <!-- <div class="r4-tittle">
-    <div style="display: inline;"><img src="<%= baseURL %>tamplete/img/r5/fleche.png" style="width: 10px; height: 10px;"></div>
-    <h3 style="display: inline;"><span class="number">2.6</span>Zone Climatique </h3>
-  </div> -->
   <div style="display: block; padding-left: 10px;">
     <img
       src="<%= baseURL %>tamplete/img/fleche.png"
@@ -19,7 +15,7 @@
     <h3 class="r7-tittle">ZONE CLIMATIQUE DU SITE</h3>
     <div class="r7-top3">
       <div class="r7-aside_first">
-        <div style="margin: auto;">
+        <div style="margin: auto; font-size: 10px;">
           <img
             src="<%= baseURL %>tamplete/img/r2/localisation.png"
             style="width: 18px; height: 24px; display: block;
@@ -110,17 +106,42 @@
     <div style="clear: both; display: block; content: '';"></div>
   </div>
   <div id="r7-implatation">
-    <h3 class="r7-tittle">IMPLATATION <span style="color: black; font-size: 13px; font-family: italic;">:détail de
+    <h3 class="r7-tittle">IMPLATATION <span style="color: black; font-size: 13px; font-family: italic;"> détail de
         l'implatation géographique du site</span> </h3>
-    <div class="r7-top">
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque7.png" class="foto"></div>
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque8.png" class="foto"></div>
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque9.png" class="foto"></div>
+    <div class="r7-top_3">
+      <div class="r7-aside1_1">
+        <img
+            src="<%= baseURL %>tamplete/img/r2/localisation.png"
+            style="width: 14px; height: 20px;">
+          <span class="blue-conv" style="">Dépt. </span>
+          <% if(typeof xml == 'object' && xml.numero_departement){ %>
+            <span style=""><%= xml.numero_departement %></span>
+          <% } %>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque7.png" class="foto">
+      </div>
+      <div class="r7-aside1_3">
+        <p><span>Climat</span><span>océanique dégradé</span></p>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque9.png" class="foto">
+      </div>
+      <div class="r7-aside1_2">
+        <p><span>Ensoleillement</span><span>moyen</span></p>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque8.png" class="foto">
+      </div>
     </div>
-    <div class="r7-top">
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque10.png" class="foto"></div>
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque11.png" class="foto"></div>
-      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque12.png" class="foto"></div>
+    <div style="clear: both; display: block; content: '';"></div>
+    <div class="r7-top_4">
+      <div class="r7-aside1_4">
+        <p><span>Vents</span><span>faibles</span></p>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque10.png" class="foto">
+      </div>
+      <div class="r7-aside1_6">
+        <p><span>Pluviométrie</span><span>modérée</span></p>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque11.png" class="foto">
+      </div>
+      <div class="r7-aside1_5">
+        <p><span>Resources forestières</span><span>fortes</span></p>
+        <img src="<%= baseURL %>tamplete/img/r7/Calque12.png" class="foto">
+      </div>
     </div>
   </div>
 </div>
