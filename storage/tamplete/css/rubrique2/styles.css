@@ -1,12 +1,11 @@
 /* 2480x3508 */
 @media print {
   #rubrique2 {
-    height: 760px;
+    height: 745px;
     display: block;
     justify-content: space-between;
     flex-direction: column;
-    padding: 10px;
-    padding-top: 50px;
+    padding-top: 20px;
   }
 
   #rubrique2:after, #ouvrage-bureau:after,  #m-ouvrage:after, #bureau:after, #r-dossier:after, #calculs:after {

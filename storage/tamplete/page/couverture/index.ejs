@@ -1,55 +1,59 @@
-<div class="headerC">
-  <div class="Logo">
-    <img src="<%= baseURL %>tamplete/img/logoTC.png">
+<div id="page_couverture">
+  <div class="headerC">
+    <div class="Logo">
+      <img src="<%= baseURL %>tamplete/img/logoTC.png">
+    </div>
+    <div class="containtItem">
+      <div class="itemR">
+        <div class="itemRChild1">
+          <img src="<%= baseURL %>tamplete/img/page-couverture/building.png" class="imageItem">
+          <h6 class="spanItem">CONSTRUCTION</h6>
+        </div>
+      </div>
+      <div class="itemR">
+        <div class="itemRChild1">
+          <img src="<%= baseURL %>tamplete/img/page-couverture/wall.png" class="imageItem">
+          <h6 class="spanItem">RÉNOVATION</h6>
+        </div>
+      </div>
+      <div class="itemR">
+        <div class="itemRChild1">
+          <img src="<%= baseURL %>tamplete/img/page-couverture/countryhouse.png" class="imageItem">
+          <h6 class="spanItem">MAISON INDUVIDUELLE</h6>
+        </div>
+      </div>
+      <div class="itemR">
+        <div class="itemRChild1">
+          <img src="<%= baseURL %>tamplete/img/page-couverture/modernhouse.png" class="imageItem">
+          <h6 class="spanItem">COLECTIF</h6>
+        </div>
+      </div>
+      <div class="itemR">
+        <div class="itemRChild1">
+          <img src="<%= baseURL %>tamplete/img/page-couverture/aparment.png" class="imageItem">
+          <h6 class="spanItem">TERTIAIRE</h6>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="containtItem">
-    <div class="itemR">
-      <div class="itemRChild1">
-        <img src="<%= baseURL %>tamplete/img/page-couverture/building.png" class="imageItem">
-        <h6 class="spanItem">CONSTRUCTION</h6>
-      </div>
-    </div>
-    <div class="itemR">
-      <div class="itemRChild1">
-        <img src="<%= baseURL %>tamplete/img/page-couverture/wall.png" class="imageItem">
-        <h6 class="spanItem">RÉNOVATION</h6>
-      </div>
-    </div>
-    <div class="itemR">
-      <div class="itemRChild1">
-        <img src="<%= baseURL %>tamplete/img/page-couverture/countryhouse.png" class="imageItem">
-        <h6 class="spanItem">MAISON INDUVIDUELLE</h6>
-      </div>
-    </div>
-    <div class="itemR">
-      <div class="itemRChild1">
-        <img src="<%= baseURL %>tamplete/img/page-couverture/modernhouse.png" class="imageItem">
-        <h6 class="spanItem">COLECTIF</h6>
-      </div>
-    </div>
-    <div class="itemR">
-      <div class="itemRChild1">
-        <img src="<%= baseURL %>tamplete/img/page-couverture/aparment.png" class="imageItem">
-        <h6 class="spanItem">TERTIAIRE</h6>
-      </div>
-    </div>
+  <div class="couv-content">
+    <h4 class="blue-conv" style="margin-top: 30px; line-height: 60%;">Audit <%= type_audit %></h4>
+    <h3 class="name-client blue-conv" style="line-height: 60%; font-size: 28; font-family: NSExtraBold;">
+      <%= nom_client %>
+    </h3>
+    <h5 class="addr-client" style="font-family: NSSemiBold; line-height: 60%;"><%= adress_client %></h5>
   </div>
-</div>
-<div class="couv-content">
-  <h4 class="blue-conv" style="margin-top: 30px; line-height: 60%;">Audit <%= type_audit %></h4>
-  <h3 class="name-client blue-conv testFonts" style="font-family: NSExtraBold; line-height: 60%; font-size: 28;"><%= nom_client %></h3>
-  <h5 class="addr-client" style="font-family: NSSemiBold; line-height: 60%;"><%= adress_client %></h5>
-</div>
-<div class="photobtiment">
-  <img src="<%= baseURL %>tamplete/img/page-couverture/photobtiment.png">
-</div>
-<div class="c-footer">
-  <img src="<%= baseURL %>tamplete/img/page-couverture/logoOPQIBI.png">
-  <div class="interlocuteur">
-    <p style="line-height: 30%;" class="f_h blue-conv">VOTRE INTERLOCUTEUR</p>
-    <p style="line-height: 20%;"><%= nom_interlocuteur %></p>
-    <p style="line-height: 20%;"><span>Tél. fix </span><span><%= phone_fix_interlocuteur %></span></p>
-    <p style="line-height: 20%;"><span>Tél. mobile </span><span><%= phone_interlocuteur %></span></p>
-    <p style="line-height: 20%;"><span>E-mail </span><span><%= mail_interlocuteur %></span></p>
+  <div class="photobtiment">
+    <img src="<%= baseURL %>tamplete/img/page-couverture/photobtiment.png">
+  </div>
+  <div class="c-footer">
+    <img src="<%= baseURL %>tamplete/img/page-couverture/logoOPQIBI.png">
+    <div class="interlocuteur">
+      <p style="line-height: 30%;" class="f_h blue-conv">VOTRE INTERLOCUTEUR</p>
+      <p style="line-height: 20%;"><%= nom_interlocuteur %></p>
+      <p style="line-height: 20%;"><span>Tél. fix </span><span><%= phone_fix_interlocuteur %></span></p>
+      <p style="line-height: 20%;"><span>Tél. mobile </span><span><%= phone_interlocuteur %></span></p>
+      <p style="line-height: 20%;"><span>E-mail </span><span><%= mail_interlocuteur %></span></p>
+    </div>
   </div>
 </div>

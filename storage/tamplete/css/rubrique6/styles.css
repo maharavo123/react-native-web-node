@@ -1,10 +1,11 @@
 /* 2480x3508 */
 @media print {
   #rubrique2_plan {
-    height: 760px;
+    height: 745px;
     display: block;
     justify-content: space-between;
     flex-direction: column;
+    padding-top: 20px;
   }
   .r4-tittle, .td-2 { 
     color: blue;

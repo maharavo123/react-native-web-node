@@ -1,8 +1,11 @@
 /* 2480x3508 */
 @media print {
   #rubrique4 {
-    margin: 10px;
-
+    height: 745px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 20px;
   }
   .r4-tittle,.td-2 { 
     color: blue;

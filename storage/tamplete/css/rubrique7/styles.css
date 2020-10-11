@@ -1,11 +1,11 @@
 /* 2480x3508 */
 @media print {
   #rubrique7 {
-    height: 760px;
+    height: 745px;
     display: block;
     justify-content: space-between;
     flex-direction: column;
-    /* padding: 10px; */
+    padding-top: 20px;
   }
 
   #r7-zone-climatique {

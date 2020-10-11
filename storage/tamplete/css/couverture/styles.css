@@ -53,6 +53,13 @@
 }
 
 @media print {
+  #page_couverture {
+    height: 745px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
   .headerC {
     display: block;
     background-color: #97CC53;
@@ -103,7 +110,6 @@
   .name-client {
     text-transform: uppercase;
     /* font-weight: bold; */
-    font-family: 'NSExtraBold';
   }
 
   .addr-client {

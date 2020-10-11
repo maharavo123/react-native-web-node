@@ -1,8 +1,11 @@
 /* 2480x3508 */
 @media print {
-  #rubrique8 {
-    margin: 10px;
-
+  #rubrique3Etats {
+    height: 745px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 20px;
   }
   .r4-tittle,.td-2 { 
     color: blue;

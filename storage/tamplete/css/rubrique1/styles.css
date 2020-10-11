@@ -1,15 +1,16 @@
 /* 2480x3508 */
 @media print {
+  #Preambule {
+    height: 745px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 20px;
+  }
   #Contexte {
     width: 100px;
     text-align: center;
     padding: 10px;
-  }
-
-  #rubrique1 {
-    height: 100%;
-    display: block;
-    padding-top: 25px;
   }
 
   .r1-title {
