@@ -1,6 +1,12 @@
 /* 2480x3508 */
 @media print {
   #rubrique2 {
+    height: 760px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 50px;
   }
 
   #rubrique2:after, #ouvrage-bureau:after,  #m-ouvrage:after, #bureau:after, #r-dossier:after, #calculs:after {
@@ -11,7 +17,8 @@
 
   #m-ouvrage {
     float: left;
-    width: 280px;
+    width: 225px;
+    height: 170px;
   }
 
   #m-ouvrage span {
@@ -20,11 +27,14 @@
 
   #bureau {
     float: right;
-    width: 280px;
+    width: 225px;
+    height: 190px;
   }
 
   #ouvrage-bureau {
     display: block;
+    height: 190px;
+    padding: 10px;
   }
 
   .sub-rubric-size {
@@ -42,36 +52,41 @@
 
   #r-dossier {
     float: left;
-    width: 280px;
+    width: 225px;
+    height: 150px;
   }
 
   #calculs {
     float: right;
-    width: 280px;
+    width: 225px;
+    height: 150px;
   }
 
   #r2-footer {
     background-color: #e9f2d3;
+    height: 60px;
+    padding: 10px;
   }
 
   #r2-footer-l {
     float: left;
-    width: 120px;
-    margin: 5px;
+    width: 125px;
+    /* margin: 5px; */
+
   }
 
   #r2-footer-l2 {
     float: left;
-    width: 215px;
+    width: 160px;
     display: block;
-    margin: 5px;
+    /* margin: 5px; */
   }
 
   #r2-footer-r {
     float: right;
-    width: 200px;
+    width: 150px;
     display: block;
-    margin: 5px;
+    /* margin: 5px; */
   }
 
   .space-pict {
@@ -80,11 +95,31 @@
 
   #site img {
     height: 200px;
+    width: 504px;
   }
 
   #place-footer{
-    height: 200px;
     height: 120px;
+  }
+
+  .lineContainer {
+    height: 1px; background-color: gray; display: block; margin-left: 5px; margin-right: 5px; opacity: 0.7;
+  }
+
+  .r2-attribut {
+    color: #0073bc;
+    font-size: 14px;
+    /* margin-left: 10px; */
+  }
+
+  .r2-value {
+    font-size: 10px;
+    /* margin-left: 10px; */
+
+  }
+
+  .r2-lineH {
+    line-height: 90%;
   }
 
 }

@@ -2,30 +2,55 @@
   <h2 class="r2-title"> <span class="green-conv">2</span> <span class="blue-conv"> Informations générales (1/4)</span></h1>
     <div id="ouvrage-bureau">
       <div id="m-ouvrage">
-        <h3 class="sub-rubric-size"><span class="green-conv">2.1</span> <span class="blue-conv"> Maître d'ouvrage</span></h3>
-        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
-        <p><span>NON : <%= csv.maitre_de_ouvrage.nom_all %></span></p>
-        <% } else{ %>
-        <p><span style="color: red;">NON : </span></p>
-        <% } %>
-        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
-        <p><span>ADRESSE : <%= csv.maitre_de_ouvrage.adresse %></span></p>
-        <% } else{ %>
-        <p><span style="color: red;">ADRESSE : </span></p>
-        <% } %>
-        <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.statut){ %>
-        <p><span>STATUT : <%= csv.maitre_de_ouvrage.statut %></span></p>
-        <% } else{ %>
-        <p><span style="color: red;">STATUT : </span></p>
-        <% } %>
+        <div style="display: block">
+          <img
+            src="<%= baseURL %>tamplete/img/fleche.png"
+            style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+          >
+          <h3 class="sub-rubric-size">
+            <span class="green-conv">2.1</span>
+            <span class="blue-conv"> Maître d'ouvrage</span>
+          </h3>
+          <div style="clear: both; display: block; content: '';"></div>
+        </div>
+        <div class="lineContainer">
+        </div>
+        <div style="margin-left: 10px; display: block;">
+          <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+          <p><span class="r2-attribut">NON : </span><span class="r2-value"><%= csv.maitre_de_ouvrage.nom_all %></span></p>
+          <% }%>
+          <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.nom_all){ %>
+          <p><span class="r2-attribut">ADRESSE :</span> <br />
+          <span class="r2-value"><%= csv.maitre_de_ouvrage.adresse %></span></p>
+          <% } %>
+          <% if(typeof csv == 'object' && csv.maitre_de_ouvrage && csv.maitre_de_ouvrage.statut){ %>
+          <p><span class="r2-attribut">STATUT : </span><span class="r2-value"><%= csv.maitre_de_ouvrage.statut %></span></p>
+          <% } %>
+        </div>
+        <div class="lineContainer"></div>
       </div>
       <div id="bureau">
-        <h3 class="sub-rubric-size"><span class="green-conv">2.2</span> <span class="blue-conv"> Bureau d'étude</span></h3>
-        <div class="sub-rubric-p">
+        <div style="display: block">
+          <img
+            src="<%= baseURL %>tamplete/img/fleche.png"
+            style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+          >
+          <h3 class="sub-rubric-size">
+            <span class="green-conv">2.2</span>
+            <span class="blue-conv"> Bureau d'étude</span>
+          </h3>
+          <div style="clear: both; display: block; content: '';"></div>
+        </div>
+        <div class="lineContainer">
+        </div>
+        
+        <div class="sub-rubric-p" style="margin-left: 10px; display: block;">
           <p><span>NON : </span></p>
           <p><span>CONCTACT : </span></p>
           <p><span>TÉL : </span>00 00 00 00</p>
           <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
+        </div>
+        <div class="lineContainer">
         </div>
       </div>
     </div>
@@ -36,15 +61,10 @@
         <p><span>OBJET : </span></p>
         <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
         <p><span>ADRESSE BÂTIMENT : <%= csv.reference_dossier.adresse %></span></p>
-        <% } else{ %>
-        <p><span style="color: red;">ADRESSE BÂTIMENT : </span></p>
         <% } %>
-  
         <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
         <p><span>CP/VILLE : <%= csv.reference_dossier.codepostal + csv.reference_dossier.ville %></span></p>
-        <% } else{ %>
-        <p><span style="color: red;">CP/VILLE : </span></p>
-        <% } %>
+        <% }  %>
       </div>
     </div>
     <div id="calculs">
@@ -53,12 +73,12 @@
         <% if(typeof xml == 'object' && xml.version_log){ %>
           <p><span>LOGICIEL VERSION : <%= xml.version_log %></span></p>
           <% } else{ %>
-          <p><span style="color: red;">LOGICIEL VERSION : </span></p>
+          <p><span >LOGICIEL VERSION : </span></p>
           <% } %>
           <% if(typeof xml == 'object' && xml.temp_ext_base_corrige){ %>
           <p><span>TEMP. EXT. DE BASE : <%= xml.temp_ext_base_corrige %></span></p>
           <% } else{ %>
-          <p><span style="color: red;">TEMP. EXT. DE BASE : </span></p>
+          <p><span >TEMP. EXT. DE BASE : </span></p>
           <% } %>
       </div>
     </div>
@@ -69,40 +89,61 @@
     </div>
     <div id="r2-footer" class="sub-rubric-size r1-footer">
       <div id="r2-footer-l">
-        <img src="<%= baseURL %>tamplete/img/r2/localisation.png" style="width: 30px; height: 40px;">
-        <span class="blue-conv">Dépt.</span>
-        <div class="legend-value">
-          <% if(typeof xml == 'object' && xml.numero_departement){ %>
-            <span><%= xml.numero_departement %></span>
-            <% } else{ %>
-            <span style="color: red;"> required </span>
-            <% } %>
+        <div style="float: left;">
+          <img
+            src="<%= baseURL %>tamplete/img/r2/localisation.png"
+            style="width: 30px; height: 40px; margin-left: 8px;">
+          </div>
+        <div style="float: right; display: block; margin-top: 20px;">
+          <div style="clear: both;"></div>
+          <span class="blue-conv" style="margin-left: -40px;">Dépt.</span>
+          <div style="clear: both; height: 5px;"></div>
+          <div class="legend-value">
+            <% if(typeof xml == 'object' && xml.numero_departement){ %>
+              <span style="margin-left: -70px;"><%= xml.numero_departement %></span>
+              <% } else{ %>
+              <span > required </span>
+              <% } %>
+          </div>
         </div>
       </div>
       <div id="r2-footer-l2">
-        <img src="<%= baseURL %>tamplete/img/r2/calendrier.png" style="width: 30px; height: 40px;">
-        <span class="blue-conv">Année de Construction</span>
-        <div class="legend-value">
-          <% if(typeof csv == 'object' && csv.annee_de_construction){ %>
-            <span><%= csv.annee_de_construction %></span>
+        <div style="float: left;">
+        <img src="<%= baseURL %>tamplete/img/r2/maison.png" style="width: 30px; height: 40px; margin-right: -10px;">
+      </div>
+        <div style="float: right; display: block; margin-top: 20px; margin-left: 0;">
+        <span class="blue-conv" style="text-align: left!important; ">Surface</span>
+        <div class="legend-value" style="margin-top: -6px; margin-left: -20px;">
+          <% if(typeof csv == 'object' && csv.surface_habitable){ %>
+            <p style="font-size: 12px;"></p>
+              <span class="blue-conv">Habitable</span>
+              <span style="font-size: 10px;"><%= csv.surface_habitable %> m²</span></p>
             <% } else{ %>
-            <span style="color: red;"> required </span>
+            <span > m² </span>
+            <% } %>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      </div>
+      <div id="r2-footer-r" style="margin-left: 20px;">
+        <div style="float: left;">
+        <img src="<%= baseURL %>tamplete/img/r2/calendrier.png" style="width: 30px; height: 40px;">
+        </div>
+        <div style="float: right; display: block; margin-top: 20px;">
+        <div style="clear: both;"></div>
+        <span class="blue-conv" style="margin-left: -70px;">Année de</span>
+        <div class="legend-value" style="margin-top: -6px; margin-left: 0;">
+          <% if(typeof csv == 'object' && csv.annee_de_construction){ %>
+            <p style="margin-left: -70px; font-size: 12px;">
+              <span class="blue-conv">Construction</span>
+              <span style="font-size: 10px;"><%= csv.annee_de_construction %></span></p>
+            <% } else{ %>
+            <span > m² </span>
             <% } %>
         </div>
       </div>
-      <div id="r2-footer-r">
-        <img src="<%= baseURL %>tamplete/img/r2/maison.png" style="width: 30px; height: 40px;">
-        <span class="blue-conv">Surface Habitable</span>
-        <div class="legend-value">
-          <% if(typeof csv == 'object' && csv.surface_habitable){ %>
-            <span><%= csv.surface_habitable %> m²</span>
-            <% } else{ %>
-            <span style="color: red;"> m² </span>
-            <% } %>
-        </div>
       </div>
     </div>
-    <br><br>
     <div style="clear: both;"></div>
     <div id="place-footer"></div>
 </div>

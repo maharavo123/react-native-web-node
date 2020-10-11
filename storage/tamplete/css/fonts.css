@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "NSBlack";
+  src: url("../../Nunito_Sans/NunitoSans-Black.ttf");
+}
+@font-face {
+  font-family: "NSBlackItalic";
+  src: url("../../Nunito_Sans/NunitoSans-BlackItalic.ttf");
+}
+@font-face {
+  font-family: "NSBold";
+  src: url("../../Nunito_Sans/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: "NSBoldItalic";
+  src: url("../../Nunito_Sans/NunitoSans-BoldItalic.ttf");
+}
+@font-face {
+  font-family: "NSExtraLight";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "ExtraBold";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "NSExtraLightItalic";
+  src: url("../../Nunito_Sans/NunitoSans-ExtraLightItalic.ttf");
+}
+@font-face {
+  font-family: "NSItalic";
+  src: url("../../Nunito_Sans/NunitoSans-Italic.ttf");
+}
+@font-face {
+  font-family: "NSLight";
+  src: url("../../Nunito_Sans/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "NSLightItalic";
+  src: url("../../Nunito_Sans/NunitoSans-LightItalic.ttf");
+}
+@font-face {
+  font-family: "NSRegular";
+  src: url("../../Nunito_Sans/NunitoSans-Regular.ttf");
+}
+@font-face {
+  font-family: "NSSemiBold";
+  src: url("../../Nunito_Sans/NunitoSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "NSSemiBoldItalic";
+  src: url("../../Nunito_Sans/NunitoSans-SemiBoldItalic.ttf");
+}

@@ -2,6 +2,14 @@
 @media print {
   #Contexte {
     width: 100px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  #rubrique1 {
+    height: 100%;
+    display: block;
+    padding-top: 25px;
   }
 
   .r1-title {
@@ -10,11 +18,16 @@
     font-size: 12px;
     padding: 5px;
     border-radius: 3px;
+    text-align: center;
+    padding: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 10px;
   }
 
   .r1-li {
     color:  #2C7AC3;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .r1-p-2 {
@@ -23,10 +36,19 @@
 
   .r1-p {
     color: black;
+    line-height: 120%;
   }
 
   #Objectifs-Logiciel {
     display: block;
+    height: 230px;
+    font-size: 14px;
+  }
+
+  #ContexteR1{
+    display: block;
+    height: 330px;
+    justify-content: center;
   }
 
   #Objectifs-Logiciel:after, #Logiciel:after, #Objectifs:after {
@@ -37,7 +59,7 @@
 
   #Objectifs {
     float: left;
-    width: 280px;
+    width: 225px;
   }
 
   #Objectifs .r1-title {
@@ -46,7 +68,7 @@
 
   #Logiciel {
     float: right;
-    width: 280px;
+    width: 225px;
     display: block;
   }
 
@@ -58,6 +80,7 @@
     background-color: #e9f2d3;
     display: block;
     border-radius: 4px;
+    height: 100px;
   }
 
   .r1-footer:after, .Bonsavoir:after, .r1-p-footer:after {
@@ -80,7 +103,11 @@
   .r1-p-footer {
     float: right;
     display: block;
-    width: 500px;
+    width: 405.5px;
     font-size: 10px;
+    height: 90px;
+    padding: 15px;
+    padding-top: 0;
+    line-height: 120%;
   }
 }

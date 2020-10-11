@@ -117,7 +117,7 @@
   .blue-conv {
     color: #0073bc;
     /* font-size: 14px; */
-    line-height: 1px;
+    line-height: 0;
   }
 
   .green-conv {

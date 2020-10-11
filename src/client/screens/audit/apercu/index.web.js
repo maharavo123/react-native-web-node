@@ -82,7 +82,18 @@ class HomeScreen extends PureComponent {
       adress_client: "dsfsdfsdf",
       code_client: "sdfsfsfsf",
       ...this.props.audit.form,
+      csv: {
+        ...this.props.audit.form.csv,
+        reference_dossier: {
+          adresse: "Adress",
+          codepostal: "70734",
+          pays: "France",
+          ville: "Paris",
+        }
+
+      }
     };
+
     const { clientName } = this.props.audit.form;
     console.log(this.props.audit.form);
     
