@@ -54,6 +54,7 @@ class HomeScreen extends PureComponent {
       csv: null,
       liciel: null,
       kizeo: null,
+      couverture: null,
       xml: null,
       imagesAll: null,
       errors: false,
@@ -175,6 +176,14 @@ class HomeScreen extends PureComponent {
               <View
                 className={styles.importFileView}
                 style={{ flex: 1, padding: 15, marginRight: 100, marginLeft: 100 }}>
+                <ImportFile
+                  label={'Photo Couvrture'}
+                  accept={'.image/*'}
+                  multiple={false}
+                  onAddfile={(couverture) => this.setState({ couverture })}
+                  value={this.state.couverture}
+                  checkBox
+                />
                 <ImportFile
                   label={'CSV kizeo'}
                   accept={'.csv'}

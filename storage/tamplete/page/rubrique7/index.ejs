@@ -1,32 +1,126 @@
 <div id="rubrique7">
-  <div class="r4-tittle">
-    <h2 style="text-decoration: underline;"><span class="number">2–</span> Information génerale</h2>
-   
-    <div style="display: inline;"><img src="<%= baseURL %>tamplete/img/r5/fleche.png"
-        style="width: 10px; height: 10px;"></div>
+  <h2 class="r2-title"> <span class="green-conv">2</span> <span class="blue-conv"> Informations générales (2/4)</span></h1>
+  <!-- <div class="r4-tittle">
+    <div style="display: inline;"><img src="<%= baseURL %>tamplete/img/r5/fleche.png" style="width: 10px; height: 10px;"></div>
     <h3 style="display: inline;"><span class="number">2.6</span>Zone Climatique </h3>
-
-  </div> 
-  <h3 class="r7-tittle">ZONE CLIMATIQUE DU SITE</h3>  
-<div class="top" >
-  <div class="aside"> <img src="<%= baseURL %>tamplete/img/r7/Calque2.png" class="foto" ></div>
-  <div class="aside"> <img src="<%= baseURL %>tamplete/img/r7/Calque3.png" class="foto" ></div>
-  <div class="aside"> <img src="<%= baseURL %>tamplete/img/r7/Calque4.png" class="foto" ></div>
-  <div class="aside">
-  <div style="width: 170px; height: 80px;"> <img src="<%= baseURL %>tamplete/img/r7/Calque5.png" class="foto" ></div>
-  <div style="width: 170px; height: 80px;"> <img src="<%= baseURL %>tamplete/img/r7/Calque6.png" class="foto" ></div>
+  </div> -->
+  <div style="display: block; padding-left: 10px;">
+    <img
+      src="<%= baseURL %>tamplete/img/fleche.png"
+      style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+    >
+    <h3 class="sub-rubric-size">
+      <span class="green-conv">2.6</span>
+      <span class="blue-conv"> Zone Climatique</span>
+    </h3>
+    <div style="clear: both; display: block; content: '';"></div>
+  </div>
+  <div id="r7-zone-climatique">
+    <h3 class="r7-tittle">ZONE CLIMATIQUE DU SITE</h3>
+    <div class="r7-top3">
+      <div class="r7-aside_first">
+        <div style="margin: auto;">
+          <img
+            src="<%= baseURL %>tamplete/img/r2/localisation.png"
+            style="width: 18px; height: 24px; display: block;
+            margin-left: auto;
+            margin-right: auto">
+            <br />
+          <span class="blue-conv" style="display: block; text-align: center;">Dépt. </span><br />
+          <% if(typeof xml == 'object' && xml.numero_departement){ %>
+            <span style="display: block; text-align: center;"><%= xml.numero_departement %></span>
+          <% } %>
+        </div>
+        <img
+          src="<%= baseURL %>tamplete/img/r7/Calque2.png"
+          style="width: 80px; height: 90px; display: block;
+          margin-left: auto;
+          margin-right: auto">
+          <div style="clear: both; display: block; content: '';"></div>
+      </div>
+      <div class="r7-aside_4">
+        <div style="width: 130px; height: 80px;"> <img src="<%= baseURL %>tamplete/img/r7/Calque5.png" class="foto"></div>
+        <div style="width: 130px; height: 80px;">
+          <table style="text-align: center; font-size: 9px;">
+            <thead>
+              <td class="table_altitude">Altitude</td>
+              <td class="table_altitude">b</td>
+            </thead>
+            <tr>
+              <td>≤ 400 m</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td class="table_altitude_td">400 m à 800 m</td>
+              <td class="table_altitude_td">1.2</td>
+            </tr>
+            <tr>
+              <td>> 800</td>
+              <td>0.2</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="r7-aside_3">
+        <p style="font-size: 7px;">Coefficient a <span>0.9</span></p>
+        <p style="font-size: 7px;">La réglementation thermique en vigeur definit 8 zones climatiques
+          en fonction des conditions météorologiques hiver et été </p>
+        <table style="text-align: center; font-size: 9px;">
+          <thead>
+            <td class="table_zone">Zone olimatique</td>
+            <td class="table_zone">a</td>
+          </thead>
+          <tr>
+            <td>H1a - H1b</td>
+            <td>1.3</td>
+          </tr>
+          <tr>
+            <td class="table_zone">H1c</td>
+            <td class="table_zone">1.2</td>
+          </tr>
+          <tr>
+            <td>H2a</td>
+            <td>1.1</td>
+          </tr>
+          <tr>
+            <td class="table_zone">H2b</td>
+            <td class="table_zone">1</td>
+          </tr>
+          <tr>
+            <td>H2c - H2d</td>
+            <td>0.9</td>
+          </tr>
+          <tr>
+            <td class="table_zone">H3</td>
+            <td class="table_zone">0.8</td>
+          </tr>
+        </table>
+      </div>
+      
+    </div>
+    <div class="r7-aside_2">
+      <p style="text-align: center; font-size: 9px;">Zone Climatique</p>
+        <img
+          src="<%= baseURL %>tamplete/img/r7/Calque3.png"
+          style="width: 100px; display: block;
+          margin-left: auto;
+          margin-right: auto"
+        >
+    </div>
+    <div style="clear: both; display: block; content: '';"></div>
+  </div>
+  <div id="r7-implatation">
+    <h3 class="r7-tittle">IMPLATATION <span style="color: black; font-size: 13px; font-family: italic;">:détail de
+        l'implatation géographique du site</span> </h3>
+    <div class="r7-top">
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque7.png" class="foto"></div>
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque8.png" class="foto"></div>
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque9.png" class="foto"></div>
+    </div>
+    <div class="r7-top">
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque10.png" class="foto"></div>
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque11.png" class="foto"></div>
+      <div class="r7-aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque12.png" class="foto"></div>
+    </div>
+  </div>
 </div>
-</div>
-<h3 class="r7-tittle">IMPLATATION <span style="color: black; font-size: 13px; font-family: italic;">:détail de l'implatation géographique du site</span> </h3>
-<div class="top" >
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque7.png" class="foto" ></div>
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque8.png" class="foto" ></div>
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque9.png" class="foto" ></div>
-</div>
-<div class="top" >
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque10.png" class="foto" ></div>
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque11.png" class="foto" ></div>
-  <div class="aside1"> <img src="<%= baseURL %>tamplete/img/r7/Calque12.png" class="foto" ></div>
-</div>
-</div>
-

@@ -19,4 +19,5 @@ export default {
   search: require('./images/search.png'),
   down_pdf: require('./images/down_pdf.png'),
   calendarOn: require('./images/calendarOn.png'),
+  import_file: require('./images/import_file.png'),
 };

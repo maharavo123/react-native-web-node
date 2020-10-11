@@ -1,11 +1,24 @@
 /* 2480x3508 */
 @media print {
-  #rubrique5 {
-    margin: 10px;
-
+  #rubrique7 {
+    height: 760px;
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    /* padding: 10px; */
   }
+
+  #r7-zone-climatique {
+    height: 220px;
+  }
+
+  #r7-r7-implatation {
+    height: 400px;
+    background-color: blue;
+  }
+
   .r4-tittle,.td-2 { 
-    color: blue;
+    color: #0073bc;
     font-weight: bold;
   }
   .r4-tittle h3 { 
@@ -14,35 +27,76 @@
     color:green;
   }
 
-  .aside {
- width: 170px;
- height: 170px;
- display: inline-block;
-
+  .r7-aside_3 {
+    width: 145px;
+    /* display: inline-block; */
+    float: right;
+    padding: 5px;
   }
-  .aside1 {
-    width: 230px;
+
+  .r7-aside_first {
+    width: 100px;
+    /* display: inline-block; */
+    float: left;
+    border-width: 2px;
+    border-color: red;
+  }
+
+  .r7-aside_2 {
+    width: 110px;
+    /* display: inline-block; */
+    float: right;
+    
+  }
+
+  .r7-aside_4 {
+    width: 125px;
+    /* display: inline-block; */
+    float: right;
+    
+  }
+
+  .r7-aside1 {
+    width: 160px;
     height: 170px;
     display: inline-block;
    
      }
-  .top {
-    display: flex;
-    padding: 15px;
-    height: 170px;
-      }
+  .r7-top {
+    display: inline;
+    padding: 5px;
+    padding-top: 0px;
+  }
   .foto {
-width: 100%;
-height: 100%;
+    width: 100%;
+    /* height: 100%; */
+    margin-left: auto;
+    margin-right: auto"
   }   
   .r7-tittle{
-    background-color: skyblue;
+    background-color: #e9f2d3;
     text-align: center;
+    padding: 2px;
   }
 
   #r4-footer-span{
     padding-top: 20px;
     display: block;
+  }
+
+  .table_zone {
+    background-color: rgb(35, 182, 240);
+    margin: 1px;
+  }
+
+  .table_altitude {
+    background-color: rgb(45, 185, 3);
+    margin: 2px;
+  }
+
+  .table_altitude_td {
+    background-color: rgba(3, 179, 185, 0.521);
+    margin: 2px;
   }
 
 }

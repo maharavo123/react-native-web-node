@@ -43,6 +43,7 @@
 
   .sub-rubric-p {
     font-size: 10px;
+    padding-left: 15px;
   }
 
   .legend-value {
@@ -95,7 +96,7 @@
 
   #site img {
     height: 200px;
-    width: 504px;
+    width: 490px;
   }
 
   #place-footer{

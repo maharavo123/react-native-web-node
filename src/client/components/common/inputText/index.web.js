@@ -77,7 +77,7 @@ export const ImportFile = ({ label, accept, onAddfile, value, checkBox }) => (
       </View>
       <View style={{ paddingLeft: 5, paddingRight: 5 }}>
         <Image
-          source={images.time}
+          source={images.import_file}
           className={styles.image}
         />
       </View>

@@ -29,7 +29,7 @@
         </div>
         <div class="lineContainer"></div>
       </div>
-      <div id="bureau">
+      <div id="bureau" style="padding-left: 10px;">
         <div style="display: block">
           <img
             src="<%= baseURL %>tamplete/img/fleche.png"
@@ -44,47 +44,84 @@
         <div class="lineContainer">
         </div>
         
-        <div class="sub-rubric-p" style="margin-left: 10px; display: block;">
-          <p><span>NON : </span></p>
-          <p><span>CONCTACT : </span></p>
-          <p><span>TÉL : </span>00 00 00 00</p>
-          <p><span>E-MAIL : </span>estivenetiv@quilleniam.xx</p>
+        <div class="sub-rubric-p">
+          <p><span class="r2-attribut">NON : </span><span class="r2-value"></span></p>
+          <p><span class="r2-attribut">CONCTACT : </span><span class="r2-value"></span></p>
+          <p><span class="r2-attribut">TÉL : </span><span class="r2-value">00 00 00 00</span></p>
+          <p><span class="r2-attribut">E-MAIL : </span><span class="r2-value">estivenetiv@quilleniam.xx</span></p>
         </div>
         <div class="lineContainer">
         </div>
       </div>
     </div>
 
-    <div id="r-dossier">
-      <h3 class="sub-rubric-size"><span class="green-conv">2.3</span> <span class="blue-conv">  Référence dossier xxxxxxx</span> </h3>
+    <div id="r-dossier" style="padding-left: 10px;">
+      <div style="display: block">
+        <img
+          src="<%= baseURL %>tamplete/img/fleche.png"
+          style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+        >
+        <h3 class="sub-rubric-size">
+          <span class="green-conv">2.3</span>
+          <span class="blue-conv"> Référence dossier xxxxxxx</span>
+        </h3>
+        <div style="clear: both; display: block; content: '';"></div>
+      </div>
+      <div class="lineContainer">
+      </div>
       <div class="sub-rubric-p">
-        <p><span>OBJET : </span></p>
+        <p><span class="r2-attribut">OBJET : </span><span class="r2-value">Etude Thermique réglementaire selon
+          la méthode de calcul Th-C-E-ex conçue par le CSTB
+          </p>
         <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
-        <p><span>ADRESSE BÂTIMENT : <%= csv.reference_dossier.adresse %></span></p>
+        <p><span class="r2-attribut">ADRESSE BÂTIMENT : </span><span class="r2-value"><%= csv.reference_dossier.adresse %></span></p>
         <% } %>
         <% if(typeof csv == 'object' && csv.reference_dossier && csv.reference_dossier.adresse){ %>
-        <p><span>CP/VILLE : <%= csv.reference_dossier.codepostal + csv.reference_dossier.ville %></span></p>
+        <p><span class="r2-attribut">CP/VILLE : </span><span class="r2-value"><%= csv.reference_dossier.codepostal + csv.reference_dossier.ville %></span></p>
         <% }  %>
       </div>
+      <div class="lineContainer">
+      </div>
     </div>
-    <div id="calculs">
-      <h3 class="sub-rubric-size"><span class="green-conv">2.4</span> <span class="blue-conv"> Calculs</span></h3>
+    <div id="calculs" style="padding-left: 10px;">
+      <div style="display: block">
+        <img
+          src="<%= baseURL %>tamplete/img/fleche.png"
+          style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+        >
+        <h3 class="sub-rubric-size">
+          <span class="green-conv">2.4</span>
+          <span class="blue-conv"> Calculs</span>
+        </h3>
+        <div style="clear: both; display: block; content: '';"></div>
+      </div>
+      <div class="lineContainer">
+      </div>
       <div class="sub-rubric-p">
         <% if(typeof xml == 'object' && xml.version_log){ %>
-          <p><span>LOGICIEL VERSION : <%= xml.version_log %></span></p>
-          <% } else{ %>
-          <p><span >LOGICIEL VERSION : </span></p>
+          <p><span class="r2-attribut">LOGICIEL VERSION : </span><span class="r2-value"><%= xml.version_log %></span></p>
           <% } %>
           <% if(typeof xml == 'object' && xml.temp_ext_base_corrige){ %>
-          <p><span>TEMP. EXT. DE BASE : <%= xml.temp_ext_base_corrige %></span></p>
-          <% } else{ %>
-          <p><span >TEMP. EXT. DE BASE : </span></p>
-          <% } %>
+          <p><span class="r2-attribut">TEMP. EXT. DE BASE : </span><span class="r2-value"><%= xml.temp_ext_base_corrige %></span></p>
+          <% }  %>
+      </div>
+      <div class="lineContainer">
       </div>
     </div>
     <div style="clear: both;"></div>
-    <div id="site">
-      <h3 class="sub-rubric-size"><span class="green-conv">2.5</span> <span class="blue-conv"> Site audité le xx/xx/xxxx</span></h3>
+    <div id="site" style="padding-left: 10px;">
+      <div style="display: block">
+        <img
+          src="<%= baseURL %>tamplete/img/fleche.png"
+          style="width: 10px; height: 10px; float: left; margin-right: 4px;"
+        >
+        <h3 class="sub-rubric-size">
+          <span class="green-conv">2.5</span>
+          <span class="blue-conv"> Site audité le xx/xx/xxxx</span>
+        </h3>
+        <div style="clear: both; display: block; content: '';"></div>
+      </div>
+      <!-- <h3 class="sub-rubric-size"><span class="green-conv">2.5</span> <span class="blue-conv"> Site audité le xx/xx/xxxx</span></h3> -->
       <img src="<%= baseURL %>tamplete/img/r2/plan.png">
     </div>
     <div id="r2-footer" class="sub-rubric-size r1-footer">
@@ -101,8 +138,6 @@
           <div class="legend-value">
             <% if(typeof xml == 'object' && xml.numero_departement){ %>
               <span style="margin-left: -70px;"><%= xml.numero_departement %></span>
-              <% } else{ %>
-              <span > required </span>
               <% } %>
           </div>
         </div>
