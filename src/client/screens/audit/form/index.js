@@ -77,7 +77,7 @@ class HomeScreen extends PureComponent {
     return !Object.keys(initialStateInput).some(i => {
       const state = this.state[i];
       return (!state || state.length < 4);
-    }) && this.state.csv && this.state.xml;
+    }) && this.state.csv && this.state.xml && (couverture === null || couverture);
   }
 
   navigateTo = async (_arc, cb) => {

@@ -1,45 +1,48 @@
 <div id="rubrique4">
+  <h2 class="r2-title">
+    <span class="green-conv">4</span> <span class="blue-conv"> Audit Energétique</span>
+  </h2>
   <div class="r4-tittle">
-    <h2 style="text-decoration: underline;"><span class="number">4 –</span> Audit Energétique</h2>
-    <h3><span class="number">4.3</span> Consommations</h3>
+    <h3 style="font-size: 13px;"><span class="number">4.3</span> Consommations</h3>
     <div style="display: inline;"><img src="<%= baseURL %>tamplete/img/r4/fleche.png"
         style="width: 10px; height: 10px;"></div>
-    <h4><span class="number">4.3.1</span> Consommations théoriques en énergie finale</h4>
+    <h4 style="font-size: 12px;"><span class="number">4.3.1</span> Consommations théoriques en énergie finale</h4>
   </div>
   <div id="graphique">
-    <div style="width: 200px; height: 140px; float: left; padding-right: 0px; padding-left: 0px;">
-      <canvas id="myChart" height="240px" style="margin-left: -20px; height: 140px;" ></canvas>
+    <div style="width: 200px; height: 160px; float: left; padding-right: 0px; padding-left: 0px;">
+      <canvas id="myChart" height="200px" style="height: 180px;" ></canvas>
     </div>
-    <div style="float: right; width: 220px; background-color: cyan;">
+    <div style="margin-top: 40px; float: right; width: 200px; background-color: cyan; font-size: 8px;">
       <p>ABONNEMENTS</p>
       <p>corehenist officiandea quaq escipit qui delorum eum rem</p>
       <p>corehenist officiandea quaq escipit qui delorum eum rem</p>
     </div>
-    <div style="float: right; width: 120px; margin-right: 20px; font-size: 12px; margin-top: -100px;">
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_12.png" style="width: 25px; height: 10px;">
+    <div id="chartinfo_Containers">
+      <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_12.png" style="width: 20px; height: 8px;">
         chauffage</div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_13.png" style="width: 25px; height: 10px;"> ECS
+        <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_13.png" style="width: 20px; height: 8px;"> ECS
       </div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_14.png"
-          style="width: 25px; height: 10px;"> Eclairage </div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_15.png" style="width: 25px; height: 10px;">
+      <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_14.png"
+          style="width: 20px; height: 8px;"> Eclairage </div>
+          <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_15.png" style="width: 20px; height: 8px;">
         ventilation</div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_16.png" style="width: 25px; height: 10px;"> autre
+        <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_16.png" style="width: 20px; height: 8px;"> autre
         usage </div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_17.png" style="width: 25px; height: 10px;">
+        <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_17.png" style="width: 20px; height: 8px;">
         réfroidissemnt</div>
-      <div><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_18.png" style="width: 25px; height: 10px;">
+        <div class="chartInfo"><img src="<%= baseURL %>tamplete/img/r4/Objetdynamiquevector_18.png" style="width: 20px; height: 8px;">
         AUXILLIAIRE</div>
     </div >
   </div>
   <div style="clear: both;"></div>
-  <div style="margin-top: -81px; margin-left: 60px;" id="circleCenter">
+  <div style="margin-top: -105px; margin-left: 82px;" id="circleCenter">
     <p>23 000</p>
     <p>KwH EF/an</p>
     <p>23 000</p>
     <p>€/an</p>
   </div>
   </div>
+  <div style="clear: both;"></div>
   <div id="table">
     <table>
       <tr class="line">
@@ -51,7 +54,7 @@
         <th>Répartition dépenses </th>
       </tr>
       <tr>
-        <td rowspan="3" width="20%"><img src="<%= baseURL %>tamplete/img/r4/picto_4.png" class="image"></td>
+        <td rowspan="3" width="20%"><img src="<%= baseURL %>tamplete/img/r4/picto_4.png" class="image_td"></td>
         <td class="td-2">CHAUFFAGE</td>
         <td></td>
         <td></td>
@@ -72,7 +75,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_5.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_5.png" class="image_td"></td>
         <td class="td-2">ECS</td>
         <td></td>
         <td></td>
@@ -86,7 +89,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_6.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_6.png" class="image_td"></td>
         <td class="td-2">ECLAIRAGE</td>
         <td></td>
         <td></td>
@@ -100,7 +103,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_7.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_7.png" class="image_td"></td>
         <td class="td-2">VENTILATEUR</td>
         <td></td>
         <td></td>
@@ -114,7 +117,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_8.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_8.png" class="image_td"></td>
         <td class="td-2">REFROIDISSEMENT</td>
         <td></td>
         <td></td>
@@ -128,7 +131,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_9.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_9.png" class="image_td"></td>
         <td class="td-2">AUXILLIAIRE</td>
         <td></td>
         <td></td>
@@ -142,7 +145,7 @@
         <td>00</td>
       </tr>
       <tr>
-        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_10.png" class="image"></td>
+        <td rowspan="2"><img src="<%= baseURL %>tamplete/img/r4/picto_10.png" class="image_td"></td>
         <td class="td-2">AUTRES USAGES</td>
         <td></td>
         <td></td>

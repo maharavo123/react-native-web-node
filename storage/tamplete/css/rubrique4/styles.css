@@ -1,11 +1,11 @@
 /* 2480x3508 */
 @media print {
   #rubrique4 {
-    height: 745px;
+    /* height: 745px; */
     display: block;
     justify-content: space-between;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 30px;
   }
   .r4-tittle,.td-2 { 
     color: blue;
@@ -28,14 +28,16 @@ table
   table th{
     color: blue;
   }
-  .image{
-    width: 50px;
+  .image_td{
+    /* width: 50px; */
+    height: 45px;
   }
   table td {
   width: 15%;
   }
   .line {
-  border-bottom: 1px gray solid;
+    border-bottom: 1px gray solid;
+    font-size: 11px;
   }
   .chauffage {
     border-bottom: 1px gray dashed;
@@ -43,6 +45,7 @@ table
   #circleCenter p {
     line-height: 0;
     font-size: 8px;
+    text-align: right;
   }
   #Objetdynamiquevector{
     width: 20%;
@@ -65,5 +68,10 @@ table
   #r4-footer-span{
     padding-top: 20px;
     display: block;
+  }
+
+  #chartinfo_Containers {
+    float: right; width: 100px; font-size: 9px; margin-top: 40px;
+    margin-left: -300px;
   }
 }
