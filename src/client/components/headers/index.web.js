@@ -51,8 +51,11 @@ const Headers = (props) => {
                 className={styles.thremi_png}
               />
             </View>
+            {/* {nom} {prenom} */}
             <View style={{ justifyContent: 'flex-end', flexDirection: 'row' }}>
-              <View style={{ justifyContent: 'center', paddingRight: 10 }}><Text>{nom} {prenom}</Text></View>
+              <View style={{ justifyContent: 'center', paddingRight: 10 }}>
+                <Text>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
+              </View>
               <Navigate
                 className={{}}
                 style={{}}
@@ -97,8 +100,7 @@ const Headers = (props) => {
               to={'/profile'}
               onPress={(arg, cb) => redirect(arg, cb, 3)}
             >
-              {/* <Text className={styles.textItem}>ACCES ADMIN</Text> */}
-              <Text className={styles.textItem}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
+              <Text className={styles.textItem}>ACCES ADMIN</Text>
             </Navigate>
           </View>
         </View>

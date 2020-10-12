@@ -1,0 +1,40 @@
+{
+label: 'labelYear',
+beginDate: '2020-06-06T12:43:00.000Z',
+endDate: '2020-06-06T12:43:00.000Z',
+recurrenceRule: 'RRULE:INTERVAL=2;FREQ=YEARLY;BYMONTHDAY=8;UNTIL=20210712T080535Z'
+}{
+label: 'string',
+beginDate: 2020-10-14T12:43:00.000Z,
+endDate: 2020-10-14T12:43:00.000Z,
+isReccurent: true,
+reccurenceRule: 'RRULE:INTERVAL=3;FREQ=MONTHLY;BYMONTHDAY=14;UNTIL=20211208T080535Z'
+},
+{
+label: 'string',
+beginDate: 2021-01-14T12:43:00.000Z,
+endDate: 2021-01-14T12:43:00.000Z,
+isReccurent: true,
+reccurenceRule: 'RRULE:INTERVAL=3;FREQ=MONTHLY;BYMONTHDAY=14;UNTIL=20211208T080535Z'
+},
+{
+label: 'string',
+beginDate: 2021-04-14T12:43:00.000Z,
+endDate: 2021-04-14T12:43:00.000Z,
+isReccurent: true,
+reccurenceRule: 'RRULE:INTERVAL=3;FREQ=MONTHLY;BYMONTHDAY=14;UNTIL=20211208T080535Z'
+},
+{
+label: 'string',
+beginDate: 2021-07-14T12:43:00.000Z,
+endDate: 2021-07-14T12:43:00.000Z,
+isReccurent: true,
+reccurenceRule: 'RRULE:INTERVAL=3;FREQ=MONTHLY;BYMONTHDAY=14;UNTIL=20211208T080535Z'
+},
+{
+label: 'string',
+beginDate: 2021-10-14T12:43:00.000Z,
+endDate: 2021-10-14T12:43:00.000Z,
+isReccurent: true,
+reccurenceRule: 'RRULE:INTERVAL=3;FREQ=MONTHLY;BYMONTHDAY=14;UNTIL=20211208T080535Z'
+}

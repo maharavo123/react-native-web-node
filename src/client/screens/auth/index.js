@@ -103,7 +103,7 @@ class AuthComponent extends PureComponent {
                 </View>
                 <View className={styles.containtMdp}>
                   <TouchableOpacity>
-                    <Text className={styles.textMDO}>Mot de passe oublié ?</Text>
+                    <Text className={styles.textMDO}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
                   </TouchableOpacity>
                 </View>
               </View>
