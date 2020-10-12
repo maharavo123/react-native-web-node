@@ -74,6 +74,7 @@ class HomeScreen extends PureComponent {
   }
 
   validation = () => {
+    const couverture = this.state.couverture;
     return !Object.keys(initialStateInput).some(i => {
       const state = this.state[i];
       return (!state || state.length < 4);
