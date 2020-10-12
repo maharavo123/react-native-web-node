@@ -97,7 +97,8 @@ const Headers = (props) => {
               to={'/profile'}
               onPress={(arg, cb) => redirect(arg, cb, 3)}
             >
-              <Text className={styles.textItem}>ACCES ADMIN</Text>
+              {/* <Text className={styles.textItem}>ACCES ADMIN</Text> */}
+              <Text className={styles.textItem}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
             </Navigate>
           </View>
         </View>
