@@ -43,7 +43,7 @@ class AuthComponent extends PureComponent {
   signIn = async () => {
     const { email, password } = this.state;
     this.setState({ loading: true, message: '' });
-    this.props.signin({ email, password }, this.callBack);
+    // this.props.signin({ email, password }, this.callBack);
   }
 
   render() {
@@ -103,7 +103,8 @@ class AuthComponent extends PureComponent {
                 </View>
                 <View className={styles.containtMdp}>
                   <TouchableOpacity>
-                    <Text className={styles.textMDO}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
+                    {/* <Text className={styles.textMDO}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text>
+                    <Text className={styles.textMDO}>Auteur Ra Pierrot ra.pierrodev@gmail.com</Text> */}
                   </TouchableOpacity>
                 </View>
               </View>
